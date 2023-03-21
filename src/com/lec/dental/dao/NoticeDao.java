@@ -45,11 +45,9 @@ public class NoticeDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * " + 
-				"    FROM (SELECT ROWNUM RN, A.*" + 
-				"        FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID" + 
-				"        ORDER BY NBNO DESC) A)" + 
-				"    WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * " + "    FROM (SELECT ROWNUM RN, A.*"
+				+ "        FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID"
+				+ "        ORDER BY NBNO DESC) A)" + "    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -63,8 +61,7 @@ public class NoticeDao {
 				String nbcontent = rs.getString("nbcontent");
 				Timestamp nbrdate = rs.getTimestamp("nbrdate");
 				String nbip = rs.getString("nbip");
-				String aname = rs.getString("aname");
-				dtos.add(new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip, aname));
+				dtos.add(new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -82,6 +79,7 @@ public class NoticeDao {
 		}
 		return dtos;
 	}
+
 	// (2) 전체 글 갯수
 	public int getNoticeCnt() {
 		int totCnt = 0;
@@ -111,13 +109,14 @@ public class NoticeDao {
 		}
 		return totCnt;
 	}
+
 	// (3) 공지사항 등록 (원글쓰기)
 	public int writeNotice(NoticeDto dto) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)" + 
-					 "VALUES (NOTICEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?)";
+		String sql = "INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)"
+				+ "VALUES (NOTICEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -141,30 +140,31 @@ public class NoticeDao {
 		}
 		return result;
 	}
+
 	// (4) NBNO (글번호)로 DTO 가져오기
 	public NoticeDto content(int nbno) {
 		NoticeDto dto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql ="SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A WHERE N.AID=A.AID AND NBNO=?";
+		String sql = "SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A WHERE N.AID=A.AID AND NBNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, nbno);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				String aid = rs.getString("aid");
 				String nbtitle = rs.getString("nbtitle");
 				String nbcontent = rs.getString("nbcontent");
 				Timestamp nbrdate = rs.getTimestamp("nbrdate");
 				String nbip = rs.getString("nbip");
 				String aname = rs.getString("aname");
-				dto = new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip, aname);
+				dto = new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}finally {
+		} finally {
 			try {
 				if (rs != null)
 					rs.close();
@@ -172,34 +172,36 @@ public class NoticeDao {
 					pstmt.close();
 				if (conn != null)
 					conn.close();
-			} catch (SQLException e) {System.out.println(e.getMessage());}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
 		}
-		return dto;	
+		return dto;
 	}
+
 	// (5) 글번호 (nbno)로 글 전체내용 가져오기 - 수정용 View
 	public NoticeDto modifyNoticeView(int nbno) {
 		NoticeDto dto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql ="SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A WHERE N.AID=A.AID AND NBNO=?";
+		String sql = "SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A WHERE N.AID=A.AID AND NBNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, nbno);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				String aid = rs.getString("aid");
 				String nbtitle = rs.getString("nbtitle");
 				String nbcontent = rs.getString("nbcontent");
 				Timestamp nbrdate = rs.getTimestamp("nbrdate");
 				String nbip = rs.getString("nbip");
-				String aname = rs.getString("aname");
-				dto = new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip, aname);
+				dto = new NoticeDto(nbno, aid, nbtitle, nbcontent, nbrdate, nbip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}finally {
+		} finally {
 			try {
 				if (rs != null)
 					rs.close();
@@ -207,27 +209,31 @@ public class NoticeDao {
 					pstmt.close();
 				if (conn != null)
 					conn.close();
-			} catch (SQLException e) {System.out.println(e.getMessage());}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
 		}
-		return dto;	
+		return dto;
 	}
+
 	// (6) 공지글 수정
-	public int modifyNotice(int nbno, String nbtitle, String nbcontent, String nbip) {
+	public int modifyNotice(NoticeDto dto) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE NOTICEBOARD" + 
-					 "SET NBTITLE =?," + 
-					 "NBCONTENT =?," + 
-					 "NBIP = ?" + 
-					 "WHERE NBNO = ?";
+		String sql = "UPDATE NOTICEBOARD SET " + 
+				"        NBTITLE =?," + 
+				"        NBCONTENT =?," + 
+				"        NBRDATE = SYSDATE," + 
+				"        NBIP = ?" + 
+				"    WHERE NBNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, nbtitle);
-			pstmt.setString(2, nbcontent);
-			pstmt.setString(3, nbip);
-			pstmt.setString(4, nbip);
+			pstmt.setString(1, dto.getNbtitle());
+			pstmt.setString(2, dto.getNbcontent());
+			pstmt.setString(3, dto.getNbip());
+			pstmt.setInt(4, dto.getNbno());
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "공지사항 수정 성공" : "공지사항 수정 실패");
 		} catch (SQLException e) {
@@ -245,10 +251,11 @@ public class NoticeDao {
 
 		return result;
 	}
+
 	// (7) 공지사항 삭제
 	public int deleteNotice(int nbno) {
 		int result = FAIL;
-		Connection        conn  = null;
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "DELETE FROM NOTICEBOARD WHERE NBNO = ?";
 		try {
@@ -256,17 +263,18 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, nbno);
 			result = pstmt.executeUpdate();
-			System.out.println(result==SUCCESS? "공지글 삭제성공":"공지글 삭제실패");
+			System.out.println(result == SUCCESS ? "공지글 삭제성공" : "공지글 삭제실패");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}finally {
+		} finally {
 			try {
-				if (pstmt!=null) 
+				if (pstmt != null)
 					pstmt.close();
-				if (conn !=null) 
+				if (conn != null)
 					conn.close();
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());}
+				System.out.println(e.getMessage());
+			}
 		}
 		return result;
 	}

@@ -9,21 +9,18 @@ public class NoticeDto {
 	private String nbcontent;
 	private Timestamp nbrdate;
 	private String nbip;
-	private String aname;
 
 	public NoticeDto() {
 
 	}
 
-	public NoticeDto(int nbno, String aid, String nbtitle, String nbcontent, Timestamp nbrdate, String nbip,
-			String aname) {
+	public NoticeDto(int nbno, String aid, String nbtitle, String nbcontent, Timestamp nbrdate, String nbip) {
 		this.nbno = nbno;
 		this.aid = aid;
 		this.nbtitle = nbtitle;
 		this.nbcontent = nbcontent;
 		this.nbrdate = nbrdate;
 		this.nbip = nbip;
-		this.aname = aname;
 	}
 
 	public int getNbno() {
@@ -74,18 +71,10 @@ public class NoticeDto {
 		this.nbip = nbip;
 	}
 
-	public String getAname() {
-		return aname;
-	}
-
-	public void setAname(String aname) {
-		this.aname = aname;
-	}
-
 	@Override
 	public String toString() {
 		return "NoticeDto [nbno=" + nbno + ", aid=" + aid + ", nbtitle=" + nbtitle + ", nbcontent=" + nbcontent
-				+ ", nbrdate=" + nbrdate + ", nbip=" + nbip + ", aname=" + aname + "]";
+				+ ", nbrdate=" + nbrdate + ", nbip=" + nbip + "]";
 	}
 
 }

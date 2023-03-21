@@ -14,6 +14,8 @@ public class MedicalDto {
 	private int mrstep;
 	private int mrindent;
 	private String mrip;
+	private String mname;
+	private String aname;
 
 	public MedicalDto() {
 

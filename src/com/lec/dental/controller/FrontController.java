@@ -120,7 +120,7 @@ public class FrontController extends HttpServlet {
 		}else if (command.equals("/noticeWrite.do")) { // 공지글 db 저장
 			service = new NoticeWriteService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeList.jsp";
+			viewPage = "noticeList.do";
 		}else if(command.equals("/noticeContent.do")) { // 공지글 상세보기
 			service = new NoticeContentService();
 			service.execute(request, response);
@@ -132,13 +132,16 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/noticeModify.do")) { // 공지글 수정 처리
 			service = new NoticeModifyService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeList.do";
+			viewPage = "noticeList.do";
 		}else if (command.equals("/noticeDelete.do")) { // 공지글 삭제
 			service = new NoticeDeleteService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeList.jsp";
+			viewPage = "noticeList.do";
 		}
 		
+		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+		 * * * * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * 
+		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
 		
 		
 		

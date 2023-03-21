@@ -20,7 +20,7 @@ public class NoticeWriteService implements Service {
 			String nbcontent = request.getParameter("nbcontent");
 			String nbip = request.getRemoteAddr();
 			NoticeDao noticeDao = NoticeDao.getInstance();
-			NoticeDto noticeDto = new NoticeDto(0, aid, nbtitle, nbcontent, null, nbip, null);
+			NoticeDto noticeDto = new NoticeDto(0, aid, nbtitle, nbcontent, null, nbip);
 			int result = noticeDao.writeNotice(noticeDto);
 			if (result == NoticeDao.SUCCESS) {
 				request.setAttribute("noticeWriteResult", "글쓰기 성공");

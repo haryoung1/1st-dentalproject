@@ -40,11 +40,16 @@
 				<td>${nContent.nbcontent }</td>
 			</tr>
 			<tr>
-				<td colspan="2"><c:if
-						test="${empty member and not empty admin}">
-						<input type="button" value="수정" class="btn" onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-						<input type="button" value="목록" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-						
+				<th>IP</th>
+				<td>${nContent.nbip }</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<c:if test="${empty member and not empty admin}">
+						<input type="button" value="수정" class="btn" 
+							onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
+						<input type="button" value="목록" class="btn" 
+							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
 					</c:if> <c:if test="${empty member and not empty admin}">
 						<input type="button" value="삭제" class="btn"
 							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
