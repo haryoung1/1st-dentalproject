@@ -23,37 +23,38 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${nbContent.nbno }번 글 상세보기</caption>
+			<caption>${nContent.nbno }번글상세보기</caption>
 			<tr>
 				<th>작성자</th>
-				<td>${nbContent.aid }님</td>
+				<td>${nContent.aid }님</td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td>${nbContent.nbtitle }</td>
+				<td>${nContent.nbtitle }</td>
 			</tr>
 			<tr>
 				<th>본문</th>
-				<td>${nbContent.nbcontent }</td>
+				<td>${nContent.nbcontent }</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<c:if test="${admin.aId eq nContent.aid}">
-						<button onclick="location='${conPath}/noticeModifyView.do?nbno=${notice.nbno }&pageNum=${param.pageNum }'">수정
-						</button>
-						<button
-							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록
-						</button>
+				<td colspan="2"><c:if
+						test="${empty member and not empty admin}">
+						<input type="button" value="수정" class="btn" onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
+						<input type="button" value="목록" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
+						
+					</c:if> <c:if test="${empty member and not empty admin}">
+						<input type="button" value="삭제" class="btn"
+							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
 					</c:if>
-					<c:if test="${admin.aId eq nContent.aid or not empty admin}">
-						<button
-							onclick="location='${conPath}/noticeDelete.do?fid=${notice.nbno }&pageNum=${param.pageNum }'">삭제
-						</button>
+					<c:if test="${empty admin}">
+						<input type="button" value="목록(유저)" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
 					</c:if>
 			</tr>
 		</table>
 	</div>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

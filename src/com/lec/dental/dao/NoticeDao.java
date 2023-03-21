@@ -141,7 +141,7 @@ public class NoticeDao {
 		}
 		return result;
 	}
-	// (4) NBNO(글번호)로 DTO 가져오기
+	// (4) NBNO (글번호)로 DTO 가져오기
 	public NoticeDto content(int nbno) {
 		NoticeDto dto = null;
 		Connection conn = null;
@@ -176,7 +176,7 @@ public class NoticeDao {
 		}
 		return dto;	
 	}
-	// (5) 수정 view
+	// (5) 글번호 (nbno)로 글 전체내용 가져오기 - 수정용 View
 	public NoticeDto modifyNoticeView(int nbno) {
 		NoticeDto dto = null;
 		Connection conn = null;
@@ -212,7 +212,7 @@ public class NoticeDao {
 		return dto;	
 	}
 	// (6) 공지글 수정
-	public int modifyNotice(NoticeDto dto) {
+	public int modifyNotice(int nbno, String nbtitle, String nbcontent, String nbip) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -224,10 +224,10 @@ public class NoticeDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getNbtitle());
-			pstmt.setString(2, dto.getNbcontent());
-			pstmt.setString(3, dto.getNbip());
-			pstmt.setInt(4, dto.getNbno());
+			pstmt.setString(1, nbtitle);
+			pstmt.setString(2, nbcontent);
+			pstmt.setString(3, nbip);
+			pstmt.setString(4, nbip);
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "공지사항 수정 성공" : "공지사항 수정 실패");
 		} catch (SQLException e) {

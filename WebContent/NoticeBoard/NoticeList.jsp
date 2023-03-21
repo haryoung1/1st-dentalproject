@@ -23,7 +23,7 @@
 <script>
 $(document).ready(function(){
 		$('tr').click(function(){
-			var nbno = Number($(this).children().eq(0).text());// 0 번째 td안의 있는 text;
+			var nbno = $(this).children().eq(0).text();
 		if(!isNaN(nbno)){
 			location.href = '${conPath }/noticeContent.do?nbno='+nbno+'&pageNum=${pageNum}';
 		}
@@ -39,22 +39,7 @@ $(document).ready(function(){
 			alert('${noticeWriteResult}')
 		</script>
 	</c:if>
-	<c:if test="${noticeResult eq 1}">
-		<script>
-			alert('글 수정 성공');
-		</script>
-	</c:if>
-	<c:if test="${noticeResult eq 0}">
-		<script>
-			alert('글 수정 실패');
-  			history.back();
-		</script>
-	</c:if>
 	<div id="content_form">
-	 <div class="board_title"> 
-            <strong>공지사항</strong>
-            <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
-        </div>
 		<table>
 			<tr>
 				<td>
@@ -63,7 +48,7 @@ $(document).ready(function(){
 					</c:if>
 					<c:if test="${ empty admin }">
 						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do">
-						먼저 로그인을 해주세요.</a>	
+						관리자만 등록이 가능 합니다.</a>	
 					</c:if>				
 				</td>
 			</tr>
@@ -103,7 +88,7 @@ $(document).ready(function(){
 				</a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
-				<c:if test="${i == pageNum }">
+				<c:if test="${i eq pageNum }">
 					<b> [ ${i } ] </b>
 				</c:if>
 				<c:if test="${i != pageNum }">

@@ -16,12 +16,13 @@ public class NoticeModifyService implements Service {
 		String nbcontent = request.getParameter("nbcontent");
 		String nbip = request.getRemoteAddr();
 		NoticeDao noticeDao = NoticeDao.getInstance();
-		NoticeDto noticeDto = new NoticeDto(nbno, null, nbtitle, nbcontent, null, nbip, null);
-		int result = noticeDao.modifyNotice(noticeDto);
+		int result = noticeDao.modifyNotice(nbno, nbtitle, nbcontent, nbip);
 		if (result == NoticeDao.SUCCESS) {
-			request.setAttribute("noticeResult", "글 수정 성공");
+			request.setAttribute("noticeResult", result);
 		} else {
-			request.setAttribute("noticeResult", "글 수정 실패");
+			request.setAttribute("noticeResult", result);
 		}
+
 	}
+
 }

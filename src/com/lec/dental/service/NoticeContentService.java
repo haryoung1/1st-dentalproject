@@ -13,7 +13,7 @@ public class NoticeContentService implements Service {
 		int nbno = Integer.parseInt(request.getParameter("nbno"));
 		NoticeDao noticeDao = NoticeDao.getInstance();
 		NoticeDto dto = noticeDao.content(nbno);
-		request.setAttribute("nbContent", dto);
+		request.setAttribute("nContent", dto);
 
 	}
 

@@ -128,11 +128,15 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/noticeModifyView.do")) { // 공지글 수정 화면
 			service = new NoticeModifyViewService();
 			service.execute(request, response);
-			viewPage = "notice/noticeModify.jsp";
-		}else if(command.equals("/noticeModify.do")) {
+			viewPage = "NoticeBoard/NoticeModify.jsp";
+		}else if(command.equals("/noticeModify.do")) { // 공지글 수정 처리
 			service = new NoticeModifyService();
 			service.execute(request, response);
-			viewPage = "NoticeList.do";
+			viewPage = "NoticeBoard/NoticeList.do";
+		}else if (command.equals("/noticeDelete.do")) { // 공지글 삭제
+			service = new NoticeDeleteService();
+			service.execute(request, response);
+			viewPage = "NoticeBoard/NoticeList.jsp";
 		}
 		
 		
