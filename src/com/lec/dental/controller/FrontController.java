@@ -143,7 +143,17 @@ public class FrontController extends HttpServlet {
 		 * * * * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * 
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
 		
-		
+		else if (command.equals("/medicalList.do")) { // 진료예약 게시판 글 목록
+			service = new MedicalListService();
+			service.execute(request, response);
+			viewPage = "MedicalBoard/MedicalList.jsp";
+		}else if (command.equals("/medicalWriteView.do")) { // 진료예약 게시판 글 쓰기
+			viewPage = "MedicalBoard/MedicalWrite.jsp";
+		}else if (command.equals("/medicalWrite.do")) { // 진료예약 글 db 저장
+			service = new MedicalWriteService();
+			service.execute(request, response);
+			viewPage = "medicalList.do";
+		}
 		
 		
 		
