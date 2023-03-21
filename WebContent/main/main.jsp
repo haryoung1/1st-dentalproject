@@ -34,6 +34,9 @@
 			<li><a href="${conPath }/noticeList.do">고객센터</a></li>
 			<li><a href="${conPath }/joinView.do">회원가입</a></li>
 			<li><a href="${conPath }/adminLoginView.do">관리자로그인</a></li>
+			<li>
+<input type="button" value="관리자삭제" class="btn" onclick="location.href='${conPath}/adminwithdrawalView.do'">
+			</li>
 		</ul>
 	</div>
 	<jsp:include page="../main/footer.jsp" />

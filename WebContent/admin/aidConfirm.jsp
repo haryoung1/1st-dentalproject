@@ -6,6 +6,6 @@
 <meta charset="UTF-8"> <!-- View단은 타이틀을 없애자 -->
 </head>
 <body>
-	${midConfirmResult }
+	${aidConfirmResult }
 </body>
 </html>

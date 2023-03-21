@@ -21,6 +21,12 @@
 </style>
 </head>
 <body>
+	<c:if test="${empty admin }">
+		<script>
+			location.href='${conPath}/adminLoginView.do?next=noticeWriteView.do';
+		</script>
+	</c:if>
+	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/noticeWrite.do" method="post">
 			<table>
@@ -48,5 +54,6 @@
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

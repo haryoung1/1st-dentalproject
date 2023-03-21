@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.lec.dental.service.*;
 
 @WebServlet("*.do")
@@ -38,9 +37,11 @@ public class FrontController extends HttpServlet {
 		Service service = null;
 		if (command.equals("/main.do")) { // 첫 실행화면
 			viewPage = "main/main.jsp";
+			
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
 		 * * * * * * * * * * * member 관련요청 * * * * * * * *  *  *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+			
 		}else if (command.equals("/midConfirm.do")) { // 아이디 중복체크
 			service = new MidConfirmService();
 			service.execute(request, response);
@@ -72,21 +73,23 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
 		}else if(command.equals("/withdrawalView.do")) { // 회원탈퇴
-			viewPage = "customer/withdrawalView.jsp";
+			viewPage = "member/withdrawalView.jsp";
 		}else if(command.equals("/withdrawal.do")) {
 			service = new MWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
+			
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		* * * * * * * * * * * 어드민 관련요청 * * * * * * * * * * * * 
 		* * * * * * * * * * * * * * * * * * * * * * * * * * * */
-		}else if (command.equals("/adminConfirm.do")) { // 아이디 중복체크
+			
+		}else if (command.equals("/aidConfirm.do")) { // 아이디 중복체크
 			service = new AidConfirmService();
 			service.execute(request, response);
-			viewPage = "member/aidConfirm.jsp";
+			viewPage = "admin/aidConfirm.jsp";
 		}else if(command.equals("/adminjoinView.do")) { // 관리자 등록화면
 			viewPage = "admin/adminjoin.jsp";	
-		}else if(command.equals("/adminjoin.do")) {    // 관리자 등록 처리
+		}else if(command.equals("/adminjoin.do")) {     // 관리자 등록 처리
 			service = new AdminJoinService();
 			service.execute(request, response);
 			viewPage = "admin/adminLogin.jsp";		
@@ -96,21 +99,19 @@ public class FrontController extends HttpServlet {
 			service = new AdminLoginService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
-			
+		}else if(command.equals("/adminwithdrawalView.do")) { // 관리자 탈퇴
+			viewPage = "admin/adminwithdrawalView.jsp";
+		}else if(command.equals("/adminwithdrawal.do")) {
+			service = new AWithdrawalService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";	
+		}
 
-		
-			/*
-			 * }else if(command.equals("/adminwithdrawalView.do")) { // 관리자 탈퇴 viewPage =
-			 * "admin/awithdrawalView.jsp"; }else if(com.equals("/awithdrawal.do")) { //
-			 * 탈퇴처리 service = new AWithdrawalService(); service.execute(request, response);
-			 * viewPage = "main/main.jsp";
-			 */
-			
-			
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 공지사항 관련요청 * * * * * * * * * * *  
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
-		}else if (command.equals("/noticeList.do")) { // 공지사항 글 목록
+		
+		else if (command.equals("/noticeList.do")) { // 공지사항 글 목록
 			service = new NoticeListService();
 			service.execute(request, response);
 			viewPage = "NoticeBoard/NoticeList.jsp";
@@ -133,33 +134,26 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "NoticeList.do";
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	} // actuonDo
 } // Controller
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

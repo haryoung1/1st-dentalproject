@@ -32,6 +32,8 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<jsp:include page="../main/header.jsp" />
+	<!--  글쓰기 성공 if noticeList -->
 	<c:if test="${not empty noticeWriteResult}">
 		<script>
 			alert('${noticeWriteResult}')
@@ -39,7 +41,7 @@ $(document).ready(function(){
 	</c:if>
 	<c:if test="${noticeResult eq 1}">
 		<script>
-			alert('${noticeResult}')
+			alert('글 수정 성공');
 		</script>
 	</c:if>
 	<c:if test="${noticeResult eq 0}">
@@ -49,10 +51,20 @@ $(document).ready(function(){
 		</script>
 	</c:if>
 	<div id="content_form">
+	 <div class="board_title"> 
+            <strong>공지사항</strong>
+            <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+        </div>
 		<table>
 			<tr>
 				<td>
-					<a href="${conPath }/noticeWriteView.do">글쓰기</a>					
+					<c:if test="${not empty admin }">
+						<a href="${conPath }/noticeWriteView.do">글쓰기</a>	
+					</c:if>
+					<c:if test="${ empty admin }">
+						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do">
+						먼저 로그인을 해주세요.</a>	
+					</c:if>				
 				</td>
 			</tr>
 		</table>
@@ -84,6 +96,7 @@ $(document).ready(function(){
 				</c:forEach>
 			</c:if>
 		</table>
+		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전
@@ -102,5 +115,6 @@ $(document).ready(function(){
 			</c:if>
 		</div>
 	</div>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

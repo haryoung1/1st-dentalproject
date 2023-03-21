@@ -174,7 +174,7 @@ public class AdminDao {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
-			String sql = "SELECT * FROM ADMIN WHERE AID='admin'";
+			String sql = "SELECT * FROM ADMIN WHERE AID=?";
 			try {
 				conn = getConnection();
 				pstmt = conn.prepareStatement(sql);
