@@ -13,6 +13,8 @@ import javax.sql.DataSource;
 import com.lec.dental.dto.AdminDto;
 
 public class AdminDao {
+	public static final int EXISTENT = 0;
+	public static final int NONEXISTENT = 1;
 	public static final int LOGIN_FAIL = 0;
 	public static final int LOGIN_SUCCESS = 1;
 	public static final int FAIL = 0;
@@ -165,4 +167,38 @@ public class AdminDao {
 		}
 		return result;
 	}
+	
+	// (5) 관리자 ID 중복체크
+		public int aidConfirm(String aid) {
+			int result = EXISTENT;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM ADMIN WHERE AID='admin'";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, aid);
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					result = EXISTENT;
+				} else {
+					result = NONEXISTENT;
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return result;
+		}
 }

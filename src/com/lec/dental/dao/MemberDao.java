@@ -223,13 +223,8 @@ public class MemberDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MEMBER SET mPW = ?," + 
-					 "        mNAME = ?," + 
-					 "        mEMAIL = ?," + 
-					 "        mPHOTO = ?," + 
-					 "        mBIRTH = ?," + 
-					 "        mADDRESS = ?" + 
-					 "    WHERE mID = ?";
+		String sql = "UPDATE MEMBER SET mPW = ?," + "        mNAME = ?," + "        mEMAIL = ?," + "        mPHOTO = ?,"
+				+ "        mBIRTH = ?," + "        mADDRESS = ?" + "    WHERE mID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -255,15 +250,15 @@ public class MemberDao {
 		}
 		return result;
 	}
+
 	// (7) 회원리스트
 	public ArrayList<MemberDto> getMemberlist(int startRow, int endRow) {
 		ArrayList<MemberDto> members = new ArrayList<MemberDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + 
-					 "FROM (SELECT * FROM MEMBER ORDER BY mRDATE DESC) A)" + 
-					 "WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + "FROM (SELECT * FROM MEMBER ORDER BY mRDATE DESC) A)"
+				+ "WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -297,25 +292,22 @@ public class MemberDao {
 		}
 		return members;
 	}
-	// 8. 총 가입된 회원 수
-	public int getMemberTotCnt() {
-		int totCnt = 0;
+
+	// (8) 회원탈퇴전 글 삭제하기 ( MRBOARD )
+	public int withdrawalMR(String mid) {
+		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) CNT FROM MEMBER";
+		String sql = "DELETE FROM MRBOARD WHERE MID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			rs.next();
-			totCnt = rs.getInt("cnt");
+			pstmt.setString(1, mid);
+			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			try {
-				if (rs != null)
-					rs.close();
 				if (pstmt != null)
 					pstmt.close();
 				if (conn != null)
@@ -324,8 +316,61 @@ public class MemberDao {
 				System.out.println(e.getMessage());
 			}
 		}
-		return totCnt;
+		return result;
 	}
+
+	// (8) 회원탈퇴전 글 삭제하기 ( CBBOARD )
+	public int withdrawalCB(String mid) {
+		int result = FAIL;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM CBBOARD WHERE MID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+
+	// (8) 회원탈퇴전 글 삭제하기 ( RVBOARD )
+	public int withdrawalRV(String mid) {
+		int result = FAIL;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM RVBOARD WHERE MID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+
 	// (9) 회원탈퇴
 	public int withdrawalMember(String mid) {
 		int result = FAIL;

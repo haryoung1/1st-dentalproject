@@ -18,13 +18,17 @@ public class MWithdrawalService implements Service {
 			mid = sessionMember.getMid();
 		}
 		MemberDao mDao = MemberDao.getInstance();
-		int result = mDao.withdrawalMember(mid); // 회원탈퇴
+		// 회원탈퇴전 각 게시판에 남긴 글 삭제하기
+		mDao.withdrawalMR(mid);
+		mDao.withdrawalCB(mid);
+		mDao.withdrawalRV(mid);
+		int result = mDao.withdrawalMember(mid);
 		session.invalidate();
 		if (result == MemberDao.SUCCESS) {
 			request.setAttribute("withdrawalResult", "회원 탈퇴가 완료 되었습니다.");
 		} else {
 			request.setAttribute("withdrawalResult", "로그인이 되어 있지 않습니다.");
 		}
-	}
 
+	}
 }

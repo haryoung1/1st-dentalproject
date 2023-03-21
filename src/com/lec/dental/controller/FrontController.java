@@ -71,35 +71,34 @@ public class FrontController extends HttpServlet {
 			service = new MModifyService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
-		}else if (command.equals("/withdrawal.do")) { // 회원탈퇴
+		}else if(command.equals("/withdrawalView.do")) { // 회원탈퇴
+			viewPage = "customer/withdrawalView.jsp";
+		}else if(command.equals("/withdrawal.do")) {
 			service = new MWithdrawalService();
 			service.execute(request, response);
-			viewPage = "main/main.jsp";
-		
-		
+			viewPage = "main/main.jsp";	
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		* * * * * * * * * * * 어드민 관련요청 * * * * * * * * * * * * 
 		* * * * * * * * * * * * * * * * * * * * * * * * * * * */
-		}else if (command.equals("/adminConfirm")) {
-			service = new MidConfirmService();
+		}else if (command.equals("/adminConfirm.do")) { // 아이디 중복체크
+			service = new AidConfirmService();
 			service.execute(request, response);
-			viewPage = "member/midConfirm.jsp";
-		}else if (command.equals(anObject)) {
-			service = new MidConfirmService();
+			viewPage = "member/aidConfirm.jsp";
+		}else if(command.equals("/adminjoinView.do")) { // 관리자 등록화면
+			viewPage = "admin/adminjoin.jsp";	
+		}else if(command.equals("/adminjoin.do")) {    // 관리자 등록 처리
+			service = new AdminJoinService();
 			service.execute(request, response);
-			viewPage = "member/midConfirm.jsp";
+			viewPage = "admin/adminLogin.jsp";		
 		}else if(command.equals("/adminLoginView.do")) { // 관리자 로그인 화면
 			viewPage ="admin/adminLogin.jsp";
-		}else if(command.equals("/adminLogin.do")) { // 관리자 로그인 처리
+		}else if(command.equals("/adminLogin.do")) {     // 관리자 로그인 처리
 			service = new AdminLoginService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
-		}else if(command.equals("/adminjoinView.do")) { // 관리자 등록화면
-			viewPage = "admin/adminjoin.jsp";	
-		}else if(command.equals("/adminjoin.do")) { // 관리자 등록 처리
-			service = new AdminJoinService();
-			service.execute(request, response);
-			viewPage = "admin/adminLogin.jsp";	
+			
+
+		
 			/*
 			 * }else if(command.equals("/adminwithdrawalView.do")) { // 관리자 탈퇴 viewPage =
 			 * "admin/awithdrawalView.jsp"; }else if(com.equals("/awithdrawal.do")) { //

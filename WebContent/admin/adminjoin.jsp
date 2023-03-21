@@ -11,20 +11,28 @@
 <link href="${conPath }/css/style.css" rel="stylesheet">
 <style>
 </style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
-		$(document).ready(function(){
-			$('input[name="apw"], input[name="apwChk"]').keyup(function(){
-				var apw = $('input[name="apw"]').val();
-				var apwChk = $('input[name="apwChk"]').val();
-				if(apw == apwChk){
-					$('#apwChkResult').text('비밀번호 일치');
-				}else{
-					$('#apwChkResult').text('비밀번호 불일치');
-				}
-			});// mpw key up 이벤트
-		});
-	</script>
+$(function() {
+		$('#aid').keyup(function() {
+			var aid = $(this).val();
+			if (aid.length < 2) {
+				$('#aidConfirmResult').text('아이디는 2글자 이상 입니다');
+			} else {
+				$.ajax({
+					url : '${conPath}/adminConfirm.do.',
+					type : 'get',
+					data : 'aid=' + aid,
+					dataType : 'html',
+					success : function(data) {
+						$('#aidConfirmResult').html(data);
+					},
+				});
+			}
+		}); // key up event
+}
+</script>
 </head>
 <body>
 	<form action="${conPath }/adminjoin.do" method="post">
@@ -34,19 +42,19 @@
 				<tr>
 					<th>아이디</th>
 					<td>
-						<input type="text" name="aid" required="required">
+						<input type="text" name="aid" id="aid" required="required">
 					</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
 					<td>
-						<input type="password" name="apw" required="required">
+						<input type="password" name="apw" id="apw" required="required">
 					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
 					<td>
-						<input type="password" name="apwChk" required="required">
+						<input type="password" name="apwChk" id="apwChk" required="required">
 					</td>
 				</tr>
 				<tr>
