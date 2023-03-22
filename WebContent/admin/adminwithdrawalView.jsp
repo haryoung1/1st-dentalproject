@@ -19,6 +19,7 @@
 </script>  
 </head>
 <body>
+<jsp:include page="../main/header.jsp" />
 	<form action="${conPath }/adminwithdrawal.do" method="post">
 		<table>
 			<caption>관리자 계정 삭제</caption>
@@ -35,5 +36,6 @@
 			<input class="btn" type="button" value="이전" onclick="history.go(-1)">
 		</div>
 	</form>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

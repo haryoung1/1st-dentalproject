@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
 <link href="${conPath }/css/header.css" rel="stylesheet">
 <style>
 </style>
@@ -58,7 +57,7 @@
 		<div class="menu">
 			<ul>
 				<li><a href="${conPath }/noticeList.do">공지사항</a></li>
-				<li><a href="#">병원소개</a></li>
+				<li><a href="${conPath }/intro.do">병원소개</a></li>
 				<li><a href="#">온라인상담</a></li>
 				<li><a href="#">진료예약</a></li>
 				<li><a href="#">후기게시판</a></li>

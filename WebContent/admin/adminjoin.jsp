@@ -43,6 +43,7 @@ $(function() {
 </script>
 </head>
 <body>
+<jsp:include page="../main/header.jsp" />
 	<form action="${conPath }/adminjoin.do" method="post">
 		<div id="content_form">
 			<table>
@@ -84,5 +85,6 @@ $(function() {
 			</table>
 		</div>
 	</form>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

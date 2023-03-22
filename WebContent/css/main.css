@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#wrap {
+	width: 1000px;
+	height : 950px;
+	margin: 0 auto; /* 가운데로 조정 */
+}
+
+#content {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content .section1 {
+	overflow: hidden;
+}
+
+#content .section1 .slide_banner {
+	float: left;
+	width: 860px;
+	height: 330px;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin : 6px;
+}
+
+
+#content .section2 .hitproduct {
+	border: 1px solid black;
+	overflow: hidden;
+}
+
+#content .section2 .hit_product p {
+	float: left;
+	width: 260px;
+	height: 270px;
+	margin: 7px;
+	text-align: center;
+	line-height: 180px;
+	border: 2px solid lightgray;
+}
+
+#content .section2 .md_product p {
+	float: left;
+	border: 2px solid lightgray;
+	width: 260px;
+	height: 270px;
+	margin: 7px;
+	text-align: center;
+	line-height: 200px;
+}

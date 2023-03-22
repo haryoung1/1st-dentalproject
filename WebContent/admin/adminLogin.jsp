@@ -18,6 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<jsp:include page="../main/header.jsp" />
 	<c:if test="${not empty admin }">
 		<script>
 			alert('관리자모드로 접속 하셨습니다');
@@ -59,5 +60,6 @@
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

@@ -37,12 +37,14 @@ public class FrontController extends HttpServlet {
 		Service service = null;
 		if (command.equals("/main.do")) { // 첫 실행화면
 			viewPage = "main/main.jsp";
-			
+		}else if (command.equals("/intro.do")) {
+			viewPage = "main/intro.jsp";
+		}
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
 		 * * * * * * * * * * * member 관련요청 * * * * * * * *  *  *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 			
-		}else if (command.equals("/midConfirm.do")) { // 아이디 중복체크
+		else if (command.equals("/midConfirm.do")) { // 아이디 중복체크
 			service = new MidConfirmService();
 			service.execute(request, response);
 			viewPage = "member/midConfirm.jsp";
