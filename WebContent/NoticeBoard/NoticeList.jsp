@@ -21,14 +21,21 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {
-		$('tr').click(function() {
-			var nbno = $(this).children().eq(0).text();
-			if (!isNaN(nbno)) {
-				location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
-			}
-	});
-});
+	$(document)
+			.ready(
+					function() {
+						$('tr')
+								.click(
+										function() {
+											var nbno = $(this).children().eq(0)
+													.text();
+											if (!isNaN(nbno)) {
+												location.href = '${conPath }/noticeContent.do?nbno='
+														+ nbno
+														+ '&pageNum=${pageNum}';
+											}
+										});
+					});
 </script>
 </head>
 <body>
@@ -46,17 +53,19 @@
 						<a href="${conPath }/noticeWriteView.do">글쓰기</a>
 					</c:if> <c:if test="${ empty admin }">
 						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do">
-							관리자만 등록이 가능 합니다.</a>
+							글쓰기</a>
 					</c:if></td>
 			</tr>
 		</table>
+		<h2>공지사항</h2>
+		<hr>
 		<br>
 		<table>
 			<tr>
-				<th>글번호</th>
+				<th>번호</th>
 				<th>작성자</th>
-				<th>글제목</th>
-				<th>날짜</th>
+				<th>제목</th>
+				<th>작성일</th>
 				<th>IP</th>
 			</tr>
 			<c:if test="${totCnt eq 0 }">

@@ -28,28 +28,26 @@
 			<div class="section2">
 				<div class="hit_product">
 					<p class="p1">
-						<img src="image/임플란트.png">
-						<span class="imtext1">[임플란트]</span>
+						<img src="image/임플란트.png"> <span class="imtext1">[임플란트]</span>
 					</p>
 					<p class="p2">
-						<img src="image/치아교정.png">
-						<span class="imtext2">[치아교정]</span>
+						<img src="image/치아교정.png"> <span class="imtext2">[치아교정]</span>
 					</p>
 					<p class="p3">
-						<img src="image/치아미백.PNG">
-						<span class="imtext3">[치아미백]</span>
+						<img src="image/치아미백.PNG"> <span class="imtext3">[치아미백]</span>
 					</p>
 				</div>
 				<!-- hit 끝-->
 				<div class="md_product">
 					<p class="p4">
-						<img src="image/보철치료.png">
-						<span class="imtext3">[보철 / 충치]</span>
+						<img src="image/보철치료.png"> <span class="imtext3">[보철 / 충치]</span>
 					</p>
 					<p>
 						<img src="image/진료안내.png">
 					</p>
-					<p>md_product3</p>
+					<p>
+						<img src="image/길.png"> <a href="#">찾아오시는 길 →</a>
+					</p>
 				</div>
 			</div>
 		</div>

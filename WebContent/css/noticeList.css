@@ -7,18 +7,18 @@
 
 #wrap table {
 	margin: 10px;
-	border: 2px solid pink;
+	border: 2px solid #FBFAFA;
 	width: 90%;
 	margin: 0px auto;
 }
 
 #wrap table tr {
-	background-color: #FFE271;
+	background-color: #FBFAFA;
 	height: 40px;
 }
 
 #wrap table tr:hover {
-	background-color: orange;
+	background-color: #FBFAFA;
 	cursor: pointer;
 }
 

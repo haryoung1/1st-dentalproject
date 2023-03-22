@@ -3,9 +3,20 @@
 	margin: 0;
 }
 
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
 header {
 	background-color: white;
 	font-size: 10pt;
+	width: 100%;
 }
 
 header a {
@@ -65,17 +76,18 @@ header .menu ul li {
 	font-size: 1.3em;
 }
 
-header .logo {
+/* header .logo {
 	width: 100px;
 	text-align: right;
-	margin: 20px auto;
+	margin: 10px auto;
 	font-size: 2em;
 	cursor: pointer;
-}
+} */
 
 header .submenu ul li {
-	width: 120px; 
-	border : 2px solid red;
+	width: 120px;
 	float: left;
 	margin: 10px;
+	cursor: pointer;
+	/* border: 2px solid red; */
 }
