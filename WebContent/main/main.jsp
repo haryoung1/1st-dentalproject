@@ -10,14 +10,7 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/style.css" rel="stylesheet">
 <style>
-#content_form {
-	width: 800px;
-	height: 500px;
-	line-height: 500px;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 3em;
-}
+
 </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,16 +22,18 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div class="gnb">
-		<ul>
-			<li><a href="${conPath }/noticeList.do">고객센터</a></li>
-			<li><a href="${conPath }/joinView.do">회원가입</a></li>
-			<li><a href="${conPath }/adminLoginView.do">관리자로그인</a></li>
-			<li>
-<input type="button" value="관리자삭제" class="btn" onclick="location.href='${conPath}/adminwithdrawalView.do'">
-			</li>
-		</ul>
-	</div>
+	메인
+	<br>
+	메인 
+	<br>
+	메인
+	<br>
+	메인
+	<br>
+	메인 
+	<br>
+	===========================
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

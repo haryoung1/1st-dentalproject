@@ -1,0 +1,12 @@
+header a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+header li {
+	list-style: none;
+}
+
+header .gnb {
+	background-color: #F7941D;
+}
