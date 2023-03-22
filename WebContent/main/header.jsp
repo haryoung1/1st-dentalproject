@@ -54,13 +54,28 @@
 				<img src="image/logo원본.PNG">
 			</div>
 		</c:if>
-		<div class="menu">
+		<div class="submenu">
 			<ul>
-				<li><a href="${conPath }/noticeList.do">공지사항</a></li>
-				<li><a href="${conPath }/intro.do">병원소개</a></li>
-				<li><a href="#">온라인상담</a></li>
-				<li><a href="#">진료예약</a></li>
-				<li><a href="#">후기게시판</a></li>
+				<li>
+					<img src="image/공지사항.png">
+					<a href="${conPath }/noticeList.do">공지사항</a>
+				</li>
+				<li>
+					<img src="image/의료진소개.png">
+					<a href="${conPath }/intro.do">의료진소개</a>
+				</li>
+				<li>
+					<img src="image/상담.png">
+					<a href="#">온라인상담</a>
+				</li>
+				<li>
+					<img src="image/진료예약.png">
+					<a href="#">진료예약</a>
+				</li>
+				<li>
+					<img src="image/공지사항.png">
+					<a href="#">후기게시판</a>
+				</li>
 			</ul>
 		</div>
 	</header>

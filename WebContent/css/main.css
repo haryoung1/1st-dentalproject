@@ -7,8 +7,9 @@
 
 #wrap {
 	width: 1000px;
-	height : 950px;
+	height: 1000px;
 	margin: 0 auto; /* 가운데로 조정 */
+	overflow: hidden;
 }
 
 #content {
@@ -27,13 +28,72 @@
 	text-align: center;
 	line-height: 350px;
 	margin-left: 7px;
-	margin : 6px;
+	margin: 6px;
 }
-
 
 #content .section2 .hitproduct {
 	border: 1px solid black;
 	overflow: hidden;
+}
+
+.p1 {
+	position: relative;
+}
+
+.p2 {
+	position: relative;
+}
+
+.p3 {
+	position: relative;
+}
+
+.p4 {
+	position: relative;
+}
+
+.imtext1 {
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	z-index: 1;
+	color: black;
+	font-size: 25px;
+	width: 300px;
+	font-weight: bold;
+}
+
+.imtext2 {
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	z-index: 1;
+	color: black;
+	font-size: 25px;
+	width: 300px;
+	font-weight: bold;
+}
+
+.imtext3 {
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	z-index: 1;
+	color: black;
+	font-size: 25px;
+	width: 300px;
+	font-weight: bold;
+}
+
+.imtext4 {
+	position: absolute;
+	top: 130px;
+	left: 20px;
+	z-index: 1;
+	color: black;
+	font-size: 25px;
+	width: 300px;
+	font-weight: bold;
 }
 
 #content .section2 .hit_product p {
@@ -54,4 +114,16 @@
 	margin: 7px;
 	text-align: center;
 	line-height: 200px;
+}
+
+#btn {
+	background-color: red;
+	border: 0;
+	border-radius: 10px;
+	padding: 10px;
+	color: white;
+	cursor: pointer;
+	position: absolute;
+	top: 10px;
+	left: 10px;
 }

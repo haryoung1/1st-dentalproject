@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/main.css" rel="stylesheet">
 <link href="${conPath }/css/intro.css" rel="stylesheet">
 <style>
 </style>
@@ -23,13 +22,10 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="intro">
-			<p>
-				<img src="image/소개1.png">
-			</p>
-		</div>
-		<div id="side">
-			<div id="side">
-				
+			<div class="intro2">
+				<p>
+					<img src="image/소개22.PNG">
+				</p>
 			</div>
 		</div>
 	</div>
