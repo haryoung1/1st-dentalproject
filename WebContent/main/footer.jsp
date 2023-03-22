@@ -21,13 +21,13 @@ footer {
 footer #footer_conts, footer #footer_conts a {
 	color: white;
 	font-weight: blod;
-	font-size: 1.0em;
+	font-size: 0.9em;
 	text-align: center;
 }
 
 footer #footer_conts p:first-child {
 	font-weight: bold;
-	height: 30px;
+	height: 25px;
 	line-height: 30px;
 }
 

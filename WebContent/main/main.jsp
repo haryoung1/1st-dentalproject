@@ -22,18 +22,11 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	메인
-	<br>
-	메인 
-	<br>
-	메인
-	<br>
-	메인
-	<br>
-	메인 
-	<br>
-	===========================
-	<br>
+	<div id="wrap">
+		<div id="content">
+			
+		</div>
+	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

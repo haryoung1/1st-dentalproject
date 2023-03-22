@@ -74,7 +74,7 @@ public class MModifyService implements Service {
 			OutputStream os = null;
 			try {
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:/project1/source/1stproject/myproject/WebContent/memberPhotoUp/" + mphoto);
+				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/memberPhotoUp/" + mphoto);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while (true) {
 					int readByteCnt = is.read(bs);

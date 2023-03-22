@@ -15,41 +15,44 @@
 </head>
 <body>
 	<header>
-		<c:if test="${empty member and empty admin}"> <%-- 로그인 전 화면 --%>
+		<c:if test="${empty member and empty admin}">
+			<%-- 로그인 전 화면 --%>
 			<div class="gnb">
 				<ul>
-					<li><a href="${conPath }/loginView.do">로그인</a></li>
 					<li><a href="${conPath }/joinView.do">회원가입</a></li>
+					<li><a href="${conPath }/loginView.do">로그인</a></li>
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo.png">
+				<img src="image/logo원본.PNG">
 			</div>
 		</c:if>
 
-		<c:if test="${not empty member and empty admin}"> <%-- 멤버 로그인 화면--%>
+		<c:if test="${not empty member and empty admin}">
+			<%-- 멤버 로그인 화면--%>
 			<div class="gnb">
 				<ul>
-					<li><a>${member.mname }님 &nbsp; ▶</a></li>
 					<li><a href="${conPath }/logout.do">로그아웃</a></li>
 					<li><a href="${conPath }/modifyView.do">정보수정</a></li>
+					<li><a>${member.mname }님 &nbsp; ▶</a></li>
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo.png">
+				<img src="image/logo원본.PNG">
 			</div>
 		</c:if>
-		
-		<c:if test="${empty member and not empty admin}"> <%-- 관리자 모드 로그인 화면--%>
+
+		<c:if test="${empty member and not empty admin}">
+			<%-- 관리자 모드 로그인 화면--%>
 			<div class="gnb">
 				<ul>
-					<li><a>${admin.aname }님 &nbsp; ▶</a></li>
 					<li><a href="${conPath }/boardList.do">회원목록</a></li>
 					<li><a href="${conPath }/logout.do">로그아웃</a></li>
+					<li><a>${admin.aname }님 &nbsp; ▶</a></li>
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo.png">
+				<img src="image/logo원본.PNG">
 			</div>
 		</c:if>
 		<div class="menu">

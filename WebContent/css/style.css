@@ -23,7 +23,7 @@
 }
 
 #content_form table tr:hover {
-	background-color: orange;
+	background-color: white;
 	cursor: pointer;
 }
 
