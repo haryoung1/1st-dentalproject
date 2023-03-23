@@ -40,13 +40,14 @@
 				<!-- hit 끝-->
 				<div class="md_product">
 					<p class="p4">
-						<img src="image/보철치료.png"> <span class="imtext3">[보철 / 충치]</span>
+						<img src="image/보철치료.png"> <span class="imtext3">[보철
+							/ 충치]</span>
 					</p>
 					<p>
 						<img src="image/진료안내.png">
 					</p>
 					<p>
-						<img src="image/길.png"> <a href="#">찾아오시는 길 →</a>
+						<img src="image/길.png"> <a href="${conPath }/map.do">찾아오시는 길 →</a>
 					</p>
 				</div>
 			</div>

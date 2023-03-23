@@ -23,7 +23,7 @@
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo원본.PNG">
+				<img src="image/로고.png">
 			</div>
 		</c:if>
 
@@ -37,7 +37,7 @@
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo원본.PNG">
+				<img src="image/로고.png">
 			</div>
 		</c:if>
 
@@ -51,7 +51,7 @@
 				</ul>
 			</div>
 			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/logo원본.PNG">
+				<img src="image/로고.png">
 			</div>
 		</c:if>
 		<div class="submenu">

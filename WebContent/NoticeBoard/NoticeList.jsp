@@ -66,7 +66,6 @@
 				<th>작성자</th>
 				<th>제목</th>
 				<th>작성일</th>
-				<th>IP</th>
 			</tr>
 			<c:if test="${totCnt eq 0 }">
 				<tr>
@@ -79,9 +78,7 @@
 						<td>${notice.nbno }</td>
 						<td>${notice.aid }</td>
 						<td>${notice.nbtitle }</td>
-						<td><fmt:formatDate value="${notice.nbrdate }" type="date"
-								dateStyle="short" /></td>
-						<td>${notice.nbip }</td>
+						<td><fmt:formatDate value="${notice.nbrdate }" pattern="yy년MM월dd일(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>

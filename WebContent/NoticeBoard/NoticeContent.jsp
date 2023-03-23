@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
 #content_form {
 	height: 450px;
@@ -38,10 +38,6 @@
 			<tr>
 				<th>본문</th>
 				<td>${nContent.nbcontent }</td>
-			</tr>
-			<tr>
-				<th>IP</th>
-				<td>${nContent.nbip }</td>
 			</tr>
 			<tr>
 				<td colspan="2">

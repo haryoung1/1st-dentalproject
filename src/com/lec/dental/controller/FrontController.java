@@ -37,8 +37,10 @@ public class FrontController extends HttpServlet {
 		Service service = null;
 		if (command.equals("/main.do")) { // 첫 실행화면
 			viewPage = "main/main.jsp";
-		}else if (command.equals("/intro.do")) {
+		}else if (command.equals("/intro.do")) { // 의료진소개
 			viewPage = "main/intro.jsp";
+		}else if (command.equals("/map.do")) { // 찾아오시는 길
+			viewPage = "main/map.jsp";
 		}
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
 		 * * * * * * * * * * * member 관련요청 * * * * * * * *  *  *

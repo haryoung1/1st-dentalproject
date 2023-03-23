@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
 #content_form {
 	height: 420px;
@@ -30,7 +30,7 @@
 	<div id="content_form">
 		<form action="${conPath }/noticeWrite.do" method="post">
 			<table>
-				<caption>글쓰기</caption>
+				<caption>공지사항</caption>
 				<tr>
 					<td>제목</td>
 					<td>

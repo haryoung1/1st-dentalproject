@@ -1,46 +1,4 @@
-#wrap {
-	width: 1000px;
-	height: 950px;
-	margin: 0 auto; /* 가운데로 조정 */
-	overflow: hidden;
-}
-
-#wrap table {
-	margin: 10px;
-	border: 3px solid #FBFAFA;
-	width: 90%;
-	margin: 0px auto;
-}
-
-#wrap table tr {
-	background-color: #FBFAFA;
-	height: 40px;
-}
-
-#wrap table tr:hover {
-	background-color: #FBFAFA;
-	cursor: pointer;
-}
-
-#wrap td, #content_form th {
-	text-align: center;
-	padding: 5px;
-}
-
-#wrap caption {
-	font-size: 18px;
-	padding: 10px;
-}
-
-#wrap .paging {
-	text-align: center;
-}
-
-#wrap table tr:hover {
-	background-color: #ffffff;
-	border: 1px solid #444444;
-	cursor: pointer;
-}
+@charset "UTF-8";
 
 #content_form {
 	width: 800px;
