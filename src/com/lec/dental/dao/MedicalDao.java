@@ -68,10 +68,8 @@ public class MedicalDao {
 				int mrstep = rs.getInt("mrstep");
 				int mrindent = rs.getInt("mrindent");
 				String mrip = rs.getString("mrip");
-				String mname = rs.getString("mname");
-				String aname = rs.getString("aname");
 				dtos.add(new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip, mname, aname));
+						mrip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -125,8 +123,8 @@ public class MedicalDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
+		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)" + 
+				"    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -183,7 +181,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT CB.*, MNAME FROM CBBOARD CB, MEMBER M WHERE CB.MID=M.MID AND CBNO=?";
+		String sql = "SELECT MR.*, MNAME FROM MRBOARD MR, MEMBER M WHERE MR.MID=M.MID AND MRNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -200,10 +198,8 @@ public class MedicalDao {
 				int mrstep = rs.getInt("mrstep");
 				int mrindent = rs.getInt("mrindent");
 				String mrip = rs.getString("mrip");
-				String mname = rs.getString("mname");
-				String aname = rs.getString("aname");
 				dto = new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip, mname, aname);
+						mrip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -246,10 +242,8 @@ public class MedicalDao {
 				int mrstep = rs.getInt("mrstep");
 				int mrindent = rs.getInt("mrindent");
 				String mrip = rs.getString("mrip");
-				String mname = rs.getString("mname");
-				String aname = rs.getString("aname");
 				dto = new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip, mname, aname);
+						mrip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

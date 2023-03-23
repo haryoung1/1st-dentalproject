@@ -8,15 +8,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(document).ready(function() {
+#content_form {
+	height: 420px;
+	margin: 80px auto 0px;
+}
 
-	});
-</script>
+#content_form table tr {
+	height: 60px;
+}
+</style>
 </head>
 <body>
 	<c:if test="${empty member }">
@@ -28,7 +30,7 @@
 	<div id="content_form">
 		<form action="${conPath }/medicalWrite.do" method="post">
 			<table>
-				<caption>글쓰기</caption>
+				<caption>진료예약 게시판</caption>
 				<tr>
 					<td>제목</td>
 					<td><input type="text" name="mrtitle" required="required">
@@ -39,10 +41,10 @@
 					<td><textarea rows="5" name="mrcontent"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="등록하기" class="btn">
-						<input type="reset" value="취소" class="btn"> <input
-						type="button" value="목록" class="btn"
-						onclick="location.href='${conPath}/noticeList.do'"></td>
+					<td colspan="2">
+					<input type="submit" value="등록하기" class="btn">
+					<input type="reset" value="취소" class="btn"> 
+					<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/medicalList.do'"></td>
 				</tr>
 			</table>
 		</form>

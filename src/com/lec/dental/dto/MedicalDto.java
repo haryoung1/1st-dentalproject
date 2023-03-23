@@ -14,15 +14,13 @@ public class MedicalDto {
 	private int mrstep;
 	private int mrindent;
 	private String mrip;
-	private String mname;
-	private String aname;
 
 	public MedicalDto() {
 
 	}
 
 	public MedicalDto(int mrno, String mid, String aid, String mrtitle, String mrcontent, Timestamp mrrdate, int mrhit,
-			int mrgroup, int mrstep, int mrindent, String mrip, String mname, String aname) {
+			int mrgroup, int mrstep, int mrindent, String mrip) {
 		this.mrno = mrno;
 		this.mid = mid;
 		this.aid = aid;
@@ -34,8 +32,7 @@ public class MedicalDto {
 		this.mrstep = mrstep;
 		this.mrindent = mrindent;
 		this.mrip = mrip;
-		this.mname = mname;
-		this.aname = aname;
+
 	}
 
 	public int getMrno() {
@@ -126,27 +123,11 @@ public class MedicalDto {
 		this.mrip = mrip;
 	}
 
-	public String getMname() {
-		return mname;
-	}
-
-	public void setMname(String mname) {
-		this.mname = mname;
-	}
-
-	public String getAname() {
-		return aname;
-	}
-
-	public void setAname(String aname) {
-		this.aname = aname;
-	}
-
 	@Override
 	public String toString() {
 		return "MedicalDto [mrno=" + mrno + ", mid=" + mid + ", aid=" + aid + ", mrtitle=" + mrtitle + ", mrcontent="
 				+ mrcontent + ", mrrdate=" + mrrdate + ", mrhit=" + mrhit + ", mrgroup=" + mrgroup + ", mrstep="
-				+ mrstep + ", mrindent=" + mrindent + ", mrip=" + mrip + ", mname=" + mname + ", aname=" + aname + "]";
-	}	
+				+ mrstep + ", mrindent=" + mrindent + ", mrip=" + mrip + "]";
+	}
 	
 }

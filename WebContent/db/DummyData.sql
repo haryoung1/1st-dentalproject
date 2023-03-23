@@ -3,25 +3,27 @@
 ------------------------------------------------------
 -- DUMMY DATA
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('aaa', '123', '강길동', 'Kang@NN.COM', 'NOIMG.JPG', '1994-08-25', '강서구 가양동');  
+    VALUES ('kim', '123', '킴민지', 'kim@naver.com', '민지.jpg', '2004-05-07', '강원도 춘천시');  
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('bbb', '123', '손길동', 'Hong@HH.COM', 'son.JPG', '1992-05-30', '강남구 논현동');
+    VALUES ('pham', '123', '팜하니', 'hani@naver.com', '하니.jpg', '2004-10-06', '멜버른');
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('ccc', '123', '강길순', 'soon@ss.COM', 'kim.JPG', '1982-05-30', '강서구 등촌동');   
- 
+    VALUES ('dan', '123', '모지혜', 'dani@naver.com', '다니엘.jpg', '2005-04-11', '뉴캐슬'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('kang', '123', '강해린', 'kang@naver.com', '해린.jpg', '2006-05-15', '서울시 강남구'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('lee', '123', '이혜인', 'lee@naver.com', '해인.jpg', '2008-04-21', '인천광역시 문학동'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('bin', '123', '강성빈', 'bin@naver.com', '정국.jpg', '1994-08-25', '서울특별시 강서구'); 
 
 SELECT * FROM MEMBER;
 COMMIT;
-
 ------------------------------------------------------
 --            관리자 ADMIN                     
 ------------------------------------------------------
 
 -- DUMMY DATA
 INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
-    VALUES ('admin', '143', '관리자', '111');
-INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
-    VALUES ('admin1', '123', '관리자1', '111');
+    VALUES ('admin', '111', '관리자', '143');
 
 SELECT * FROM ADMIN;
 COMMIT;
@@ -43,11 +45,11 @@ COMMIT;
 ------------------------------------------------------
 -- DUMMY DATA (원글과 답변)
 INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
-    VALUES (MRBOARD_SEQ.NEXTVAL, 'aaa', null, '예약글1', '예약내용1', MRBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
+    VALUES (MRBOARD_SEQ.NEXTVAL, 'kim', null, '킴민지 예약글', '예약내용1', MRBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
 INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
-    VALUES (MRBOARD_SEQ.NEXTVAL, 'bbb', null, '예약글2', '예약내용2', MRBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
+    VALUES (MRBOARD_SEQ.NEXTVAL, 'pham', null, '사랑니 발치', '예약내용2', MRBOARD_SEQ.CURRVAL, 0, 0, '192.1.1');
 INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
-    VALUES (MRBOARD_SEQ.NEXTVAL, 'ccc', null, '예약글3', '예약내용3', MRBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
+    VALUES (MRBOARD_SEQ.NEXTVAL, 'kang', null, '진료예약 합니다.', '예약내용3', MRBOARD_SEQ.CURRVAL, 0, 0, '198.1.1');
 
 -- 답변글
 INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)

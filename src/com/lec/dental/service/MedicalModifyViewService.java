@@ -6,14 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.lec.dental.dao.MedicalDao;
 import com.lec.dental.dto.MedicalDto;
 
-public class MedicalContentService implements Service {
+public class MedicalModifyViewService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		int mrno = Integer.parseInt(request.getParameter("mrno"));
-		MedicalDao  medicalDao = MedicalDao.getInstance();
-		MedicalDto dto = medicalDao.content(mrno);
-		request.setAttribute("mrContent", dto);
+		MedicalDao meDao = MedicalDao.getInstance();
+		MedicalDto meDto = meDao.modifMedicalView(mrno);
+		request.setAttribute("mrContent", meDto);
+
 	}
 
 }

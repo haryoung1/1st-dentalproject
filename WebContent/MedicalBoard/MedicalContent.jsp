@@ -20,32 +20,32 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${nContent.nbno }번글상세보기</caption>
+			<caption>${mrContent.mrno }번글상세보기</caption>
 			<tr>
 				<th>작성자</th>
-				<td>${nContent.aid }님</td>
+				<td>${mrContent.mid }님</td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td>${nContent.nbtitle }</td>
+				<td>${mrContent.mrtitle }</td>
 			</tr>
 			<tr>
 				<th>본문</th>
-				<td>${nContent.nbcontent }</td>
+				<td>${mrContent.mrcontent }</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<c:if test="${empty member and not empty admin}">
-						<input type="button" value="수정" class="btn" 
-							onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-						<input type="button" value="목록" class="btn" 
-							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
+				<td colspan="2"><c:if
+						test="${empty member and not empty admin}">
+						<input type="button" value="수정" class="btn"
+							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+						<input type="button" value="목록" class="btn"
+							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
 					</c:if> <c:if test="${empty member and not empty admin}">
 						<input type="button" value="삭제" class="btn"
-							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-					</c:if>
-					<c:if test="${empty admin}">
-						<input type="button" value="목록" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
+							onclick="location='${conPath}/medicalDelete.do?nbno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+					</c:if> <c:if test="${empty admin}">
+						<input type="button" value="목록" class="btn"
+							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
 					</c:if>
 			</tr>
 		</table>

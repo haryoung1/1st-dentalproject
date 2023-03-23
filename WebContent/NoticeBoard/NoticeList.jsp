@@ -40,8 +40,7 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<!--  글쓰기 성공 if noticeList -->
-	<c:if test="${not empty noticeWriteResult}">
+	<c:if test="${not empty noticeWriteResult}"> <!--  글쓰기 성공 if noticeList -->
 		<script>
 			alert('${noticeWriteResult}')
 		</script>

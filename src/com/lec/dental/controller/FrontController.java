@@ -155,19 +155,20 @@ public class FrontController extends HttpServlet {
 			service = new MedicalListService();
 			service.execute(request, response);
 			viewPage = "MedicalBoard/MedicalList.jsp";
-			
 		}else if (command.equals("/medicalWriteView.do")) { // 진료예약 게시판 글 쓰기
 			viewPage = "MedicalBoard/MedicalWrite.jsp";
-			
 		}else if (command.equals("/medicalWrite.do")) { // 진료예약 글 db 저장
 			service = new MedicalWriteService();
 			service.execute(request, response);
 			viewPage = "medicalList.do";
-			
-		}else if(command.equals("/medicalContent.do")) { // 공지글 상세보기
+		}else if(command.equals("/medicalContent.do")) { // 진료예약 글 상세보기
 			service = new MedicalContentService();
 			service.execute(request, response);
 			viewPage = "MedicalBoard/MedicalContent.jsp";
+		}else if(command.equals("/medicalModifyView.do")) { // 진료예약 글 수정하기
+			service = new MedicalModifyViewService();
+			service.execute(request, response);
+			viewPage = "MedicalBoard/MedicalModify.jsp";
 		}
 		
 		

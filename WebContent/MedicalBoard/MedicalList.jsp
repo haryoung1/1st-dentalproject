@@ -10,7 +10,14 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
- 
+#content_form {
+	height: 470px;
+	margin: 30px auto 0px;
+}
+
+#content_form table tr {
+	height: 10px;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -25,18 +32,25 @@ $(document).ready(function(){
 </script>  
 </head>
 <body>
+	<c:if test="${not empty medicalWriteResult}"> <!--  글쓰기 성공 -->
+		<script>
+			alert('${medicalWriteResult}')
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
+	<div id="wrap">
 		<table>
 			<tr>
 				<td><c:if test="${not empty member }">
-						<a href="${conPath }/boardWriteView.do">글쓰기</a>
+						<a href="${conPath }/medicalWriteView.do">글쓰기</a>
 					</c:if> <c:if test="${empty member and empty admin }">
 						<a href="${conPath }/loginView.do?next=boardWriteView.do">
-							로그인을 하셔야 글쓰기가 가능 합니다. </a>
+							예약을 하시려면 로그인을 해주세요. </a>
 					</c:if></td>
 			</tr>
 		</table>
+		<h2>진료예약</h2>
+		<hr>
 		<br>
 		<table>
 			<tr>
@@ -45,7 +59,6 @@ $(document).ready(function(){
 				<th>글제목</th>
 				<th>조회수</th>
 				<th>날짜</th>
-				<th>IP</th>
 			</tr>
 			<c:if test="${totCnt == 0 }">
 				<tr>
@@ -56,7 +69,7 @@ $(document).ready(function(){
 				<c:forEach items="${medicalList }" var="medical">
 					<tr>
 						<td>${medical.mrno }</td>
-						<td>${medical.mname }${medical.aid }</td>
+						<td>${medical.mid }${medical.aid }</td>
 						<td class="left">
 							<c:forEach var="i" begin="1" end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
@@ -66,7 +79,6 @@ $(document).ready(function(){
 						</td>
 						<td>${medical.mrhit }</td>
 						<td><fmt:formatDate value="${medical.mrrdate }" pattern="yy년MM월dd일(E)" /></td>
-						<td>${medical.mrip }</td>
 					</tr>
 				</c:forEach>
 			</c:if>
