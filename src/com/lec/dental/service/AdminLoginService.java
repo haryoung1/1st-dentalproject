@@ -21,7 +21,7 @@ public class AdminLoginService implements Service {
 			session.setAttribute("admin", admin);
 			request.setAttribute("adminLoginResult", "관리자계정으로 들어 오셨습니다.");
 		}else {
-			System.out.println("에러");
+			System.out.println("관리자 로그인 에러");
 			request.setAttribute("adminloginErrorMsg", "아이디와 비번을 확인하세요");
 		}
 

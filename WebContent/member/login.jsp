@@ -37,11 +37,12 @@
 				<tr>
 					<th>ID</th>
 					<td><input type="text" name="mid" value="${mid }"
-						required="required"></td>
+						required="required" placeholder="아이디"></td>
 				</tr>
 				<tr>
 					<th>PW</th>
-					<td><input type="password" name="mpw" required="required"></td>
+					<td><input type="password" name="mpw" required="required"
+						placeholder="비밀번호"></td>
 				</tr>
 				<tr>
 					<td colspan="2">

@@ -45,7 +45,7 @@
 			<%-- 관리자 모드 로그인 화면--%>
 			<div class="gnb">
 				<ul>
-					<li><a href="${conPath }/boardList.do">회원목록</a></li>
+					<li><a href="${conPath }/memberList.do">회원목록</a></li>
 					<li><a href="${conPath }/logout.do">로그아웃</a></li>
 					<li><a>${admin.aname }님 &nbsp; ▶</a></li>
 				</ul>
@@ -61,7 +61,8 @@
 				<li><img src="image/의료진소개.png"> <a
 					href="${conPath }/intro.do">의료진소개</a></li>
 				<li><img src="image/상담.png"> <a href="#">온라인상담</a></li>
-				<li><img src="image/진료예약.png"> <a href="#">진료예약</a></li>
+				<li><img src="image/진료예약.png"> <a
+					href="${conPath }/medicalList.do">진료예약</a></li>
 				<li><img src="image/공지사항.png"> <a href="#">후기게시판</a> <br>
 				</li>
 			</ul>

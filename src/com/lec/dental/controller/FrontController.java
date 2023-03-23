@@ -109,6 +109,10 @@ public class FrontController extends HttpServlet {
 			service = new AWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
+		}else if (command.equals("/memberList.do")) { // 회원목록
+			service = new MemberListSerivce();
+			service.execute(request, response);
+			viewPage = "member/MemberList.jsp";	
 		}
 
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -151,12 +155,19 @@ public class FrontController extends HttpServlet {
 			service = new MedicalListService();
 			service.execute(request, response);
 			viewPage = "MedicalBoard/MedicalList.jsp";
+			
 		}else if (command.equals("/medicalWriteView.do")) { // 진료예약 게시판 글 쓰기
 			viewPage = "MedicalBoard/MedicalWrite.jsp";
+			
 		}else if (command.equals("/medicalWrite.do")) { // 진료예약 글 db 저장
 			service = new MedicalWriteService();
 			service.execute(request, response);
 			viewPage = "medicalList.do";
+			
+		}else if(command.equals("/medicalContent.do")) { // 공지글 상세보기
+			service = new MedicalContentService();
+			service.execute(request, response);
+			viewPage = "MedicalBoard/MedicalContent.jsp";
 		}
 		
 		

@@ -57,3 +57,13 @@
 #content_form input:not(.btn), #content_form textarea {
 	width: 90%;
 }
+
+#content_form .btn {
+	width: 100px;
+	height: 20px;
+	border: 2px solid #444444;
+	outline: none;
+	font-size: 13px;
+	background-color: white;
+	cursor: pointer;
+}

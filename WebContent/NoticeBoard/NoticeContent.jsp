@@ -51,7 +51,7 @@
 							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
 					</c:if>
 					<c:if test="${empty admin}">
-						<input type="button" value="목록(유저)" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
+						<input type="button" value="목록" class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
 					</c:if>
 			</tr>
 		</table>

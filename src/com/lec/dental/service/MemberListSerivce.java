@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lec.dental.dao.MedicalDao;
-import com.lec.dental.dao.NoticeDao;
-import com.lec.dental.dto.MedicalDto;
-import com.lec.dental.dto.NoticeDto;
+import com.lec.dental.dao.MemberDao;
+import com.lec.dental.dto.MemberDto;
 
-public class MedicalListService implements Service {
+public class MemberListSerivce implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -26,10 +24,10 @@ public class MedicalListService implements Service {
 		final int PAGESIZE = 10, BLOCKSIZE = 10;
 		int startRow = (currentPage - 1) * PAGESIZE + 1;
 		int endRow = startRow + PAGESIZE - 1;
-		MedicalDao medicalDao = MedicalDao.getInstance();
-		ArrayList<MedicalDto> medicalList = medicalDao.listBoard(startRow, endRow);
-		request.setAttribute("medicalList", medicalList);
-		int totCnt = medicalDao.getMedicalCnt(); // 글 갯수
+		MemberDao memberDao = MemberDao.getInstance();
+		ArrayList<MemberDto> memberList = memberDao.getMemberlist(startRow, endRow);
+		request.setAttribute("memberList", memberList);
+		int totCnt = memberDao.getMemberCnt(); // 가입한 회원 수
 		int pageCnt = (int) Math.ceil((double) totCnt / PAGESIZE); // 페이지 갯수
 		int startPage = ((currentPage - 1) / BLOCKSIZE) * BLOCKSIZE + 1;
 		int endPage = startPage + BLOCKSIZE - 1;
@@ -40,8 +38,7 @@ public class MedicalListService implements Service {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCnt", pageCnt);
-		request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
+		request.setAttribute("totCnt", totCnt);
 		request.setAttribute("pageNum", currentPage);
 	}
-
 }

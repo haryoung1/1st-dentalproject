@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath}/css/member/join.css" rel="stylesheet">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
@@ -17,7 +18,7 @@
 		$('#mid').keyup(function() {
 			var mid = $(this).val();
 			if (mid.length < 2) {
-				$('#midConfirmResult').text('아이디는 2글자 이상 입니다');
+				$('#midConfirmResult').html('<p style=color:blue;>아이디는 2글자 이상 입니다');
 			} else {
 				$.ajax({
 					url : '${conPath}/midConfirm.do',
@@ -34,9 +35,9 @@
 			var mpw = $('#mpw').val();
 			var mpwChk = $('#mpwChk').val();
 			if (mpw == mpwChk) {
-				$('#pwChkResult').text('비밀번호가 일치 합니다.');
+				$('#pwChkResult').html('<p style=color:blue;>비밀번호가 일치 합니다');
 			} else {
-				$('#pwChkResult').html('비밀번호가 일치 하지 않습니다.');
+				$('#pwChkResult').html('<b>비밀번호가 일치 하지 않습니다</b>');
 			}
 		}); // key up event (비번 일치 확인용)
 		var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
@@ -56,15 +57,15 @@
 				});
 			}
 		});
-		// "사용 가능한 ID 입니다" (idConfirmResult), "비밀번호 일치(#pwChkResult)" 가 출력되었을 경우만 submit
+		// "사용 가능한 ID 입니다" (midConfirmResult), "비밀번호 일치(#mpwChkResult)" 가 출력되었을 경우만 submit
 		$('form').submit(function() {
 			var midConfirmResult = $('#midConfirmResult').text().trim();
 			var pwChkResult = $('#pwChkResult').text().trim();
 			var mailConfirmResult = $('#mailConfirmResult').text().trim();
-			if (midConfirmResult != '사용 가능한 ID 입니다') {
+			if (midConfirmResult != '사용가능한 ID 입니다') {
 				alert('사용 가능한 id인지 확인하세요')
 				return false; // submit 제한
-			} else if (pwChkResult != '비밀번호가 일치 합니다.') {
+			} else if (pwChkResult != '비밀번호가 일치 합니다') {
 				alert('비밀번호를 확인하세요');
 				$('input[name="mpw"]').focus();
 				return false;
@@ -125,17 +126,13 @@
 				<tr>
 					<td colspan="2">
 						<p>
-							<input type="submit" value="회원가입" class="btn"> <input
-								type="button" value="로그인" class="btn"
-								onclick="location='${conPath}/loginView.do'">
+							<input type="submit" value="회원가입" class="btn">
 						</p>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	
-	
 	<script>
 		$(function() {
 			$("#datepicker").datepicker(

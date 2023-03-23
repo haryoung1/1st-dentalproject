@@ -14,6 +14,18 @@
 </head>
 </head>
 <body>
+	<c:if test="${not empty adminloginErrorMsg }"> <!-- 관리자 ID / PW 실패시 -->
+		<script>
+			alert('${adminloginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty loginErrorMsg }"> <!-- 멤버 id / pw 실패시 -->
+		<script>
+			alert('${loginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content">
@@ -47,7 +59,8 @@
 						<img src="image/진료안내.png">
 					</p>
 					<p>
-						<img src="image/길.png"> <a href="${conPath }/map.do">찾아오시는 길 →</a>
+						<img src="image/길.png"> <a href="${conPath }/map.do">찾아오시는
+							길 →</a>
 					</p>
 				</div>
 			</div>

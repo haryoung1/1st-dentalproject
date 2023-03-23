@@ -44,6 +44,8 @@ DELETE FROM MEMBER WHERE mID = 'han';
 SELECT * FROM MEMBER;
 COMMIT;
 
+-- (10) 전체회원 목록
+SELECT COUNT(*) FROM MEMBER;
 ------------------------------------------------------
 --          Admin Dao query                   
 ------------------------------------------------------
@@ -249,4 +251,9 @@ COMMIT;
 
 
 SELECT * FROM ADMIN;
+
+DELETE * FROM ADMIN WHERE AID = 'aa';
+
+
+
 SELECT * FROM MEMBER;

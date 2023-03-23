@@ -15,7 +15,7 @@ public class MemailConfirmService implements Service {
 		if (result == MemberDao.EXISTENT) {
 			request.setAttribute("mailConfirmResult", "<b>중복된 메일주소 입니다.</b>");
 		} else {
-			request.setAttribute("mailConfirmResult", "사용 가능한 메일주소 입니다.");
+			request.setAttribute("mailConfirmResult", "<p style=color:blue;>사용 가능한 메일주소 입니다.");
 		}
 	}
 }

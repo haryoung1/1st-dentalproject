@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
  
 </style>
@@ -31,7 +31,7 @@ $(document).ready(function(){
 			<tr>
 				<td><c:if test="${not empty member }">
 						<a href="${conPath }/boardWriteView.do">글쓰기</a>
-					</c:if> <c:if test="${empty member }">
+					</c:if> <c:if test="${empty member and empty admin }">
 						<a href="${conPath }/loginView.do?next=boardWriteView.do">
 							로그인을 하셔야 글쓰기가 가능 합니다. </a>
 					</c:if></td>
