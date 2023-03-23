@@ -181,6 +181,7 @@ public class FrontController extends HttpServlet {
 			service = new MedicalReplyViewService();
 			service.execute(request, response);
 			viewPage = "MedicalBoard/medicalReply.jsp";
+			
 		}else if (command.equals("/medicalReply.do")) { // 답변처리
 			service = new MedicalReplyService();
 			service.execute(request, response);

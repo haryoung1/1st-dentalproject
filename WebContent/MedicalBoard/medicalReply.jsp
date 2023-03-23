@@ -10,6 +10,10 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
+#content_form {
+	height: 400px;
+	margin: 100px auto 0px;
+}
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -40,17 +44,18 @@
 </script>
 </head>
 <body>
-	<c:if test="${empty admin}">
+<%-- 	<c:if test="${empty admin and empty member}">
 		<script>
 			location.href = '${conPath}/adminLoginView.do?next=medicalReplyView.do?mrno=${param.mrno }&pageNum=${param.pageNum }';
 		</script>
-	</c:if>
+	</c:if> --%>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/medicalReply.do" method="post">
 			<input type="hidden" name="mrgroup" value="${originMedical.mrgroup }">
 			<input type="hidden" name="mrstep" value="${originMedical.mrstep }">
 			<input type="hidden" name="mrindent" value="${originMedical.mrindent }">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
 				<tr>

@@ -221,7 +221,6 @@ public class MedicalDao {
 	// (6) 글번호(MRNO)로 글전체 내용(MRboardDto) 가져오기 - 글수정VIEW, 답변글VIEW 용
 	public MedicalDto modifMedicalView(int mrno) {
 		MedicalDto dto = null;
-		mrhitUp(mrno);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
