@@ -14,6 +14,28 @@
 	height: 450px;
 	margin: 50px auto 0px;
 }
+
+button, .btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-weight: bol text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 2px solid #444444;
+	display: inline-block;
+	width: auto;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
 </style>
 </head>
 <body>
@@ -31,22 +53,21 @@
 			</tr>
 			<tr>
 				<th>본문</th>
-				<td>${mrContent.mrcontent }</td>
+				<td><pre>${mrContent.mrcontent }</pre></td>
 			</tr>
 			<tr>
-				<td colspan="2"><c:if
-						test="${empty member and not empty admin}">
-						<input type="button" value="수정" class="btn"
-							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
-						<input type="button" value="목록" class="btn"
-							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
-					</c:if> <c:if test="${empty member and not empty admin}">
-						<input type="button" value="삭제" class="btn"
-							onclick="location='${conPath}/medicalDelete.do?nbno=${mrContent.mrno}&pageNum=${param.pageNum }'">
-					</c:if> <c:if test="${empty admin}">
-						<input type="button" value="목록" class="btn"
-							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
+				<td colspan="2">
+				<c:if test="${member.mid eq mrContent.mid}">
+						<input type="button" value="수정" class="btn" onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+						<!-- <input type="button" value="삭제" class="btn" onclick="location='${conPath}/medicalDelete.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">-->
+				</c:if> 
+				<c:if test="${member.mid eq mrContent.mid or not empty admin}">
+						<input type="button" value="삭제" class="btn" onclick="location='${conPath}/medicalDelete.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+				</c:if> 
+					<c:if test="${member.mid eq mrContent.mid or not empty admin}">
+						<button onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변 </button>
 					</c:if>
+						<input type="button" value="목록" class="btn" onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
 			</tr>
 		</table>
 	</div>

@@ -12,10 +12,10 @@ public class NoticeDeleteService implements Service {
 		int nbno = Integer.parseInt(request.getParameter("nbno"));
 		NoticeDao nDao = NoticeDao.getInstance();
 		int result = nDao.deleteNotice(nbno);
-		if (result == nDao.SUCCESS) {
+		if (result == NoticeDao.SUCCESS) {
 			request.setAttribute("noticeResult", "글 삭제 성공");
 		} else {
-			request.setAttribute("noticeResult", "글 삭제 성공");
+			request.setAttribute("noticeResult", "글 삭제 실패");
 		}
 	}
 

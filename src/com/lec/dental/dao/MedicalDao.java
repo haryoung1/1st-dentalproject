@@ -48,7 +48,7 @@ public class MedicalDao {
 		ResultSet rs = null;
 		String sql = "SELECT A. *," + "    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
 				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*"
-				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRRDATE DESC) B) A"
+				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRNO DESC) B) A"
 				+ "    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
@@ -123,8 +123,8 @@ public class MedicalDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)" + 
-				"    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
+		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
+				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -225,7 +225,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT CB.*, MNAME FROM CBBOARD CB, MEMBER M WHERE CB.MID=M.MID AND CBNO=?";
+		String sql = "SELECT MR.*, MNAME FROM MRBOARD MR, MEMBER M WHERE MR.MID=M.MID AND MRNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

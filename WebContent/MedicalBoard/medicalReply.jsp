@@ -10,15 +10,7 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-#content_form {
-	height: 420px;
-	margin: 80px auto 0px;
-}
-
-#content_form table tr {
-	height: 60px;
-}
-button, .btn {
+.btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -40,32 +32,45 @@ button, .btn {
 	transition: 0.5s;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
 </head>
 <body>
-	<c:if test="${empty member }">
+	<c:if test="${empty admin}">
 		<script>
-			location.href = '${conPath}/loginView.do?next=medicalWriteView.do';
+			location.href = '${conPath}/adminLoginView.do?next=medicalReplyView.do?mrno=${param.mrno }&pageNum=${param.pageNum }';
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/medicalWrite.do" method="post">
+		<form action="${conPath }/medicalReply.do" method="post">
+			<input type="hidden" name="mrgroup" value="${originMedical.mrgroup }">
+			<input type="hidden" name="mrstep" value="${originMedical.mrstep }">
+			<input type="hidden" name="mrindent" value="${originMedical.mrindent }">
 			<table>
-				<caption>진료예약 게시판</caption>
+				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
 				<tr>
-					<td>제목</td>
-					<td><input type="text" name="mrtitle" required="required">
-					</td>
+					<td>작성자</td>
+					<td>${mrContent.mid }${admin.aid }</td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td><textarea rows="5" name="mrcontent"></textarea></td>
+					<td>제목</td>
+					<td><input type="text" name="mrtitle" required="required"
+						value="[답] ${originMedical.mrtitle }"></td>
+				</tr>
+				<tr>
+					<td>본문</td>
+					<td><textarea rows="3" cols="3" name="mrContent"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="submit" value="등록하기" class="btn">
-					<input type="reset" value="취소" class="btn"> 
-					<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/medicalList.do'"></td>
+						<input type="submit" value="답변쓰기" class="btn">
+						<input type="reset" value="취소" class="btn"> 
+						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/medicalList.do'"></td>
 				</tr>
 			</table>
 		</form>

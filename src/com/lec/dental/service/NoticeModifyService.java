@@ -18,7 +18,7 @@ public class NoticeModifyService implements Service {
 		NoticeDao nDao = NoticeDao.getInstance();
 		NoticeDto nDto = new NoticeDto(nbno, aid, nbtitle, nbcontent, null, nbip);
 		int result = nDao.modifyNotice(nDto);
-		if (result == nDao.SUCCESS) {
+		if (result == NoticeDao.SUCCESS) {
 			request.setAttribute("noticeResult", "글 수정 성공");
 		} else {
 			request.setAttribute("noticeResult", "글 수정 실패");

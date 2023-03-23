@@ -18,12 +18,35 @@
 #content_form table tr {
 	height: 60px;
 }
+
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 2px solid #444444;
+	display: inline-block;
+	width: auto;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
 </style>
 </head>
 <body>
 	<c:if test="${empty admin }">
 		<script>
-			location.href='${conPath}/adminLoginView.do?next=noticeWriteView.do';
+			location.href = '${conPath}/adminLoginView.do?next=noticeWriteView.do';
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
@@ -33,22 +56,18 @@
 				<caption>공지사항</caption>
 				<tr>
 					<td>제목</td>
-					<td>
-						<input type="text" name="nbtitle" required="required">
+					<td><input type="text" name="nbtitle" required="required">
 					</td>
 				</tr>
 				<tr>
 					<td>본문</td>
-					<td>
-						<textarea rows="5" name="nbcontent"></textarea>
-					</td>
+					<td><textarea rows="5" name="nbcontent"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<input type="submit" value="등록하기" class="btn">
-						<input type="reset" value="취소" class="btn">
-						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/noticeList.do'">
-					</td>
+					<td colspan="2"><input type="submit" value="등록하기" class="btn">
+						<input type="reset" value="취소" class="btn"> <input
+						type="button" value="목록" class="btn"
+						onclick="location.href='${conPath}/noticeList.do'"></td>
 				</tr>
 			</table>
 		</form>

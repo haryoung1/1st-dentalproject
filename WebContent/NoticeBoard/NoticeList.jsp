@@ -18,24 +18,39 @@
 #content_form table tr {
 	height: 10px;
 }
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 2px solid #444444;
+	display: inline-block;
+	width: auto;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var nbno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(nbno)) {
-												location.href = '${conPath }/noticeContent.do?nbno='
-														+ nbno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+	var nbno = $(this).children().eq(0).text();
+	if (!isNaN(nbno)) {
+			location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
+		}
+	});
+});
 </script>
 </head>
 <body>
@@ -48,12 +63,14 @@
 	<div id="wrap">
 		<table>
 			<tr>
-				<td><c:if test="${not empty admin }">
+				<td>
+					<c:if test="${not empty admin }">
 						<a href="${conPath }/noticeWriteView.do">글쓰기</a>
-					</c:if> <c:if test="${ empty admin }">
-						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do">
-							글쓰기</a>
-					</c:if></td>
+					</c:if> 
+					<c:if test="${empty admin }">
+						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do"></a>
+					</c:if>
+				</td>
 			</tr>
 		</table>
 		<h2>공지사항</h2>
@@ -68,7 +85,7 @@
 			</tr>
 			<c:if test="${totCnt eq 0 }">
 				<tr>
-					<td colspan="5">해당 페이지의 글이 없습니다</td>
+					<td colspan="4">해당 페이지의 글이 없습니다</td>
 				</tr>
 			</c:if>
 			<c:if test="${totCnt != 0 }">

@@ -24,9 +24,3 @@ footer #footer_conts p:first-child {
 	line-height: 25px;
 	padding: 13px;
 }
-
-footer #footer_conts p:last-child {
-	color: white;
-	float: right;
-	padding: 5px;
-}

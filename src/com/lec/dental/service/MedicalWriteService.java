@@ -24,11 +24,10 @@ public class MedicalWriteService implements Service {
 			int result = medicalDao.writeMedical(medicalDto);
 			if (result == MedicalDao.SUCCESS) {
 				request.setAttribute("medicalWriteResult", "글쓰기 성공");
-			}else {
+			} else {
 				request.setAttribute("medicalWriteResult", "글쓰기 실패");
 			}
-		}else {
-			System.out.println("member : " + member);
+			request.setAttribute("pageNum", request.getParameter("pageNum"));
 		}
 
 	}

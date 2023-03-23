@@ -62,7 +62,7 @@ $(document).ready(function(){
 			</tr>
 			<c:if test="${totCnt == 0 }">
 				<tr>
-					<td colspan="6">해당 페이지의 글이 없습니다</td>
+					<td colspan="5">해당 페이지의 글이 없습니다</td>
 				</tr>
 			</c:if>
 			<c:if test="${totCnt != 0 }">
