@@ -20,31 +20,31 @@ $(document).ready(function(){
 	$('tr').click(function(){
 		var mrno = $(this).children().eq(0).text();
 	if(!isNaN(mrno)){
-		location.href = '${conPath }/medicalContent.do?mrno='+mrno+'&pageNum=${pageNum}';
+		location.href = '${conPath }/reviewContent.do?rvno='+rvno+'&pageNum=${pageNum}';
 	}
 	});
 });
 </script>  
 </head>
 <body>
-	<c:if test="${not empty medicalWriteResult}"> <!--  글쓰기 성공 -->
+<%-- 	<c:if test="${not empty medicalWriteResult}"> <!--  글쓰기 성공 -->
 		<script>
 			alert('${medicalWriteResult}')
 		</script>
-	</c:if>
+	</c:if> --%>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<table>
 			<tr>
 				<td><c:if test="${not empty member }">
-						<a href="${conPath }/medicalWriteView.do">글쓰기</a>
+						<a href="${conPath }/reviewlWriteView.do">글쓰기</a>
 					</c:if> <c:if test="${empty member and empty admin }">
-						<a href="${conPath }/loginView.do?next=medicalWriteView.do">
-							예약을 하시려면 로그인을 해주세요. </a>
+						<a href="${conPath }/loginView.do?next=boardWriteView.do">
+							글 작성을 위해 로그인을 해주세요. </a>
 					</c:if></td>
 			</tr>
 		</table>
-		<h2>진료예약</h2>
+		<h2>후기게시판★</h2>
 		<hr>
 		<br>
 		<table>
@@ -61,19 +61,13 @@ $(document).ready(function(){
 				</tr>
 			</c:if>
 			<c:if test="${totCnt != 0 }">
-				<c:forEach items="${medicalList }" var="medical">
+				<c:forEach items="${reviewList }" var="review">
 					<tr>
-						<td>${medical.mrno }</td>
-						<td>${medical.mid }${medical.aid }</td>
-						<td class="left">
-							<c:forEach var="i" begin="1" end="${medical.mrindent }">
-								<c:if test="${i == medical.mrindent}">└─</c:if>
-								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
-							</c:forEach>
-							${medical.mrtitle }
-						</td>
-						<td>${medical.mrhit }</td>
-						<td><fmt:formatDate value="${medical.mrrdate }" pattern="yy년MM월dd일(E)" /></td>
+						<td>${review.rvno }</td>
+						<td>${review.mid }${review.aid }</td>
+						<td>${review.rvtitle }
+						<td>${review.mrhit }</td>
+						<td><fmt:formatDate value="${review.rvrdate }" pattern="yy년MM월dd일(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -81,7 +75,7 @@ $(document).ready(function(){
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/medicalList.do?pageNum=${startPage-1}"> 이전
+				[ <a href="${conPath }/reviewlList.do?pageNum=${startPage-1}"> 이전
 				</a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
@@ -89,11 +83,11 @@ $(document).ready(function(){
 					<b> [ ${i } ] </b>
 				</c:if>
 				<c:if test="${i != pageNum }">
-					[ <a href="${conPath }/medicalList.do?pageNum=${i}"> ${i } </a> ]
+					[ <a href="${conPath }/reviewlList.do?pageNum=${i}"> ${i } </a> ]
 				</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-			  [ <a href="${conPath }/medicalList.do?pageNum=${endPage+1}"> 다음 </a> ]
+			  [ <a href="${conPath }/reviewlList.do?pageNum=${endPage+1}"> 다음 </a> ]
 			</c:if>
 		</div>
 	</div>

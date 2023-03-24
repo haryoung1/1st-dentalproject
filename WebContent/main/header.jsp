@@ -63,8 +63,8 @@
 				<li><img src="image/상담.png"> <a href="#">온라인상담</a></li>
 				<li><img src="image/진료예약.png"> <a
 					href="${conPath }/medicalList.do">진료예약</a></li>
-				<li><img src="image/공지사항.png"> <a href="#">후기게시판</a> <br>
-				</li>
+				<li><img src="image/공지사항.png"> <a
+					href="${conPath }/reviewList.do">후기게시판</a> <br></li>
 			</ul>
 		</div>
 	</header>

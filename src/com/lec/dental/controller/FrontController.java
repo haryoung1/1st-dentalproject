@@ -48,6 +48,7 @@ public class FrontController extends HttpServlet {
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
 		 * * * * * * * * * * * member 관련요청 * * * * * * * *  *  *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+		
 		else if (command.equals("/midConfirm.do")) { // 아이디 중복체크
 			service = new MidConfirmService();
 			service.execute(request, response);
@@ -89,6 +90,7 @@ public class FrontController extends HttpServlet {
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		* * * * * * * * * * * 어드민 관련요청 * * * * * * * * * * * * 
 		* * * * * * * * * * * * * * * * * * * * * * * * * * * */
+		
 		else if (command.equals("/aidConfirm.do")) { // 아이디 중복체크
 			service = new AidConfirmService();
 			service.execute(request, response);
@@ -119,7 +121,8 @@ public class FrontController extends HttpServlet {
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 공지사항 관련요청 * * * * * * * * * * *  
-		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
+		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+		
 		else if (command.equals("/noticeList.do")) { // 공지사항 글 목록
 			service = new NoticeListService();
 			service.execute(request, response);
@@ -150,7 +153,8 @@ public class FrontController extends HttpServlet {
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * 
-		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
+		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+		
 		else if (command.equals("/medicalList.do")) { // 진료예약 게시판 글 목록
 			service = new MedicalListService();
 			service.execute(request, response);
@@ -187,8 +191,15 @@ public class FrontController extends HttpServlet {
 			viewPage = "medicalList.do";
 		}
 		
+		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+		 * * * * * * * * * * * 리뷰 게시판 관련요청 * * * * * * * * * *
+		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 		
-		
+		else if (command.equals("/reviewList.do")) { // 리뷰 게시판 글 목록
+			service = new ReviewListService();
+			service.execute(request, response);
+			viewPage = "ReviewBoard/reviewlList.jsp";
+		}
 		
 		
 		

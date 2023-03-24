@@ -45,7 +45,7 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${nContent.nbno }번글상세보기</caption>
+			<caption>${nContent.nbno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${nContent.aid }님</td>

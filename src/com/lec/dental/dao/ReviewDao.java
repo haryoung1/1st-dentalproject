@@ -12,19 +12,20 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.lec.dental.dto.MedicalDto;
+import com.lec.dental.dto.ReviewDto;
 
-public class MedicalDao {
+public class ReviewDao {
 	public static final int SUCCESS = 1;
 	public static final int FAIL = 0;
 
-	private static MedicalDao instance = new MedicalDao();
+	private static ReviewDao instance = new ReviewDao();
 
-	public static MedicalDao getInstance() {
+	public static ReviewDao getInstance() {
 		return instance;
 	}
 
-	private MedicalDao() {
+	private ReviewDao() {
+
 	}
 
 	private Connection getConnection() throws SQLException {
@@ -40,15 +41,14 @@ public class MedicalDao {
 	}
 
 	// (1) 글 목록
-	public ArrayList<MedicalDto> listBoard(int startRow, int endRow) {
-		ArrayList<MedicalDto> dtos = new ArrayList<MedicalDto>();
+	public ArrayList<ReviewDto> listBoard(int startRow, int endRow) {
+		ArrayList<ReviewDto> dtos = new ArrayList<ReviewDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT A. *," + "    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
 				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*\r\n"
-				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRGROUP DESC, MRSTEP) B) A"
-				+ "    WHERE RN BETWEEN ? AND ?";
+				+ "            FROM (SELECT * FROM RVBOARD ORDER BY RVNO DESC) B) A" + "    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -56,19 +56,16 @@ public class MedicalDao {
 			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				int mrno = rs.getInt("mrno");
+				int rvno = rs.getInt("rvno");
 				String mid = rs.getString("mid");
 				String aid = rs.getString("aid");
-				String mrtitle = rs.getString("mrtitle");
-				String mrcontent = rs.getString("mrcontent");
-				Timestamp mrrdate = rs.getTimestamp("mrrdate");
-				int mrhit = rs.getInt("mrhit");
-				int mrgroup = rs.getInt("mrgroup");
-				int mrstep = rs.getInt("mrstep");
-				int mrindent = rs.getInt("mrindent");
-				String mrip = rs.getString("mrip");
-				dtos.add(new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip));
+				String rvtitle = rs.getString("rvtitle");
+				String rvcontent = rs.getString("rvcontent");
+				String rvfilename = rs.getString("rvfilename");
+				Timestamp rvrdate = rs.getTimestamp("rvrdate");
+				int rvhit = rs.getInt("rvhit");
+				String rvip = rs.getString("rvip");
+				dtos.add(new ReviewDto(rvno, mid, aid, rvtitle, rvcontent, rvfilename, rvrdate, rvhit, rvip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -88,12 +85,12 @@ public class MedicalDao {
 	}
 
 	// (2) 전체 글 갯수
-	public int getMedicalCnt() {
+	public int getReviewCnt() {
 		int totCnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM MRBOARD";
+		String sql = "SELECT COUNT(*) FROM RVBOARD";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -118,20 +115,21 @@ public class MedicalDao {
 	}
 
 	// (3) 글쓰기 원글
-	public int writeMedical(MedicalDto dto) {
+	public int writeReview(ReviewDto dto) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
+		String sql = "INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)"
+				+ "    VALUES (RVBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getMid());
 			pstmt.setString(2, dto.getAid());
-			pstmt.setString(3, dto.getMrtitle());
-			pstmt.setString(4, dto.getMrcontent());
-			pstmt.setString(5, dto.getMrip());
+			pstmt.setString(3, dto.getRvtitle());
+			pstmt.setString(4, dto.getRvcontent());
+			pstmt.setString(5, dto.getRvfilename());
+			pstmt.setString(6, dto.getRvip());
 			result = pstmt.executeUpdate();
 			System.out.println("원글 쓰기 성공");
 		} catch (SQLException e) {
@@ -150,14 +148,14 @@ public class MedicalDao {
 	}
 
 	// (4) 조회수 올리기 (hit)
-	public void mrhitUp(int mrno) {
+	public void rvhitUp(int rvno) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MRBOARD SET MRHIT = MRHIT + 1 WHERE MRNO = ?";
+		String sql = "UPDATE RVBOARD SET RVHIT = RVHIT + 1 WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mrno);
+			pstmt.setInt(1, rvno);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage() + " 조회수 up 실패");
@@ -173,32 +171,29 @@ public class MedicalDao {
 		}
 	}
 
-	// (5) 글번호(MRNO)로 글 전체 내용(MRboardDto) 가져오기
-	public MedicalDto content(int mrno) {
-		MedicalDto dto = null;
-		mrhitUp(mrno);
+	// (5) 글번호 (RVNO)로 글 전체 내용 (RVboardDto) 가져오기
+	public ReviewDto content(int rvno) {
+		ReviewDto dto = null;
+		rvhitUp(rvno);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM MRBOARD WHERE MRNO=?";
+		String sql = "SELECT * FROM RVBOARD WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mrno);
+			pstmt.setInt(1, rvno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String mid = rs.getString("mid");
 				String aid = rs.getString("aid");
-				String mrtitle = rs.getString("mrtitle");
-				String mrcontent = rs.getString("mrcontent");
-				Timestamp mrrdate = rs.getTimestamp("mrrdate");
-				int mrhit = rs.getInt("mrhit");
-				int mrgroup = rs.getInt("mrgroup");
-				int mrstep = rs.getInt("mrstep");
-				int mrindent = rs.getInt("mrindent");
-				String mrip = rs.getString("mrip");
-				dto = new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip);
+				String rvtitle = rs.getString("rvtitle");
+				String rvcontent = rs.getString("rvcontent");
+				String rvfilename = rs.getString("rvfilename");
+				Timestamp rvrdate = rs.getTimestamp("rvrdate");
+				int rvhit = rs.getInt("rvhit");
+				String rvip = rs.getString("rvip");
+				dto = new ReviewDto(rvno, mid, aid, rvtitle, rvcontent, rvfilename, rvrdate, rvhit, rvip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -217,31 +212,29 @@ public class MedicalDao {
 		return dto;
 	}
 
-	// (6) 글번호(MRNO)로 글전체 내용(MRboardDto) 가져오기 - 글수정VIEW, 답변글VIEW 용
-	public MedicalDto modifyView_replyView(int mrno) {
-		MedicalDto dto = null;
+	// (6) 글번호(RVNO)로 글전체 내용(RVboardDto) 가져오기 - 글수정VIEW, 답변글VIEW 용
+	public ReviewDto modifyView_replyView(int rvno) {
+		ReviewDto dto = null;
+		rvhitUp(rvno);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM MRBOARD WHERE MRNO=?";
+		String sql = "SELECT * FROM RVBOARD WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mrno);
+			pstmt.setInt(1, rvno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String mid = rs.getString("mid");
 				String aid = rs.getString("aid");
-				String mrtitle = rs.getString("mrtitle");
-				String mrcontent = rs.getString("mrcontent");
-				Timestamp mrrdate = rs.getTimestamp("mrrdate");
-				int mrhit = rs.getInt("mrhit");
-				int mrgroup = rs.getInt("mrgroup");
-				int mrstep = rs.getInt("mrstep");
-				int mrindent = rs.getInt("mrindent");
-				String mrip = rs.getString("mrip");
-				dto = new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, mrrdate, mrhit, mrgroup, mrstep, mrindent,
-						mrip);
+				String rvtitle = rs.getString("rvtitle");
+				String rvcontent = rs.getString("rvcontent");
+				String rvfilename = rs.getString("rvfilename");
+				Timestamp rvrdate = rs.getTimestamp("rvrdate");
+				int rvhit = rs.getInt("rvhit");
+				String rvip = rs.getString("rvip");
+				dto = new ReviewDto(rvno, mid, aid, rvtitle, rvcontent, rvfilename, rvrdate, rvhit, rvip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -260,22 +253,23 @@ public class MedicalDao {
 		return dto;
 	}
 
-	// (7) 글 수정하기(MRNO, MRtitle, MRcontent, MRrdate(SYSDATE), MRip 수정)
-	public int modifyMedical(MedicalDto dto) {
+	// (7) 글 수정하기(RVNO, RVtitle, RVcontent, RVFILENAME, RVrdate(SYSDATE), RVip 수정)
+	public int modifyReview(ReviewDto dto) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MRBOARD SET" + "        MRTITLE = ?," + "        MRCONTENT =?,"
-				+ "        MRRDATE = SYSDATE," + "        MRIP = ?" + "    WHERE MRNO = ?";
+		String sql = "UPDATE RVBOARD SET" + "        RVTITLE = ?," + "        RVCONTENT =?," + "        RVFILENAME =?,"
+				+ "        RVRDATE = SYSDATE," + "        RVIP = ?" + "    WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getMrtitle());
-			pstmt.setString(2, dto.getMrcontent());
-			pstmt.setString(3, dto.getMrip());
-			pstmt.setInt(4, dto.getMrno());
+			pstmt.setString(1, dto.getRvtitle());
+			pstmt.setString(2, dto.getRvcontent());
+			pstmt.setString(3, dto.getRvfilename());
+			pstmt.setString(4, dto.getRvip());
+			pstmt.setInt(5, dto.getRvno());
 			result = pstmt.executeUpdate();
-			System.out.println(result == SUCCESS ? "글수정 성공" : "글번호(mrno) 오류");
+			System.out.println(result == SUCCESS ? "글수정 성공" : "글번호(rvno) 오류");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage() + "글 수정 실패 ");
 		} finally {
@@ -292,18 +286,18 @@ public class MedicalDao {
 		return result;
 	}
 
-	// (8) 글 삭제하기 (MRNO로)
-	public int deleteMedical(int mrno) {
+	// (8) 글 삭제하기 (rvno 로)
+	public int deleteReview(int rvno) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM MRBOARD WHERE MRNO = ?";
+		String sql = "DELETE FROM RVBOARD WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mrno);
+			pstmt.setInt(1, rvno);
 			result = pstmt.executeUpdate();
-			System.out.println(result == SUCCESS ? "글삭제 성공" : "글번호(mrno) 오류");
+			System.out.println(result == SUCCESS ? "글삭제 성공" : "글번호(rvno) 오류");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage() + "글 삭제 실패 ");
 		} finally {
@@ -319,69 +313,7 @@ public class MedicalDao {
 		return result;
 	}
 
-	// (9) 답변글 쓰기 전 단계 (원글의 MRgroup과 같고, 원글의 MRstep 보다 크면 MRstep을 하나 증가)
-	private void preReplyStep(int mrgroup, int mrstep) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "UPDATE MRBOARD" + " SET MRSTEP = MRSTEP + 1" + "WHERE MRGROUP = ? AND MRSTEP > ?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mrgroup);
-			pstmt.setInt(2, mrstep);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println(e.getMessage() + " preReplyStep에서 오류");
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
-
-	// (10) 답변글 쓰기
-	public int reply(MedicalDto dto) {
-		int result = FAIL;
-		preReplyStep(dto.getMrgroup(), dto.getMrstep());
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getMid());
-			pstmt.setString(2, dto.getAid());
-			pstmt.setString(3, dto.getMrtitle());
-			pstmt.setString(4, dto.getMrcontent());
-			pstmt.setInt(5, dto.getMrgroup());
-			pstmt.setInt(6, dto.getMrstep() + 1);
-			pstmt.setInt(7, dto.getMrindent() + 1);
-			pstmt.setString(8, dto.getMrip());
-			pstmt.executeUpdate();
-			result = SUCCESS;
-			System.out.println("답변 글쓰기 성공");
-		} catch (SQLException e) {
-			System.out.println(e.getMessage() + "답변 글쓰기 실패 ");
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return result;
-	}
-
-	// (11) 회원탈퇴시 탈퇴하는 회원 (mID)이 쓴 글 모두 삭제하기
+	// (9) 회원탈퇴시 탈퇴하는 회원 (mID)이 쓴 글 모두 삭제하기
 	public int preWithdrawalMemberStep(String mid) {
 		int cntBoard = 0;
 		Connection conn = null;

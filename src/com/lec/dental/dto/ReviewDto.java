@@ -11,9 +11,6 @@ public class ReviewDto {
 	private String rvfilename;
 	private Timestamp rvrdate;
 	private int rvhit;
-	private int rvgroup;
-	private int rvstep;
-	private int rvindent;
 	private String rvip;
 
 	public ReviewDto() {
@@ -21,7 +18,8 @@ public class ReviewDto {
 	}
 
 	public ReviewDto(int rvno, String mid, String aid, String rvtitle, String rvcontent, String rvfilename,
-			Timestamp rvrdate, int rvhit, int rvgroup, int rvstep, int rvindent, String rvip) {
+			Timestamp rvrdate, int rvhit, String rvip) {
+		super();
 		this.rvno = rvno;
 		this.mid = mid;
 		this.aid = aid;
@@ -30,9 +28,6 @@ public class ReviewDto {
 		this.rvfilename = rvfilename;
 		this.rvrdate = rvrdate;
 		this.rvhit = rvhit;
-		this.rvgroup = rvgroup;
-		this.rvstep = rvstep;
-		this.rvindent = rvindent;
 		this.rvip = rvip;
 	}
 
@@ -100,30 +95,6 @@ public class ReviewDto {
 		this.rvhit = rvhit;
 	}
 
-	public int getRvgroup() {
-		return rvgroup;
-	}
-
-	public void setRvgroup(int rvgroup) {
-		this.rvgroup = rvgroup;
-	}
-
-	public int getRvstep() {
-		return rvstep;
-	}
-
-	public void setRvstep(int rvstep) {
-		this.rvstep = rvstep;
-	}
-
-	public int getRvindent() {
-		return rvindent;
-	}
-
-	public void setRvindent(int rvindent) {
-		this.rvindent = rvindent;
-	}
-
 	public String getRvip() {
 		return rvip;
 	}
@@ -135,7 +106,8 @@ public class ReviewDto {
 	@Override
 	public String toString() {
 		return "ReviewDto [rvno=" + rvno + ", mid=" + mid + ", aid=" + aid + ", rvtitle=" + rvtitle + ", rvcontent="
-				+ rvcontent + ", rvfilename=" + rvfilename + ", rvrdate=" + rvrdate + ", rvhit=" + rvhit + ", rvgroup="
-				+ rvgroup + ", rvstep=" + rvstep + ", rvindent=" + rvindent + ", rvip=" + rvip + "]";
+				+ rvcontent + ", rvfilename=" + rvfilename + ", rvrdate=" + rvrdate + ", rvhit=" + rvhit + ", rvip="
+				+ rvip + "]";
 	}
+
 }

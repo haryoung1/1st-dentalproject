@@ -96,11 +96,11 @@ COMMIT;
 ------------------------------------------------------
 -- DUMMY DATA (원글)
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'aaa', null, '후기글1', '친절해요', null, '192.168.10.151');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'kim', null, '후기글1', '친절해요', null, '192.168.10.151');
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'bbb', null, '후기글2', '친절해요', null, '192.168.10.151');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'pham', null, '후기글2', '친절해요', null, '192.168.10.151');
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'ccc', null, '후기글3', '친절해요', null, '192.168.10.151');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'dan', null, '후기글3', '친절해요', null, '192.168.10.151');
 
 SELECT * FROM RVBOARD;
 COMMIT;

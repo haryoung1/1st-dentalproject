@@ -16,6 +16,7 @@ public class MedicalModifyService implements Service {
 		String mrtitle = request.getParameter("mrtitle");
 		String mrcontent = request.getParameter("mrcontent");
 		String mrip = request.getRemoteAddr();
+		String mname = request.getParameter("mname");
 		MedicalDao meDao = MedicalDao.getInstance();
 		MedicalDto meDto = new MedicalDto(mrno, mid, aid, mrtitle, mrcontent, null, 0, 0, 0, 0, mrip);
 		int result = meDao.modifyMedical(meDto);

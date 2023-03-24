@@ -21,6 +21,7 @@ public class MedicalDto {
 
 	public MedicalDto(int mrno, String mid, String aid, String mrtitle, String mrcontent, Timestamp mrrdate, int mrhit,
 			int mrgroup, int mrstep, int mrindent, String mrip) {
+		super();
 		this.mrno = mrno;
 		this.mid = mid;
 		this.aid = aid;
@@ -129,5 +130,5 @@ public class MedicalDto {
 				+ mrcontent + ", mrrdate=" + mrrdate + ", mrhit=" + mrhit + ", mrgroup=" + mrgroup + ", mrstep="
 				+ mrstep + ", mrindent=" + mrindent + ", mrip=" + mrip + "]";
 	}
-	
+
 }

@@ -15,6 +15,7 @@ public class MedicalReplyService implements Service {
 		String mrtitle = request.getParameter("mrtitle");
 		String mrContent = request.getParameter("mrContent");
 		String mrip = request.getRemoteAddr();
+		String mname = request.getParameter("mname");
 		int mrgroup = Integer.parseInt(request.getParameter("mrgroup"));
 		int mrstep = Integer.parseInt(request.getParameter("mrstep"));
 		int mrindent = Integer.parseInt(request.getParameter("mrindent"));

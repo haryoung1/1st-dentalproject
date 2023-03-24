@@ -45,7 +45,7 @@ button, .btn {
 			<caption>${mrContent.mrno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
-				<td>${mrContent.mid }${mrContent.aid }님</td>
+				<td>${mrContent.mid }${mrContent.aid }</td>
 			</tr>
 			<tr>
 			
@@ -65,7 +65,7 @@ button, .btn {
 				<c:if test="${member.mid eq mrContent.mid or not empty admin}">
 						<input type="button" value="삭제" class="btn" onclick="location='${conPath}/medicalDelete.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
 				</c:if> 
-					<c:if test="${member.mid eq mrContent.mid or not empty admin}">
+					<c:if test="${not empty admin}">
 						<button onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변 </button>
 					</c:if>
 						<input type="button" value="목록" class="btn" onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
