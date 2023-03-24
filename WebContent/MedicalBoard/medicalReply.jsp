@@ -14,6 +14,7 @@
 	height: 400px;
 	margin: 100px auto 0px;
 }
+
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -44,28 +45,24 @@
 </script>
 </head>
 <body>
-<%-- 	<c:if test="${empty admin and empty member}">
-		<script>
-			location.href = '${conPath}/adminLoginView.do?next=medicalReplyView.do?mrno=${param.mrno }&pageNum=${param.pageNum }';
-		</script>
-	</c:if> --%>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/medicalReply.do" method="post">
 			<input type="hidden" name="mrgroup" value="${originMedical.mrgroup }">
 			<input type="hidden" name="mrstep" value="${originMedical.mrstep }">
-			<input type="hidden" name="mrindent" value="${originMedical.mrindent }">
+			<input type="hidden" name="mrindent" value="${originMedical.mrindent }"> 
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
-				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
+				<caption>${originMedical.mrno }번글답변쓰기폼</caption>
 				<tr>
 					<td>작성자</td>
 					<td>${mrContent.mid }${admin.aid }</td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="mrtitle" required="required"
-						value="[답] ${originMedical.mrtitle }"></td>
+					<td>
+						<input type="text" name="mrtitle" required="required" value="[답] ${originMedical.mrtitle }">
+					</td>
 				</tr>
 				<tr>
 					<td>본문</td>

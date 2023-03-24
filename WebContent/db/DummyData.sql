@@ -15,6 +15,8 @@ INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('bin', '123', '강성빈', 'bin@naver.com', '정국.jpg', '1994-08-25', '서울특별시 강서구'); 
 
+
+
 SELECT * FROM MEMBER;
 COMMIT;
 ------------------------------------------------------
@@ -32,11 +34,11 @@ COMMIT;
 ------------------------------------------------------
 -- DUMMY DATA
 INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)
-    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin', '공지사항', '공지내용', '192.168.0.1');
+    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin', '공지사항', '금일 점심진료는 내부공사로 인해 안하게 되었습니다.', '192.168.0.1');
 INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)
-    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin1', '공지사항1', '공지내용1', '192.168.0.1');    
+    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin', '공지사항1', '공지내용1', '192.168.0.1');    
 INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)
-    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin1', '공지사항2', '공지내용2', '192.168.0.1');    
+    VALUES (NOTICEBOARD_SEQ.NEXTVAL, 'admin', '공지사항2', '공지내용2', '192.168.0.1');    
 
 SELECT * FROM NOTICEBOARD;
 COMMIT;
@@ -55,8 +57,8 @@ INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDE
 INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
     VALUES (MRBOARD_SEQ.NEXTVAL, null, 'admin', '[답]답글이용', '예약해드림', 1, 1, 1, '210.2.2');
 
-INSERT INTO MRBOARD (MRNO, mID, aID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
-    VALUES (MRBOARD_SEQ.NEXTVAL, 'ccc', null, '진료예약 합니다', '예약내용3', MRBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
+INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)
+    VALUES (MRBOARD_SEQ.NEXTVAL, null, 'admin', '[답]네 확인했습니다', '그 시간에 오셔요', 3,1,1, '210.2.2');
 
 
 SELECT * FROM MRBOARD;

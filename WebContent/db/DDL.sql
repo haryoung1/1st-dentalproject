@@ -61,7 +61,7 @@ CREATE TABLE MRBOARD(
     mID VARCHAR2(50) REFERENCES MEMBER (mID), -- 회원 아이디
     aID  VARCHAR2(50) REFERENCES ADMIN(aID),  -- 관리자 아이디
     mrTITLE VARCHAR2(200) NOT NULL,           -- 글제목
-    mrCONTENT VARCHAR2(4000) NOT NULL,        -- 글본문
+    mrCONTENT VARCHAR2(4000),                 -- 글본문
     mrRDATE DATE DEFAULT SYSDATE,             -- 글 작성시점
     mrHIT NUMBER(6) DEFAULT 0,                -- 조회수 
     mrGROUP NUMBER(6) NOT NULL,               -- 글그룹

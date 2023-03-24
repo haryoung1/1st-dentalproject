@@ -13,18 +13,8 @@ public class MedicalReplyService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		AdminDto admin = (AdminDto) session.getAttribute("admin");
-		MemberDto member = (MemberDto) session.getAttribute("member");
-		if (admin == null) {
-			request.setAttribute("medicalResult", "로그인 후에만 답글쓰기 가능");
-			return;
-		}else if (member == null) {
-			request.setAttribute("medicalResult", "로그인 후에만 답글쓰기 가능");
-			return;
-		}
-		String mid = member.getMid();
-		String aid = admin.getAid();
+		String mid = request.getParameter("mid");
+		String aid = request.getParameter("aid");
 		String mrtitle = request.getParameter("mrtitle");
 		String mrcontent = request.getParameter("mrcontent");
 		String mrip = request.getRemoteAddr();
@@ -36,10 +26,8 @@ public class MedicalReplyService implements Service {
 		int result = meDao.reply(meDto);
 		if (result == MedicalDao.SUCCESS) {
 			request.setAttribute("medicalResult", "답글쓰기 성공");
-		} else {
+		}else {
 			request.setAttribute("medicalResult", "답글쓰기 실패");
 		}
-		request.setAttribute("pageNum", request.getParameter("pageNum"));
 	}
-
 }

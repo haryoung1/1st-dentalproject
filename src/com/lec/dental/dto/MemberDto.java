@@ -19,6 +19,7 @@ public class MemberDto {
 
 	public MemberDto(String mid, String mpw, String mname, String memail, String mphoto, Date mbirth, String maddress,
 			Timestamp mrdate) {
+		super();
 		this.mid = mid;
 		this.mpw = mpw;
 		this.mname = mname;
@@ -98,4 +99,5 @@ public class MemberDto {
 		return "MemberDto [mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", memail=" + memail + ", mphoto="
 				+ mphoto + ", mbirth=" + mbirth + ", maddress=" + maddress + ", mrdate=" + mrdate + "]";
 	}
+
 }

@@ -47,8 +47,8 @@ public class MedicalDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT A. *," + "    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
-				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*"
-				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRNO DESC) B) A"
+				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*\r\n"
+				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRGROUP DESC, MRSTEP) B) A"
 				+ "    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
@@ -352,7 +352,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

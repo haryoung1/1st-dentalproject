@@ -396,6 +396,7 @@ public class MemberDao {
 		}
 		return result;
 	}
+
 	// (10) 전체 회원목록
 	public int getMemberCnt() {
 		int totCnt = 0;

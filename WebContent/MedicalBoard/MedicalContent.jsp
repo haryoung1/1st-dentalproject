@@ -42,17 +42,17 @@ button, .btn {
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${mrContent.mrno }번글상세보기</caption>
+			<caption>${mrContent.mrno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
-				<td>${mrContent.mid }님</td>
+				<td>${mrContent.mid }${mrContent.aid }님</td>
 			</tr>
 			<tr>
 				<th>제목</th>
 				<td>${mrContent.mrtitle }</td>
 			</tr>
 			<tr>
-				<th>본문</th>
+				<th>내용</th>
 				<td><pre>${mrContent.mrcontent }</pre></td>
 			</tr>
 			<tr>

@@ -14,7 +14,6 @@ public class MedicalReplyViewService implements Service {
 		MedicalDao meDao = MedicalDao.getInstance();
 		MedicalDto originMedical = meDao.modifMedicalView(mrno);
 		request.setAttribute("originMedical", originMedical); // 답변글을 달려는 글의 원글정보
-		System.out.println("1");
 	}
 
 }
