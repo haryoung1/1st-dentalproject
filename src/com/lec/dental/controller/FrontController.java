@@ -177,6 +177,7 @@ public class FrontController extends HttpServlet {
 			service = new MedicalDeleteService();
 			service.execute(request, response);
 			viewPage = "medicalList.do";
+			
 		}else if (command.equals("/medicalReplyView.do")) { // 답변
 			service = new MedicalReplyViewService();
 			service.execute(request, response);

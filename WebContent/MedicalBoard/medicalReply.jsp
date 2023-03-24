@@ -53,10 +53,10 @@
 			<input type="hidden" name="mrindent" value="${originMedical.mrindent }"> 
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
-				<caption>${originMedical.mrno }번글답변쓰기폼</caption>
+				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
 				<tr>
 					<td>작성자</td>
-					<td>${mrContent.mid }${admin.aid }</td>
+					<td>${originMedical.mid } ${originMedical.aid }</td>
 				</tr>
 				<tr>
 					<td>제목</td>

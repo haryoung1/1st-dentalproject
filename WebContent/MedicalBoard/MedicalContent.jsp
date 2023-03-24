@@ -48,6 +48,7 @@ button, .btn {
 				<td>${mrContent.mid }${mrContent.aid }님</td>
 			</tr>
 			<tr>
+			
 				<th>제목</th>
 				<td>${mrContent.mrtitle }</td>
 			</tr>

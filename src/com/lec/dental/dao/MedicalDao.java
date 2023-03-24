@@ -219,7 +219,7 @@ public class MedicalDao {
 	}
 
 	// (6) 글번호(MRNO)로 글전체 내용(MRboardDto) 가져오기 - 글수정VIEW, 답변글VIEW 용
-	public MedicalDto modifMedicalView(int mrno) {
+	public MedicalDto modifyView_replyView(int mrno) {
 		MedicalDto dto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -366,9 +366,9 @@ public class MedicalDao {
 			pstmt.setString(8, dto.getMrip());
 			pstmt.executeUpdate();
 			result = SUCCESS;
-			System.out.println("답변글쓰기 성공");
+			System.out.println("답변 글쓰기 성공");
 		} catch (SQLException e) {
-			System.out.println(e.getMessage() + " 답변글쓰기 실패 ");
+			System.out.println(e.getMessage() + "답변 글쓰기 실패 ");
 		} finally {
 			try {
 				if (pstmt != null)

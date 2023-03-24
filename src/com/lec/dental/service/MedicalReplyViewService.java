@@ -12,7 +12,7 @@ public class MedicalReplyViewService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		int mrno = Integer.parseInt(request.getParameter("mrno")); // 원글의 글 번호
 		MedicalDao meDao = MedicalDao.getInstance();
-		MedicalDto originMedical = meDao.modifMedicalView(mrno);
+		MedicalDto originMedical = meDao.modifyView_replyView(mrno);
 		request.setAttribute("originMedical", originMedical); // 답변글을 달려는 글의 원글정보
 	}
 

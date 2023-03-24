@@ -12,7 +12,7 @@ public class MedicalModifyViewService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		int mrno = Integer.parseInt(request.getParameter("mrno"));
 		MedicalDao meDao = MedicalDao.getInstance();
-		MedicalDto meDto = meDao.modifMedicalView(mrno);
+		MedicalDto meDto = meDao.modifyView_replyView(mrno);
 		request.setAttribute("mrContent", meDto);
 
 	}

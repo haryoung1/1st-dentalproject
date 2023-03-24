@@ -73,7 +73,7 @@ $(document).ready(function(){
 						<td class="left">
 							<c:forEach var="i" begin="1" end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
-								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; &nbsp; </c:if>
+								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
 							</c:forEach>
 							${medical.mrtitle }
 						</td>
