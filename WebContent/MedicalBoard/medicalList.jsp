@@ -10,13 +10,8 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-#content_form {
-	height: 470px;
-	margin: 30px auto 0px;
-}
-
-#content_form table tr {
-	height: 10px;
+#wrap .left {
+	text-align: left;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -52,6 +52,8 @@
 			<input type="hidden" name="mrstep" value="${originMedical.mrstep }">
 			<input type="hidden" name="mrindent" value="${originMedical.mrindent }"> 
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
+			<input type="hidden" name="mid" value="${member.mid }">
+			<input type="hidden" name="aid" value="${admin.aid }">
 			<table>
 				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
 				<tr>

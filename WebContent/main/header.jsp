@@ -32,7 +32,7 @@
 			<div class="gnb">
 				<ul>
 					<li><a href="${conPath }/logout.do">로그아웃</a></li>
-					<li><a href="${conPath }/modifyView.do">정보수정</a></li>
+					<li><a href="${conPath }/modifyView.do">마이페이지</a></li>
 					<li><a>${member.mname }님 &nbsp; ▶</a></li>
 				</ul>
 			</div>

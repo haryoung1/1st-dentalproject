@@ -51,7 +51,7 @@
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전
+				[ <a href="${conPath }/memberList.do?pageNum=${startPage-1}"> 이전
 				</a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
@@ -59,11 +59,11 @@
 					<b> [ ${i } ] </b>
 				</c:if>
 				<c:if test="${i != pageNum }">
-					[ <a href="${conPath }/noticeList.do?pageNum=${i}"> ${i } </a> ]
+					[ <a href="${conPath }/memberList.do?pageNum=${i}"> ${i } </a> ]
 				</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-			  [ <a href="${conPath }/noticeList.do?pageNum=${endPage+1}"> 다음
+			  [ <a href="${conPath }/memberList.do?pageNum=${endPage+1}"> 다음
 				</a> ]
 			</c:if>
 		</div>

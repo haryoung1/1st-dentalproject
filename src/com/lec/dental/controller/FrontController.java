@@ -41,11 +41,13 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/intro.jsp";
 		}else if (command.equals("/map.do")) { // 찾아오시는 길
 			viewPage = "main/map.jsp";
+		}else if (command.equals("/implant.do")) { // 임플란트 소개
+			viewPage = "main/implant.jsp";
 		}
+		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
 		 * * * * * * * * * * * member 관련요청 * * * * * * * *  *  *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
-			
 		else if (command.equals("/midConfirm.do")) { // 아이디 중복체크
 			service = new MidConfirmService();
 			service.execute(request, response);
@@ -82,12 +84,12 @@ public class FrontController extends HttpServlet {
 			service = new MWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
-			
+		}
+		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		* * * * * * * * * * * 어드민 관련요청 * * * * * * * * * * * * 
 		* * * * * * * * * * * * * * * * * * * * * * * * * * * */
-			
-		}else if (command.equals("/aidConfirm.do")) { // 아이디 중복체크
+		else if (command.equals("/aidConfirm.do")) { // 아이디 중복체크
 			service = new AidConfirmService();
 			service.execute(request, response);
 			viewPage = "admin/aidConfirm.jsp";
@@ -112,19 +114,18 @@ public class FrontController extends HttpServlet {
 		}else if (command.equals("/memberList.do")) { // 회원목록
 			service = new MemberListSerivce();
 			service.execute(request, response);
-			viewPage = "member/MemberList.jsp";	
+			viewPage = "member/memberList.jsp";	
 		}
-
+		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 공지사항 관련요청 * * * * * * * * * * *  
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
-		
 		else if (command.equals("/noticeList.do")) { // 공지사항 글 목록
 			service = new NoticeListService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeList.jsp";
+			viewPage = "NoticeBoard/noticeList.jsp";
 		}else if (command.equals("/noticeWriteView.do")) { // 공지사항 등록
-			viewPage = "NoticeBoard/NoticeWrite.jsp";
+			viewPage = "NoticeBoard/noticeWrite.jsp";
 		}else if (command.equals("/noticeWrite.do")) { // 공지글 db 저장
 			service = new NoticeWriteService();
 			service.execute(request, response);
@@ -132,11 +133,11 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/noticeContent.do")) { // 공지글 상세보기
 			service = new NoticeContentService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeContent.jsp";
+			viewPage = "NoticeBoard/noticeContent.jsp";
 		}else if(command.equals("/noticeModifyView.do")) { // 공지글 수정 화면
 			service = new NoticeModifyViewService();
 			service.execute(request, response);
-			viewPage = "NoticeBoard/NoticeModify.jsp";
+			viewPage = "NoticeBoard/noticeModify.jsp";
 		}else if(command.equals("/noticeModify.do")) { // 공지글 수정 처리
 			service = new NoticeModifyService();
 			service.execute(request, response);
@@ -150,13 +151,12 @@ public class FrontController extends HttpServlet {
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * 
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */	
-		
 		else if (command.equals("/medicalList.do")) { // 진료예약 게시판 글 목록
 			service = new MedicalListService();
 			service.execute(request, response);
-			viewPage = "MedicalBoard/MedicalList.jsp";
+			viewPage = "MedicalBoard/medicalList.jsp";
 		}else if (command.equals("/medicalWriteView.do")) { // 진료예약 게시판 글 쓰기
-			viewPage = "MedicalBoard/MedicalWrite.jsp";
+			viewPage = "MedicalBoard/medicalWrite.jsp";
 		}else if (command.equals("/medicalWrite.do")) { // 진료예약 글 db 저장
 			service = new MedicalWriteService();
 			service.execute(request, response);
@@ -164,11 +164,11 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/medicalContent.do")) { // 진료예약 글 상세보기
 			service = new MedicalContentService();
 			service.execute(request, response);
-			viewPage = "MedicalBoard/MedicalContent.jsp";
+			viewPage = "MedicalBoard/medicalContent.jsp";
 		}else if(command.equals("/medicalModifyView.do")) { // 진료예약 글 수정하기
 			service = new MedicalModifyViewService();
 			service.execute(request, response);
-			viewPage = "MedicalBoard/MedicalModify.jsp";
+			viewPage = "MedicalBoard/medicalModify.jsp";
 		}else if(command.equals("/medicalModify.do")) { // 수정 처리
 			service = new MedicalModifyService();
 			service.execute(request, response);
@@ -177,12 +177,10 @@ public class FrontController extends HttpServlet {
 			service = new MedicalDeleteService();
 			service.execute(request, response);
 			viewPage = "medicalList.do";
-			
 		}else if (command.equals("/medicalReplyView.do")) { // 답변
 			service = new MedicalReplyViewService();
 			service.execute(request, response);
 			viewPage = "MedicalBoard/medicalReply.jsp";
-			
 		}else if (command.equals("/medicalReply.do")) { // 답변처리
 			service = new MedicalReplyService();
 			service.execute(request, response);

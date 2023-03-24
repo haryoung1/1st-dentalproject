@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#wrap {
+	width: 1000px;
+	height: 1200px;
+	margin: 0 auto; /* 가운데로 조정 */
+	overflow: hidden;
+}
+
+#intro .im1 {
+	float: center;
+	width: 900px;
+	height: 250x;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
+
+#intro .im2 {
+	float: center;
+	width: 900px;
+	height: 250x;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
+
+#intro .im3 {
+	float: center;
+	width: 900px;
+	height: 250x;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
+
+#intro .im4 {
+	float: center;
+	width: 900px;
+	height: 250x;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
+

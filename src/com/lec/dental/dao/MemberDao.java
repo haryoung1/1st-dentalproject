@@ -257,8 +257,8 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + "FROM (SELECT * FROM MEMBER ORDER BY mRDATE DESC) A)"
-				+ "WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + 
+				"    FROM (SELECT * FROM MEMBER ORDER BY MBIRTH) A)" + "WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

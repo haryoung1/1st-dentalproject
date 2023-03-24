@@ -181,7 +181,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT MR.*, MNAME FROM MRBOARD MR, MEMBER M WHERE MR.MID=M.MID AND MRNO=?";
+		String sql = "SELECT * FROM MRBOARD WHERE MRNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -224,7 +224,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT MR.*, MNAME FROM MRBOARD MR, MEMBER M WHERE MR.MID=M.MID AND MRNO=?";
+		String sql = "SELECT * FROM MRBOARD WHERE MRNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -352,7 +352,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-					+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

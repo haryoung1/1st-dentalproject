@@ -40,7 +40,11 @@
 			<div class="section2">
 				<div class="hit_product">
 					<p class="p1">
-						<img src="image/임플란트.png"> <span class="imtext1">[임플란트]</span>
+						<img src="image/임플란트.png"> 
+						<span class="imtext1">[임플란트]
+						<a href="${conPath }/implant.do">1</a>
+						</span>
+	
 					</p>
 					<p class="p2">
 						<img src="image/치아교정.png"> <span class="imtext2">[치아교정]</span>

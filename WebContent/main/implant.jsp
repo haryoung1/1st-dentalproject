@@ -8,19 +8,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/intro.css" rel="stylesheet">
+<link href="${conPath }/css/implant.css" rel="stylesheet">
 <style>
 </style>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<div id="intro">
-			<div class="intro2">
-				<p>
-					<img src="image/소개22.PNG">
-				</p>
-			</div>
+		<div id="imp1">
+			<p>
+				<img src="image/임1.png">
+			</p>
+		</div>
+		<div id="imp2">
+			<p>
+				<img src="image/임2.png">
+			</p>
+		</div>
+		<div id="imp3">
+			<p>
+				<img src="image/임3.png">
+			</p>
+		</div>
+		<div id="imp4">
+			<p>
+				<img src="image/임4.png">
+			</p>
 		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
