@@ -41,35 +41,28 @@
 }
 </style>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var nbno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(nbno)) {
-												location.href = '${conPath }/noticeContent.do?nbno='
-														+ nbno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+			var nbno = $(this).children().eq(0).text();
+		if (!isNaN(nbno)) {
+			location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
+		}
+	});
+});
 </script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<c:if test="${not empty noticeWriteResult}">
-		<!--  글쓰기 성공 if noticeList -->
+	<c:if test="${not empty noticeWriteResult}"> <!--  글쓰기 성공  -->
 		<script>
 			alert('${noticeWriteResult}')
 		</script>
 	</c:if>
 	<div id="wrap">
-
+		<br>
 		<h2>공지사항</h2>
 		<hr>
+		<br>
 		<br>
 		<table>
 			<tr>
@@ -100,13 +93,13 @@
 				<input type="button" class="btn" value="글쓰기"
 					onclick="location='${conPath}/noticeWriteView.do'">
 			</c:if>
-			<c:if test="${empty admin }">
+			<c:if test="${empty admin and empty member }">
 				<input type="button" class="btn" value="글쓰기"
 					onclick="location='${conPath}/noticeWriteView.do'">
 			</c:if>
 		</div>
-		<!-- 페이징처리 -->
-		<div class="paging">
+		<br>
+		<div class="paging"> <!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전
 				</a> ]

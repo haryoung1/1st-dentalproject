@@ -17,6 +17,19 @@
 	margin: 50px auto 0px;
 }
 
+#noticecontent {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 130px;
+}
+
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -54,8 +67,8 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
+		<div id="noticecontent">${nContent.nbno }번 글 상세보기</div>
 		<table>
-			<caption>${nContent.nbno }번글상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${nContent.aid }님</td>
@@ -66,7 +79,9 @@
 			</tr>
 			<tr>
 				<th>본문</th>
-				<td><pre style="white-space: pre-wrap;">${nContent.nbcontent }</pre></td>
+				<td>
+					<pre style="white-space: pre-wrap;">${nContent.nbcontent }</pre>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">

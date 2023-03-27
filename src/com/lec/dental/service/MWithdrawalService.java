@@ -20,7 +20,6 @@ public class MWithdrawalService implements Service {
 		MemberDao mDao = MemberDao.getInstance();
 		// 회원탈퇴전 각 게시판에 남긴 글 삭제하기
 		mDao.withdrawalMR(mid);
-		mDao.withdrawalCB(mid);
 		mDao.withdrawalRV(mid);
 		int result = mDao.withdrawalMember(mid);
 		session.invalidate();

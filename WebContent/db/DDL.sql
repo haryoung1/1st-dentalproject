@@ -16,8 +16,6 @@ CREATE TABLE MEMBER (
     mRDATE DATE DEFAULT SYSDATE NOT NULL -- 회원가입일
 );
 
-SELECT * FROM MEMBER;
-COMMIT;
 ------------------------------------------------------
 --            관리자 ADMIN                     
 ------------------------------------------------------
@@ -30,8 +28,6 @@ CREATE TABLE ADMIN(
     aCODE VARCHAR2(50) NOT NULL     -- 관리자 코드
 );
 
-SELECT * FROM ADMIN;
-COMMIT;
 ------------------------------------------------------
 --            공지사항 게시판 NoticeBoard                 
 ------------------------------------------------------
@@ -49,8 +45,6 @@ CREATE TABLE NOTICEBOARD(
 DROP SEQUENCE NOTICEBOARD_SEQ;
 CREATE SEQUENCE NOTICEBOARD_SEQ MAXVALUE 999999 NOCACHE NOCYCLE;
 
-SELECT * FROM NOTICEBOARD;
-COMMIT;
 ------------------------------------------------------
 --    진료예약 게시판 MedicalReservationBoard                     
 ------------------------------------------------------
@@ -73,9 +67,6 @@ CREATE TABLE MRBOARD(
 DROP SEQUENCE MRBOARD_SEQ;
 CREATE SEQUENCE MRBOARD_SEQ MAXVALUE 999999 NOCACHE NOCYCLE;
 
-SELECT * FROM MRBOARD;
-COMMIT;
-
 ------------------------------------------------------
 --            후기 게시판 ReviewBoard                     
 ------------------------------------------------------
@@ -97,10 +88,10 @@ CREATE TABLE RVBOARD(
 DROP SEQUENCE RVBOARD_SEQ;
 CREATE SEQUENCE RVBOARD_SEQ MAXVALUE 999999 NOCACHE NOCYCLE;
 
+-- 
 SELECT * FROM MEMBER;
 SELECT * FROM ADMIN;
 SELECT * FROM NOTICEBOARD;
 SELECT * FROM MRBOARD;
-SELECT * FROM CBBOARD;
 SELECT * FROM RVBOARD;
 COMMIT;

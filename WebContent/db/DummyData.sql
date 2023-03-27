@@ -13,17 +13,21 @@ INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('lee', '123', '이혜인', 'lee@naver.com', '해인.jpg', '2008-04-21', '인천광역시 문학동'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('bin', '123', '강성빈', 'bin@naver.com', '정국.jpg', '1994-08-25', '서울특별시 강서구'); 
+    VALUES ('bin', '123', '강성빈', 'bin@naver.com', '정국.jpg', '1994-08-25', '서울시 강서구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('zico', '123', '지아코', 'zico@naver.com', 'gico.jpg', '1992-09-14', '서울특별시 지아코'); 
+    VALUES ('zico', '123', '지아코', 'zico@naver.com', 'gico.jpg', '1992-09-14', '서울시 지아코'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('han', '123', '한지민', 'han@naver.com', 'han.jpg', '1982-11-05', '서울특별시 지민구'); 
+    VALUES ('han', '123', '한지민', 'han@naver.com', 'han.jpg', '1982-11-05', '서울시 지민구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('song', '123', '송중기', 'song@naver.com', 'song.jpg', '1986-11-05', '서울특별시 송중구'); 
+    VALUES ('song', '123', '송중기', 'song@naver.com', 'song.jpg', '1986-11-05', '서울시 송중구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('park', '123', '박보검', 'park@naver.com', 'park.jpg', '1993-07-11', '서울특별시 강남구'); 
+    VALUES ('park', '123', '박보검', 'park@naver.com', 'park.jpg', '1993-07-11', '서울시 강남구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('lim', '123', '임요환', 'lim@naver.com', 'lim.jpg', '1981-12-14', '서울특별시 테사기'); 
+    VALUES ('lim', '123', '임요환', 'lim@naver.com', 'lim.jpg', '1981-12-14', '서울시 테사기'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('min', '123', '민희진', 'min@naver.com', 'min.jpg', '1979-12-16', '서울시 강남구'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('aim', '123', '아이묭', 'aim@naver.com', '아이묭.jpg', '1995-03-06', '일본 효고현'); 
 
 
 SELECT * FROM MEMBER;

@@ -36,6 +36,18 @@ button, .btn {
 	cursor: pointer;
 	transition: 0.5s;
 }
+#mdcontent {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 130px;
+}
 </style>
 <script>
 	function deletemd() {
@@ -51,14 +63,13 @@ button, .btn {
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
+		<div id="mdcontent">${mrContent.mrno }번 글 상세보기</div>
 		<table>
-			<caption>${mrContent.mrno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${mrContent.mid }${mrContent.aid }</td>
 			</tr>
 			<tr>
-			
 				<th>제목</th>
 				<td>${mrContent.mrtitle }</td>
 			</tr>
@@ -68,18 +79,19 @@ button, .btn {
 			</tr>
 			<tr>
 				<td colspan="2">
-				<c:if test="${member.mid eq mrContent.mid}">
-					<input type="button" value="수정" class="btn" 
-						onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
-				</c:if> 
-				<c:if test="${member.mid eq mrContent.mid or not empty admin}">
-					<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
-				</c:if> 
-				<c:if test="${not empty admin}">
-						<button onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변 </button>
-				</c:if>
-						<input type="button" value="목록" class="btn" 
-							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
+					<c:if test="${member.mid eq mrContent.mid}">
+						<input type="button" value="수정" class="btn"
+							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+					</c:if> 
+					<c:if test="${member.mid eq mrContent.mid or not empty admin}">
+						<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
+					</c:if> 
+					<c:if test="${not empty admin}">
+						<button 
+							onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변
+						</button>
+					</c:if> 
+						<input type="button" value="목록" class="btn" onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
 			</tr>
 		</table>
 	</div>

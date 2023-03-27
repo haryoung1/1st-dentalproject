@@ -45,26 +45,18 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var mrno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(mrno)) {
-												location.href = '${conPath }/medicalContent.do?mrno='
-														+ mrno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+			var mrno = $(this).children().eq(0).text();
+		if (!isNaN(mrno)) {
+			location.href = '${conPath }/medicalContent.do?mrno=' + mrno + '&pageNum=${pageNum}';
+		}
+	});
+});
 </script>
 </head>
 <body>
-	<c:if test="${not empty medicalWriteResult}">
-		<!--  글쓰기 성공 -->
+	<c:if test="${not empty medicalWriteResult}"> <!--  글쓰기 성공 -->
 		<script>
 			alert('${medicalWriteResult}')
 		</script>
@@ -74,7 +66,8 @@
 		<br>
 		<h2>진료예약&nbsp;게시판</h2>
 		<hr>
-		<br> <br>
+		<br>
+		<br>
 		<table>
 			<tr>
 				<th>글번호</th>
@@ -93,20 +86,20 @@
 					<tr>
 						<td>${medical.mrno }</td>
 						<td>${medical.mid }${medical.aid }</td>
-						<td class="left"><c:forEach var="i" begin="1"
-								end="${medical.mrindent }">
+						<td class="left"><c:forEach var="i" begin="1" end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
 								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
 							</c:forEach> ${medical.mrtitle }</td>
 						<td>${medical.mrhit }</td>
-						<td><fmt:formatDate value="${medical.mrrdate }"
-								pattern="yy년MM월dd일(E)" /></td>
+						<td>
+							<fmt:formatDate value="${medical.mrrdate }" pattern="yy년MM월dd일(E)" />
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
 		<br>
-		<div id="right">
+		<div id="right"> <!-- 글등록 버튼 -->
 			<c:if test="${not empty member }">
 				<input type="button" class="btn" value="글쓰기"
 					onclick="location='${conPath}/medicalWriteView.do'">
@@ -114,11 +107,9 @@
 			<c:if test="${empty member and empty admin }">
 				<input type="button" class="btn" value="글쓰기"
 					onclick="location='${conPath}/medicalWriteView.do'">
-
 			</c:if>
 		</div>
-		<!-- 페이징처리 -->
-		<div class="paging">
+		<div class="paging"> <!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/medicalList.do?pageNum=${startPage-1}">
 					이전 </a> ]

@@ -44,7 +44,7 @@
 		$('tr').click(function() {
 			var rvno = $(this).children().eq(0).text();
 			if (!isNaN(rvno)) {
-				location.href = '${conPath }/reviewContent.do?rvno=' + rvno + '&pageNum=${pageNum}';
+			location.href = '${conPath }/reviewContent.do?rvno=' + rvno + '&pageNum=${pageNum}';
 		}
 	});
 });

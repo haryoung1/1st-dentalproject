@@ -19,6 +19,19 @@
 	height: 60px;
 }
 
+#notice {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding: 10px;
+	width: 120px;
+}
+
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -52,8 +65,8 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/noticeWrite.do" method="post">
+			<div id="notice">공지사항</div>
 			<table>
-				<caption>공지사항</caption>
 				<tr>
 					<td>제목</td>
 					<td><input type="text" name="nbtitle" required="required">

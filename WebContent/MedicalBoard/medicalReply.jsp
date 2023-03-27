@@ -14,7 +14,18 @@
 	height: 400px;
 	margin: 100px auto 0px;
 }
-
+#mdreply {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 130px;
+}
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -54,8 +65,10 @@
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<input type="hidden" name="mid" value="${member.mid }">
 			<input type="hidden" name="aid" value="${admin.aid }">
+			<div id="mdreply">
+				${originMedical.mrno }번 글 답변
+			</div>
 			<table>
-				<caption>${originMedical.mrno }번글 답변쓰기폼</caption>
 				<tr>
 					<td>작성자</td>
 					<td>${originMedical.mid } ${originMedical.aid }</td>
@@ -68,12 +81,14 @@
 				</tr>
 				<tr>
 					<td>본문</td>
-					<td><textarea rows="3" cols="3" name="mrContent"></textarea></td>
+					<td>
+						<textarea rows="4" cols="3" name="mrContent"></textarea>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="답변쓰기" class="btn">
-						<input type="reset" value="취소" class="btn"> 
+						<input type="reset"  value="취소" class="btn"> 
 						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/medicalList.do'"></td>
 				</tr>
 			</table>

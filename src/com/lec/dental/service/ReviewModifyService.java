@@ -61,7 +61,7 @@ public class ReviewModifyService implements Service {
 			try {
 				File serverFile = new File(path + "/" + rvfilename);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp" + rvfilename);
+				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp/" + rvfilename);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while (true) {
 					int nByteCnt = is.read(bs);

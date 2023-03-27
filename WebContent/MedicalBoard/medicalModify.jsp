@@ -10,6 +10,18 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
+#mrmodi {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 100px;
+}
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -40,8 +52,8 @@
 		<form action="${conPath }/medicalModify.do" method="post">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<input type="hidden" name="mrno" value="${mrContent.mrno }">
+			<div id="mrmodi">${mrContent.mrno }번 글 수정</div>
 			<table>
-				<caption>${mrContent.mrno }번글수정</caption>
 				<tr>
 					<th>제목</th>
 					<td><input type="text" name="mrtitle"
@@ -55,9 +67,9 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="저장" class="btn">
-						<input type="reset" value="취소" class="btn" onclick="history.back()">
+						<input type="reset"  value="취소" class="btn" onclick="history.back()">
 						<input type="button" value="목록" class="btn"
-						onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
+							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
 					</td>
 				</tr>
 			</table>

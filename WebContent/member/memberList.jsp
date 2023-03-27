@@ -18,13 +18,26 @@
 #content_form table tr {
 	height: 10px;
 }
+
+#list {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 130px;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
+	<div id="list">전체회원 목록</div>
 		<table>
-			<caption>전체회원보기</caption>
 			<tr>
 				<th>이름</th>
 				<th>ID</th>
@@ -41,9 +54,12 @@
 					<tr>
 						<td>${dto.mname }</td>
 						<td>${dto.mid }</td>
-						<td><fmt:formatDate value="${dto.mbirth }" pattern="YYYY-MM-dd" />
-						<td><fmt:formatDate value="${dto.mrdate }"
-								pattern="YY-MM-dd hh:mm(a)" /></td>
+						<td>
+							<fmt:formatDate value="${dto.mbirth }" pattern="YYYY-MM-dd" />
+						</td>
+						<td>
+							<fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>

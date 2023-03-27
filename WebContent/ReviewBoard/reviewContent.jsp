@@ -14,6 +14,18 @@
 	height: 450px;
 	margin: 50px auto 0px;
 }
+#rvcontent {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 130px;
+}
 
 button, .btn {
 	-webkit-appearance: none;
@@ -27,6 +39,7 @@ button, .btn {
 	font-weight: 400;
 	font-weight: bol text-align: center;
 	text-decoration: none;
+	text-align: center;
 	border-radius: 4px;
 	border: 2px solid #444444;
 	display: inline-block;
@@ -38,16 +51,21 @@ button, .btn {
 }
 </style>
 <script>
-	function func() {
-		alert('test');
+	function deleterv() {
+		answer = confirm("삭제 하시겠습니까 ?");
+		if (answer) {
+			location.href = '${conPath}/reviewDelete.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }';
+		} else {
+			alert('삭제 취소');
+		}
 	}
 </script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
+		<div id="rvcontent">${rvContent.rvno }번 글 상세보기</div>
 		<table>
-			<caption>${rvContent.rvno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${rvContent.mid }${rvContent.aid }</td>
@@ -67,31 +85,28 @@ button, .btn {
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td><c:if test="${not empty rvContent.rvfilename }">
-						<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}"
-							target="_blank">${rvContent.rvfilename}</a>
-					</c:if> <c:if test="${empty rvContent.rvfilename }">
+				<td>
+					<c:if test="${not empty rvContent.rvfilename }">
+						<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}" target="_blank">${rvContent.rvfilename}</a>
+					</c:if> 
+					<c:if test="${empty rvContent.rvfilename }">
 						첨부파일 없음
-					</c:if></td>
+					</c:if>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<c:if test="${member.mid eq rvContent.mid}">
+				<c:if test="${member.mid eq rvContent.mid}">
 						<input type="button" value="수정" class="btn"
 							onclick="location='${conPath}/reviewModifyView.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">
+				</c:if> 
+				<c:if test="${member.mid eq rvContent.mid or not empty admin}">
+						<button class="btn" onclick="deleterv('${rvContent.rvno}')">삭제</button>
 					</c:if> 
-					<c:if test="${member.mid eq rvContent.mid or not empty admin}">
-						<input type="button" value="삭제" class="btn"
-							onclick="location='${conPath}/reviewDelete.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">
-					</c:if> 
-						<input type="button" value="목록" class="btn"
-							onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
+						<input type="button" value="목록" class="btn" onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
 			</tr>
 		</table>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>
-
-
-

@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-#rvno {
+#rvmodi {
 	padding: 0.5rem 1rem;
 	text-align: center;
 	font-size: 1rem;
@@ -52,36 +52,42 @@
 		<form action="${conPath }/reviewModify.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<input type="hidden" name="rvno" value="${review.rvno }">
-			<div id="rvno">
+			<div id="rvmodi">
 				${review.rvno }번 글 수정
 			</div>
 			<table>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="rvtitle"
-						value="${review.rvtitle }" required="required"></td>
+					<td>
+						<input type="text" name="rvtitle" value="${review.rvtitle }" required="required">
+					</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea rows="5" name="rvcontent">${review.rvcontent }</textarea>
+					<td>
+						<textarea rows="5" name="rvcontent">${review.rvcontent }</textarea>
 					</td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="rvfileName" class="btn">
+					<td>
+						<input type="file" name="rvfileName" class="btn">
 						원첨부파일 : <c:if test="${not empty review.rvfilename }">
-							<a href="${conPath }/ReviewBoardUp/${review.rvfilename}"
-								target="_blank">${review.rvfilename}</a>
-						</c:if> <c:if test="${empty review.rvfilename }">
+							<a href="${conPath }/ReviewBoardUp/${review.rvfilename}" 
+								target="_blank">${review.rvfilename}
+							</a>
+						</c:if> 
+						<c:if test="${empty review.rvfilename }">
 							첨부파일 없음
-						</c:if></td>
+						</c:if>
+					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="저장" class="btn">
-						<input type="reset" value="이전" class="btn"
-						onclick="history.back()"> <input type="button" value="목록"
-						class="btn"
-						onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
+					<td colspan="2">
+						<input type="submit" value="저장" class="btn">
+						<input type="reset"  value="이전" class="btn" onclick="history.back()">
+						<input type="button" value="목록" class="btn" 
+							onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
 					</td>
 				</tr>
 			</table>

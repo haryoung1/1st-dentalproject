@@ -40,6 +40,18 @@ button, .btn {
 	cursor: pointer;
 	transition: 0.5s;
 }
+#review {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 100px;
+}
 </style>
 </head>
 <body>
@@ -51,8 +63,10 @@ button, .btn {
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/reviewWrite.do" method="post" enctype="multipart/form-data">
+			<div id="review">
+				후기 게시판
+			</div>
 			<table>
-				<caption>후기게시판</caption>
 				<tr>
 					<td>제목</td>
 					<td><input type="text" name="rvtitle" required="required">
@@ -70,7 +84,8 @@ button, .btn {
 					<td colspan="2">
 						<input type="submit" value="등록하기" class="btn">
 						<input type="reset" value="취소" class="btn"> 
-						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/reviewList.do'"></td>
+						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/reviewList.do'">
+					</td>
 				</tr>
 			</table>
 		</form>

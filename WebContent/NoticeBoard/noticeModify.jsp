@@ -10,6 +10,19 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
+#noticemodi {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 100px;
+}
+
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -40,8 +53,8 @@
 		<form action="${conPath }/noticeModify.do" method="post">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<input type="hidden" name="nbno" value="${nContent.nbno }">
+			<div id="noticemodi">${nContent.nbno }번 글 수정</div>
 			<table>
-				<caption>${nContent.nbno }번 글 수정</caption>
 				<tr>
 					<th>제목</th>
 					<td><input type="text" name="nbtitle"

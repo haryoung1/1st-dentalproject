@@ -319,32 +319,6 @@ public class MemberDao {
 		return result;
 	}
 
-	// (8) 회원탈퇴전 글 삭제하기 ( CBBOARD )
-	public int withdrawalCB(String mid) {
-		int result = FAIL;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM CBBOARD WHERE MID = ?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mid);
-			result = pstmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return result;
-	}
-
 	// (8) 회원탈퇴전 글 삭제하기 ( RVBOARD )
 	public int withdrawalRV(String mid) {
 		int result = FAIL;
