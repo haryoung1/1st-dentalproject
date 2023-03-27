@@ -37,11 +37,18 @@ button, .btn {
 	transition: 0.5s;
 }
 </style>
+<script>
+	function deletemd() {
+		answer = confirm("삭제 하시겠습니까 ?");
+		if (answer) {
+			location.href = '${conPath}/medicalDelete.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }';
+		} else {
+			alert('삭제 취소');
+		}
+	}
+</script>
 </head>
 <body>
-	<script>
-		
-	</script>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
@@ -66,8 +73,7 @@ button, .btn {
 						onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
 				</c:if> 
 				<c:if test="${member.mid eq mrContent.mid or not empty admin}">
-					<input type="button" value="삭제" class="btn" 
-						onclick="location='${conPath}/medicalDelete.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+					<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
 				</c:if> 
 				<c:if test="${not empty admin}">
 						<button onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변 </button>
