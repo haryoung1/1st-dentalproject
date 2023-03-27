@@ -26,19 +26,18 @@ public class ReviewWriteService implements Service {
 		String path = request.getRealPath("ReviewBoardUp");
 		int maxSize = 1024 * 1024 * 10; // 최대업로드 사이즈는 10M
 		MultipartRequest mRequest = null;
-		String rvfileName = "";
+		String rvfilename = "";
 		try {
 			mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration<String> params = mRequest.getFileNames();
 			String param = params.nextElement();
-			rvfileName = mRequest.getFilesystemName(param);
+			rvfilename = mRequest.getFilesystemName(param);
 			HttpSession session = request.getSession();
 			MemberDto member = (MemberDto) session.getAttribute("member");
 			if (member != null) {
 				String mid = member.getMid();
 				String rvtitle = mRequest.getParameter("rvtitle");
 				String rvcontent = mRequest.getParameter("rvcontent");
-				String rvfilename = mRequest.getParameter("rvfilename");
 				String rvip = request.getRemoteAddr();
 				ReviewDao rDao = ReviewDao.getInstance();
 				ReviewDto rDto = new ReviewDto(0, mid, null, rvtitle, rvcontent, rvfilename, null, 0, rvip);
@@ -58,13 +57,13 @@ public class ReviewWriteService implements Service {
 		}
 
 		// 서버에 올라간 ReviewBoardUp 파일을 소스폴더에 filecopy
-		if (rvfileName != null) {
+		if (rvfilename != null) {
 			InputStream is = null;
 			OutputStream os = null;
 			try {
-				File serverFile = new File(path + "/" + rvfileName);
+				File serverFile = new File(path + "/" + rvfilename);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp" + rvfileName);
+				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp" + rvfilename);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while (true) {
 					int nByteCnt = is.read(bs);

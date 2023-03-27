@@ -70,16 +70,20 @@
 					<tr>
 						<td>${review.rvno }</td>
 						<td>${review.mid }${review.aid }</td>
-						<td>${review.rvtitle }<c:if
-								test="${not empty review.rvfilename }">
-								<img
-									src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png"
-									width="10">
+						<td>${review.rvtitle }
+							<c:if test="${not empty review.rvfilename }">
+								<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">
 							</c:if>
 						</td>
-						<td>${review.rvhit }</td>
-						<td><fmt:formatDate value="${review.rvrdate }"
-								pattern="yy년MM월dd일(E)" /></td>
+						<td>
+							<c:if test="">
+								<img src="${conPath }/image/hot.gif">
+							</c:if>
+							${review.rvhit }
+						</td>
+						<td>
+							<fmt:formatDate value="${review.rvrdate }" pattern="yy년MM월dd일(E)" />
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -87,7 +91,7 @@
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/reviewlList.do?pageNum=${startPage-1}">
+				[ <a href="${conPath }/reviewList.do?pageNum=${startPage-1}">
 					이전 </a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
@@ -95,11 +99,11 @@
 					<b> [ ${i } ] </b>
 				</c:if>
 				<c:if test="${i != pageNum }">
-					[ <a href="${conPath }/reviewlList.do?pageNum=${i}"> ${i } </a> ]
+					[ <a href="${conPath }/reviewList.do?pageNum=${i}"> ${i } </a> ]
 				</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-			  [ <a href="${conPath }/reviewlList.do?pageNum=${endPage+1}"> 다음
+			  [ <a href="${conPath }/reviewList.do?pageNum=${endPage+1}"> 다음
 				</a> ]
 			</c:if>
 		</div>

@@ -8,7 +8,7 @@ public class ReviewDto {
 	private String aid;
 	private String rvtitle;
 	private String rvcontent;
-	private String rvfilename;
+	private String rvfilename; 
 	private Timestamp rvrdate;
 	private int rvhit;
 	private String rvip;

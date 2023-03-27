@@ -23,22 +23,21 @@ public class ReviewModifyService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String path = request.getRealPath("ReviewBoardUp");
 		int maxSize = 1024 * 1024 * 10; // 최대업로드 사이즈는 10M
-		String rvFileName = "", dbFileName = null;
+		String rvfilename = "", dbFileName = null;
 		try {
 			MultipartRequest mRequest = new MultipartRequest(request, path, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
 			Enumeration<String> params = mRequest.getFileNames();
 			String param = params.nextElement();
-			rvFileName = mRequest.getFilesystemName(param);
+			rvfilename = mRequest.getFilesystemName(param);
 			dbFileName = mRequest.getParameter("dbFileName");
-			if (rvFileName == null) {
-				rvFileName = dbFileName;
+			if (rvfilename == null) {
+				rvfilename = dbFileName;
 			}
 			// 글번호, 글제목, 글본문, 가져오기
 			int rvno = Integer.parseInt(mRequest.getParameter("rvno"));
 			String rvtitle = mRequest.getParameter("rvtitle");
 			String rvcontent = mRequest.getParameter("rvcontent");
-			String rvfilename = mRequest.getParameter("rvfilename");
 			String rvip = request.getRemoteAddr();
 			ReviewDao rDao = ReviewDao.getInstance();
 			ReviewDto rDto = new ReviewDto(rvno, null, null, rvtitle, rvcontent, rvfilename, null, 0, rvip);
@@ -56,13 +55,13 @@ public class ReviewModifyService implements Service {
 			request.setAttribute("reviewResult", "글수정 실패");
 		}
 		// 서버에 올라간 ReviewBoardUp 파일을 소스폴더에 filecopy (파일 수정을 안 했거나, 예외가 떨어질 경우 복사 안 함)
-		if (dbFileName != null && !rvFileName.equals(dbFileName)) {
+		if (dbFileName != null && !rvfilename.equals(dbFileName)) {
 			InputStream is = null;
 			OutputStream os = null;
 			try {
-				File serverFile = new File(path + "/" + rvFileName);
+				File serverFile = new File(path + "/" + rvfilename);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp" + rvFileName);
+				os = new FileOutputStream("D:/project1/source/1stproject/dental/WebContent/ReviewBoardUp" + rvfilename);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while (true) {
 					int nByteCnt = is.read(bs);
