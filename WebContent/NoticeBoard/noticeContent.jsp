@@ -45,7 +45,7 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${nContent.nbno }번 글 상세보기</caption>
+			<caption>${nContent.nbno }번글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${nContent.aid }님</td>
@@ -59,35 +59,38 @@
 				<td><pre style="white-space: pre-wrap;">${nContent.nbcontent }</pre></td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<c:if test="${empty member and not empty admin}">
+				<td colspan="2"><c:if
+						test="${empty member and not empty admin}">
 						<input type="button" value="수정" class="btn"
 							onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
 						<input type="button" value="목록" class="btn"
 							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-					</c:if> 
-					<c:if test="${empty member and not empty admin}">
-						<input type="button" value="삭제" class="btn" id="btn1"
-							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-					</c:if> 
-					<c:if test="${empty admin}">
-						<input type="button" value="목록" class="btn" 
+					</c:if> <c:if test="${empty member and not empty admin}">
+						<button class="btn" 
+							onclick="delete1('${nContent.nbno}')">삭제
+						</button>
+							
+							
+							<%-- <input type="button" value="삭제" class="btn"
+							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'"> --%>
+					</c:if> <c:if test="${empty admin}">
+						<input type="button" value="목록" class="btn"
 							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
 					</c:if>
 			</tr>
 		</table>
 	</div>
 	<script>
-		function delete() {
-			answer = comfirm("삭제 하시겠습니까 ?");
-			if (answer === true) {
-				document.write(location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }');
+		function delete1(no) {
+			answer = confirm("삭제 하시겠습니까 ?");
+			if (answer) {
+				location.href = '${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }';
 			} else {
-				document.write(window.history.back());
+				alert('삭제 취소');
 			}
 		};
 	</script>
-		
+
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>
