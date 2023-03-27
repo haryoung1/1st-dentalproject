@@ -9,11 +9,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<!-- <style>
-table .td:first-child {
+<style>
+#table1. right {
 	text-align: right;
 }
-</style> -->
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document)
@@ -80,19 +80,18 @@ table .td:first-child {
 				</c:forEach>
 			</c:if>
 		</table>
-		<div>
-		<table>
+		<table class="table1">
 			<tr>
-				<td colspan="2">
+				<td class="right">
 					<c:if test="${not empty member }"> 
 						<a href="${conPath }/reviewWriteView.do">글쓰기</a>
 					</c:if> <c:if test="${empty member and empty admin }">
 						<a href="${conPath }/loginView.do?next=boardWriteView.do"> 글
 							작성을 위해 로그인을 해주세요. </a>
-					</c:if></td>
+					</c:if>
+				</td>
 			</tr>
 		</table>
-		</div>
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
