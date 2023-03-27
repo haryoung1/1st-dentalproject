@@ -95,8 +95,7 @@
 				</tr>
 				<tr>
 					<th>현비밀번호</th>
-					<td><input type="password" name="oldMpw" required="required" id="oldMpw"
-						size="3"></td>
+					<td><input type="password" name="oldMpw" required="required" size="3"></td>
 				</tr>
 				<tr>
 					<th>새비밀번호</th>
@@ -133,7 +132,7 @@
 					<input type="submit" value="정보수정" class="btn"> 
 					<input type="reset" value="초기화" class="btn"> 
 					<input type="reset" value="이전" class="btn" onclick="history.back()"> 
-					<input type="button" value="회원탈퇴" class="btn" onclick="location.href='${conPath}/withdrawal.do'"></td>
+					<input type="button" value="회원탈퇴" class="btn" onclick="location.href='${conPath}/withdrawalView.do'"></td>
 				</tr>
 			</table>
 		</form>

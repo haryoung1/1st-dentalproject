@@ -8,15 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath}/css/member/join.css" rel="stylesheet">
+<link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
 #content_form {
-	height: 470px;
-	margin: 30px auto 0px;
+	height: 420px;
+	margin: 80px auto 0px;
 }
 
 #content_form table tr {
-	height: 10px;
+	height: 60px;
 }
 
 button, .btn {
@@ -41,28 +41,36 @@ button, .btn {
 	transition: 0.5s;
 }
 </style>
-<script>
-	
-</script>
 </head>
 <body>
+	<c:if test="${empty member }">
+		<script>
+			location.href = '${conPath}/loginView.do?next=reviewWriteView.do';
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/withdrawal.do" method="post">
+		<form action="${conPath }/reviewWrite.do" method="post" enctype="multipart/form-data">
 			<table>
-				<caption>회원 탈퇴</caption>
+				<caption>후기게시판</caption>
 				<tr>
-					<th>이름</th>
-					<td>${member.mname }</td>
+					<td>제목</td>
+					<td><input type="text" name="rvtitle" required="required">
+					</td>
 				</tr>
 				<tr>
-					<th>ID</th>
-					<td>${member.mid }</td>
+					<td>내용</td>
+					<td><textarea rows="5" name="rvcontent"></textarea></td>
+				</tr>
+				<tr>
+					<td>첨부파일</td>
+					<td><input type="file" name="rvfilename"></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input class="btn" type="submit" value="회원탈퇴">
-						<input class="btn" type="button" value="이전" onclick="history.go(-1)"></td>
+						<input type="submit" value="등록하기" class="btn">
+						<input type="reset" value="취소" class="btn"> 
+						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/reviewList.do'"></td>
 				</tr>
 			</table>
 		</form>

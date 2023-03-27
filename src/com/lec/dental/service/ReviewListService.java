@@ -38,7 +38,7 @@ public class ReviewListService implements Service {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCnt", pageCnt);
-		request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
+		request.setAttribute("totCnt", totCnt); 
 		request.setAttribute("pageNum", currentPage);
 	}
 }

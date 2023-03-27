@@ -43,6 +43,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/map.jsp";
 		}else if (command.equals("/implant.do")) { // 임플란트 소개
 			viewPage = "main/implant.jsp";
+		}else if (command.equals("/consulting.do")) {
+			viewPage = "ConsultingBoard/consulting.jsp";
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
@@ -195,24 +197,33 @@ public class FrontController extends HttpServlet {
 		 * * * * * * * * * * * 리뷰 게시판 관련요청 * * * * * * * * * *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 		
-		else if (command.equals("/reviewList.do")) { // 리뷰 게시판 글 목록
+		else if (command.equals("/reviewList.do")) { // 후기 게시판 글 목록
 			service = new ReviewListService();
 			service.execute(request, response);
 			viewPage = "ReviewBoard/reviewlList.jsp";
+		} else if (command.equals("/reviewWriteView.do")) { // 후기 게시판 글 쓰기
+			viewPage = "ReviewBoard/reviewWrite.jsp";
+		} else if (command.equals("/reviewWrite.do")) { // 후기게시판 글 db 저장
+			service = new ReviewWriteService();
+			service.execute(request, response);
+			viewPage = "reviewList.do";
+		} else if (command.equals("/reviewContent.do")) { // 후기게시판 글 상세보기
+			service = new ReviewContentService();
+			service.execute(request, response);
+			viewPage = "ReviewBoard/reviewContent.jsp";
+		} else if (command.equals("/reviewModifyView.do")) { // 후기게시판 글 수정하기
+			service = new ReviewModifyViewService();
+			service.execute(request, response);
+			viewPage = "ReviewBoard/reviewModify.jsp";
+		} else if (command.equals("/reviewModify.do")) { // 수정 처리
+			service = new ReviewModifyService();
+			service.execute(request, response);
+			viewPage = "reviewList.do";
+		} else if (command.equals("/reviewDelete.do")) { // 글삭제
+			service = new ReviewDeleteService();
+			service.execute(request, response);
+			viewPage = "reviewList.do";
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

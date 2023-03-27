@@ -14,16 +14,37 @@
 </head>
 </head>
 <body>
-	<c:if test="${not empty adminloginErrorMsg }"> <!-- 관리자 ID / PW 실패시 -->
+	<c:if test="${not empty adminloginErrorMsg }">
+		<!-- 관리자 ID / PW 실패시 -->
 		<script>
 			alert('${adminloginErrorMsg}');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${not empty loginErrorMsg }"> <!-- 멤버 id / pw 실패시 -->
+	<c:if test="${not empty loginErrorMsg }">
+		<!-- 멤버 id / pw 실패시 -->
 		<script>
 			alert('${loginErrorMsg}');
 			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyResult }">
+		<!-- 정보수정 성공 -->
+		<script>
+			alert('${modifyResult}');
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyErrorMsg }">
+		<!-- 정보수정 실패 -->
+		<script>
+			alert('${modifyErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty withdrawalResult }">
+		<!-- 회원탈퇴 -->
+		<script>
+			alert('${withdrawalResult}');
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
@@ -40,11 +61,10 @@
 			<div class="section2">
 				<div class="hit_product">
 					<p class="p1">
-						<img src="image/임플란트.png"> 
-						<span class="imtext1">[임플란트]
-						<a href="${conPath }/implant.do">1</a>
+						<img src="image/임플란트.png"> \ <span class="imtext1">[임플란트]
+							<a href="${conPath }/implant.do">1</a>
 						</span>
-	
+
 					</p>
 					<p class="p2">
 						<img src="image/치아교정.png"> <span class="imtext2">[치아교정]</span>

@@ -158,60 +158,6 @@ SELECT * FROM MRBOARD;
 COMMIT;
 
 ------------------------------------------------------
---  ConsultingBoard (상담게시판 CBOARD) Dao query                   
-------------------------------------------------------
-
--- (1) 글 목록 (startRow ~ endRow까지)
-SELECT A. *,
-    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,
-    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME
-        FROM (SELECT ROWNUM RN, B.*
-            FROM (SELECT * FROM CBBOARD ORDER BY CBRDATE DESC) B) A
-    WHERE RN BETWEEN 1 AND 10;
-
--- (2) 글 갯수
-SELECT COUNT(*) FROM CBBOARD;
-
--- (3) 글쓰기 원글
-INSERT INTO CBBOARD (CBNO, MID, AID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, 'ccc', null, '또상담', '상담본문', 'han.JPG' , CBBOARD_SEQ.CURRVAL, 0, 0, '192.168.1');
-
--- (4) hit(조회수) 1회 올리기
-UPDATE CBBOARD SET CBHIT = CBHIT + 1 WHERE CBNO = 1;
-
--- (5) 글번호(CBNO)로 글 전체 내용(CboardDto) 가져오기
-SELECT CB.*, MNAME FROM CBBOARD CB, MEMBER M WHERE CB.MID=M.MID AND CBNO=1;
-
-
--- (6) 글 수정하기(CBNO, CBtitle, CBcontent, CBFILENAME, CBrdate(SYSDATE), CBip 수정)
-UPDATE CBBOARD SET
-        CBTITLE = '바뀐제목',
-        CBCONTENT ='바뀐본문',
-        CBFILENAME ='NOIMG.JPG',
-        CBRDATE = SYSDATE,
-        CBIP = '192.168.2'
-    WHERE CBNO = 1;
-
--- (7) 글 삭제하기(CBNO)
-DELETE FROM CBBOARD WHERE CBNO = 8;
-
--- (8) 회원탈퇴시 탈퇴하는 회원 (mID)이 쓴 글 모두 삭제하기
-DELETE FROM CBBOARD WHERE mID = 'CCC';
-
--- (9) 답변글 쓰기 전 단계 (원글의 CGROUP과 같고, 원글의 CSTEP 보다 크면 CSTEP을 하나 증가)
-UPDATE CBBOARD
-    SET CBSTEP = CBSTEP + 1
-    WHERE CBGROUP = 2 AND CBSTEP > 0;
-
--- (10) 답변글 쓰기
-SELECT * FROM CBBOARD WHERE CBNO = 2;
-INSERT INTO CBBOARD (CBNO, MID, AID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, null, 'admin', '답변글', '답본문', 'NOIMG.JPG', 2, 1, 1, '192.1.1.1');
-
-SELECT * FROM CBBOARD;
-COMMIT;
-
-------------------------------------------------------
 --  ReviewBoard (후기게시판 RVOARD) Dao query                   
 ------------------------------------------------------
 
@@ -227,13 +173,13 @@ SELECT COUNT(*) FROM RVBOARD;
 
 -- (3) 글쓰기 원글
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'ccc', null, '진료후기', '너무 친절해요', 'NOIMG.JPG', '192.168.0.1');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'lee', null, '진료후기', '너무 친절해요', 'NOIMG.JPG', '192.168.0.1');
 
 -- (4) hit(조회수) 1회 올리기
-UPDATE RVBOARD SET RVHIT = RVHIT + 1 WHERE RVNO = 1;
+UPDATE RVBOARD SET RVHIT = RVHIT + 1 WHERE RVNO = 2;
 
 -- (5) 글번호(RVNO)로 글 전체 내용(RboardDto) 가져오기
-SELECT * FROM RVBOARD WHERE RVNO = 1;
+SELECT * FROM RVBOARD WHERE RVNO = 2;
 
 -- (6) 글 수정하기(RVNO, RVtitle, RVcontent, RVFILENAME, RVrdate(SYSDATE), RVip 수정)
 UPDATE RVBOARD SET

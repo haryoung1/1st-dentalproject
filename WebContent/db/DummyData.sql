@@ -72,33 +72,15 @@ INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDE
 
 SELECT * FROM MRBOARD;
 COMMIT;
-------------------------------------------------------
---            상담 게시판 ConsultingBoard                     
-------------------------------------------------------
 
--- DUMMY DATA (원글과 답변)
-INSERT INTO CBBOARD (CBNO, mID, aID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, 'aaa', null, '상담글1', '상담내용1', 'NOIMG.JPG', CBBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');
-INSERT INTO CBBOARD (CBNO, mID, aID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, 'bbb', null, '상담글2', '상담내용2', 'NOIMG.JPG', CBBOARD_SEQ.CURRVAL, 0, 0, '201.1.1');  
-INSERT INTO CBBOARD (CBNO, mID, aID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, 'ccc', null, '상담글3', '상담내용3', 'NOIMG.JPG', CBBOARD_SEQ.CURRVAL, 0, 0, '222.2.3');  
-
-
--- 위 2번글에 대한 답변글
-INSERT INTO CBBOARD (CBNO, mID, aID, CBTITLE, CBCONTENT, CBFILENAME, CBGROUP, CBSTEP, CBINDENT, CBIP)
-    VALUES (CBBOARD_SEQ.NEXTVAL, null, 'admin', '[답]하이', '답본문', 'NOIMG.JPG', 2, 1, 1, '210.2.2');
-
-SELECT * FROM CBBOARD;
-COMMIT;
 ------------------------------------------------------
 --            후기 게시판 ReviewBoard                     
 ------------------------------------------------------
 -- DUMMY DATA (원글)
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'kim', null, '후기글1', '친절해요', null, '192.168.10.151');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'kim', null, '후기글1', '친절해요', 'son.jpg', '192.168.10.151');
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
-    VALUES (RVBOARD_SEQ.NEXTVAL, 'pham', null, '후기글2', '친절해요', null, '192.168.10.151');
+    VALUES (RVBOARD_SEQ.NEXTVAL, 'pham', null, '후기글2', '친절해요', 'han.jpg', '192.168.10.151');
 INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)
     VALUES (RVBOARD_SEQ.NEXTVAL, 'dan', null, '후기글3', '친절해요', null, '192.168.10.151');
 

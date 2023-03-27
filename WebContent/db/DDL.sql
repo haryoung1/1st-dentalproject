@@ -77,31 +77,6 @@ SELECT * FROM MRBOARD;
 COMMIT;
 
 ------------------------------------------------------
---            상담 게시판 ConsultingBoard                     
-------------------------------------------------------
-DROP TABLE CBBOARD;
-
-CREATE TABLE CBBOARD(
-    cbNO NUMBER(6) PRIMARY KEY,                -- 글번호
-    mID VARCHAR2(50) REFERENCES MEMBER (mID),  -- 아이디
-    aID  VARCHAR2(50) REFERENCES ADMIN(aID),   -- 관리자 아이디
-    cbTITLE VARCHAR2(200) NOT NULL,            -- 글제목
-    cbCONTENT VARCHAR2(4000) NOT NULL,         -- 글본문
-    cbFILENAME VARCHAR2(100),                  -- 첨부파일 이름
-    cbRDATE DATE DEFAULT SYSDATE,              -- 글 작성시점
-    cbHIT NUMBER(6) DEFAULT 0,                 -- 조회수 
-    cbGROUP NUMBER(6) NOT NULL,                -- 글그룹
-    cbSTEP NUMBER(6) NOT NULL,                 -- 그룹 내 출력순서
-    cbINDENT NUMBER(6) NOT NULL,               -- 들여쓰기 정도
-    cbIP VARCHAR2(30)                          -- 글쓴이 아이피
-);
-
-DROP SEQUENCE CBBOARD_SEQ;
-CREATE SEQUENCE CBBOARD_SEQ MAXVALUE 999999 NOCACHE NOCYCLE;
-
-SELECT * FROM CBBOARD;
-COMMIT;
-------------------------------------------------------
 --            후기 게시판 ReviewBoard                     
 ------------------------------------------------------
 
