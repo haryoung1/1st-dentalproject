@@ -10,27 +10,44 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-#table1. right {
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-weight: bold;
 	text-align: right;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 2px solid #444444;
+	display: inline-block;
+	width: auto;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
+#right {
+	text-align: right;
+	margin: 0;
+	padding: 0.5rem 1rem;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var rvno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(rvno)) {
-												location.href = '${conPath }/reviewContent.do?rvno='
-														+ rvno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+			var rvno = $(this).children().eq(0).text();
+			if (!isNaN(rvno)) {
+				location.href = '${conPath }/reviewContent.do?rvno=' + rvno + '&pageNum=${pageNum}';
+		}
+	});
+});
 </script>
 </head>
 <body>
@@ -42,8 +59,10 @@
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<h2>후기게시판★</h2>
+		<br>
+		<h2>후기&nbsp;게시판</h2>
 		<hr>
+		<br>
 		<br>
 		<table>
 			<tr>
@@ -63,37 +82,36 @@
 					<tr>
 						<td>${review.rvno }</td>
 						<td>${review.mid }${review.aid }</td>
-						<td>${review.rvtitle }<c:if
-								test="${not empty review.rvfilename }">
-								<img
-									src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png"
-									width="10">
-							</c:if>
+						<td>
+							${review.rvtitle }
+						<c:if test="${not empty review.rvfilename }">
+							<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">
+						</c:if>
 						</td>
-						<td>${review.rvhit }<c:if test="${review.rvhit > 10 }">
-								<img src="${conPath }/image/hot.gif">
-							</c:if>
+						<td>
+							${review.rvhit }
+								<c:if test="${review.rvhit > 10 }"> 
+									<img src="${conPath }/image/hot.gif">
+								</c:if>
 						</td>
-						<td><fmt:formatDate value="${review.rvrdate }"
-								pattern="yy년MM월dd일(E)" /></td>
+						<td>
+							<fmt:formatDate value="${review.rvrdate }" pattern="yy년MM월dd일(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
-		<table class="table1">
-			<tr>
-				<td class="right">
-					<c:if test="${not empty member }"> 
-						<a href="${conPath }/reviewWriteView.do">글쓰기</a>
-					</c:if> <c:if test="${empty member and empty admin }">
-						<a href="${conPath }/loginView.do?next=boardWriteView.do"> 글
-							작성을 위해 로그인을 해주세요. </a>
-					</c:if>
-				</td>
-			</tr>
-		</table>
-		<!-- 페이징처리 -->
-		<div class="paging">
+		<br>
+		<div id="right"> <!-- 글등록 버튼 -->
+			<c:if test="${not empty member }">
+				<input type="button" class="btn" value="글쓰기"
+					onclick="location='${conPath}/reviewWriteView.do'">
+			</c:if>
+			<c:if test="${empty member and empty admin }">
+				<input type="button" class="btn" value="글쓰기"
+					onclick="location='${conPath}/loginView.do?next=reviewWriteView.do'">
+			</c:if>
+		</div>
+		<div class="paging"> <!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/reviewList.do?pageNum=${startPage-1}"> 이전
 				</a> ]

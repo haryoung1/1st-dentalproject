@@ -44,7 +44,7 @@ public class FrontController extends HttpServlet {
 		}else if (command.equals("/implant.do")) { // 임플란트 소개
 			viewPage = "main/implant.jsp";
 		}else if (command.equals("/consulting.do")) {
-			viewPage = "ConsultingBoard/consulting.jsp";
+			viewPage = "main/consulting.jsp";
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *

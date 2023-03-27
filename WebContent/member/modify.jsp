@@ -17,6 +17,7 @@
 	height: 400px;
 	margin: 20px auto 80px;
 }
+
 </style>
 </head>
 <script>
@@ -84,7 +85,6 @@
 			<input type="hidden" name="dbMpw" value="${member.mpw }"> 
 			<input type="hidden" name="dbMphoto" value="${member.mphoto }">
 			<table>
-				<caption>정보수정</caption>
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" name="mid" value="${member.mid }"

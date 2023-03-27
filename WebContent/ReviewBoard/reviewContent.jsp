@@ -47,7 +47,7 @@ button, .btn {
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${rvContent.rvno }번글상세보기</caption>
+			<caption>${rvContent.rvno }번 글 상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${rvContent.mid }${rvContent.aid }</td>

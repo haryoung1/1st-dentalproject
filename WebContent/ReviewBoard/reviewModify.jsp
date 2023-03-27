@@ -10,6 +10,18 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
+#rvno {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	margin: 39px;
+	padding : 10px;
+	width: 100px;
+}
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -24,7 +36,7 @@
 	text-align: center;
 	text-decoration: none;
 	border-radius: 4px;
-	border: 2px solid #444444;
+	border: 1px solid #444444;
 	display: inline-block;
 	width: auto;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
@@ -37,12 +49,13 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/reviewModify.do" method="post"
-			enctype="multipart/form-data">
-			> <input type="hidden" name="pageNum" value="${param.pageNum }">
+		<form action="${conPath }/reviewModify.do" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<input type="hidden" name="rvno" value="${review.rvno }">
+			<div id="rvno">
+				${review.rvno }번 글 수정
+			</div>
 			<table>
-				<caption>${review.rvno }번글수정</caption>
 				<tr>
 					<th>제목</th>
 					<td><input type="text" name="rvtitle"
@@ -65,7 +78,7 @@
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="저장" class="btn">
-						<input type="reset" value="취소" class="btn"
+						<input type="reset" value="이전" class="btn"
 						onclick="history.back()"> <input type="button" value="목록"
 						class="btn"
 						onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">

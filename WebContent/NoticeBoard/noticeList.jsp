@@ -10,37 +10,64 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-weight: bold;
+	text-align: right;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 2px solid #444444;
+	display: inline-block;
+	width: auto;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+#right {
+	text-align: right;
+	margin: 0;
+	padding: 0.5rem 1rem;
+}
+</style>
 <script>
-	$(document).ready(function() {
-		$('tr').click(function() {
-	var nbno = $(this).children().eq(0).text();
-	if (!isNaN(nbno)) {
-			location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
-		}
-	});
-});
+	$(document)
+			.ready(
+					function() {
+						$('tr')
+								.click(
+										function() {
+											var nbno = $(this).children().eq(0)
+													.text();
+											if (!isNaN(nbno)) {
+												location.href = '${conPath }/noticeContent.do?nbno='
+														+ nbno
+														+ '&pageNum=${pageNum}';
+											}
+										});
+					});
 </script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<c:if test="${not empty noticeWriteResult}"> <!--  글쓰기 성공 if noticeList -->
+	<c:if test="${not empty noticeWriteResult}">
+		<!--  글쓰기 성공 if noticeList -->
 		<script>
 			alert('${noticeWriteResult}')
 		</script>
 	</c:if>
 	<div id="wrap">
-		<table>
-			<tr>
-				<td>
-					<c:if test="${not empty admin }">
-						<a href="${conPath }/noticeWriteView.do">글쓰기</a>
-					</c:if> 
-					<c:if test="${empty admin }">
-						<a href="${conPath }/adminLoginView.do?next=noticeWriteView.do"></a>
-					</c:if>
-				</td>
-			</tr>
-		</table>
+
 		<h2>공지사항</h2>
 		<hr>
 		<br>
@@ -62,11 +89,22 @@
 						<td>${notice.nbno }</td>
 						<td>${notice.aid }</td>
 						<td>${notice.nbtitle }</td>
-						<td><fmt:formatDate value="${notice.nbrdate }" pattern="yy년MM월dd일(E)" /></td>
+						<td><fmt:formatDate value="${notice.nbrdate }"
+								pattern="yy년MM월dd일(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
+		<div id="right">
+			<c:if test="${not empty admin }">
+				<input type="button" class="btn" value="글쓰기"
+					onclick="location='${conPath}/noticeWriteView.do'">
+			</c:if>
+			<c:if test="${empty admin }">
+				<input type="button" class="btn" value="글쓰기"
+					onclick="location='${conPath}/noticeWriteView.do'">
+			</c:if>
+		</div>
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">

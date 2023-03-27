@@ -42,7 +42,14 @@ button, .btn {
 }
 </style>
 <script>
-	
+	function click1() {
+		answer = confirm ("확인을 누르면 탈퇴가 진행 됩니다");
+		if (answer === true) {
+			
+		} else {
+			document.write(window.history.back());
+		}
+	};
 </script>
 </head>
 <body>
@@ -61,8 +68,10 @@ button, .btn {
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input class="btn" type="submit" value="회원탈퇴">
-						<input class="btn" type="button" value="이전" onclick="history.go(-1)"></td>
+						<button class="btn" onclick="click1()">회원탈퇴</button> 
+						<input
+						class="btn" type="button" value="이전" onclick="history.go(-1)">
+					</td>
 				</tr>
 			</table>
 		</form>

@@ -59,22 +59,35 @@
 				<td><pre style="white-space: pre-wrap;">${nContent.nbcontent }</pre></td>
 			</tr>
 			<tr>
-				<td colspan="2"><c:if
-						test="${empty member and not empty admin}">
+				<td colspan="2">
+					<c:if test="${empty member and not empty admin}">
 						<input type="button" value="수정" class="btn"
 							onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
 						<input type="button" value="목록" class="btn"
 							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-					</c:if> <c:if test="${empty member and not empty admin}">
+					</c:if> 
+					<c:if test="${empty member and not empty admin}">
 						<input type="button" value="삭제" class="btn" id="btn1"
 							onclick="location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-					</c:if> <c:if test="${empty admin}">
-						<input type="button" value="목록" class="btn"
+					</c:if> 
+					<c:if test="${empty admin}">
+						<input type="button" value="목록" class="btn" 
 							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
 					</c:if>
 			</tr>
 		</table>
 	</div>
+	<script>
+		function delete() {
+			answer = comfirm("삭제 하시겠습니까 ?");
+			if (answer === true) {
+				document.write(location='${conPath}/noticeDelete.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }');
+			} else {
+				document.write(window.history.back());
+			}
+		};
+	</script>
+		
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>
