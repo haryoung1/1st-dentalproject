@@ -37,12 +37,17 @@ button, .btn {
 	transition: 0.5s;
 }
 </style>
+<script>
+	function func() {
+		alert('test');
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<table>
-			<caption>${rvContent.rvno }번글 상세보기</caption>
+			<caption>${rvContent.rvno }번글상세보기</caption>
 			<tr>
 				<th>작성자</th>
 				<td>${rvContent.mid }${rvContent.aid }</td>
@@ -70,14 +75,17 @@ button, .btn {
 					</c:if></td>
 			</tr>
 			<tr>
-				<td colspan="2"><c:if test="${member.mid eq rvContent.mid}">
+				<td colspan="2">
+					<c:if test="${member.mid eq rvContent.mid}">
 						<input type="button" value="수정" class="btn"
 							onclick="location='${conPath}/reviewModifyView.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">
-					</c:if> <c:if test="${member.mid eq rvContent.mid or not empty admin}">
+					</c:if> 
+					<c:if test="${member.mid eq rvContent.mid or not empty admin}">
 						<input type="button" value="삭제" class="btn"
 							onclick="location='${conPath}/reviewDelete.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">
-					</c:if> <input type="button" value="목록" class="btn"
-					onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
+					</c:if> 
+						<input type="button" value="목록" class="btn"
+							onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
 			</tr>
 		</table>
 	</div>

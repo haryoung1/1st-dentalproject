@@ -43,9 +43,9 @@ public class ReviewWriteService implements Service {
 				ReviewDto rDto = new ReviewDto(0, mid, null, rvtitle, rvcontent, rvfilename, null, 0, rvip);
 				int result = rDao.writeReview(rDto);
 				if (result == ReviewDao.SUCCESS) {
-					request.setAttribute("reviewResult", "글쓰기 성공");
+					request.setAttribute("reviewResult", "글등록 성공");
 				} else {
-					request.setAttribute("reviewResult", "글쓰기 실패");
+					request.setAttribute("reviewResult", "글등록 실패");
 				}
 
 			} else {

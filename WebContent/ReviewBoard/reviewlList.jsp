@@ -9,8 +9,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<style>
-</style>
+<!-- <style>
+table .td:first-child {
+	text-align: right;
+}
+</style> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document)
@@ -31,24 +34,14 @@
 </script>
 </head>
 <body>
-	<c:if test="${not empty reviewWriteResult}"> <!--  글쓰기 성공 -->
+	<c:if test="${not empty reviewResult}">
+		<!--  글쓰기 성공 -->
 		<script>
-			alert('${reviewWriteResult}')
+			alert('${reviewResult}')
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<table>
-			<tr>
-				<td>
-					<c:if test="${not empty member }">
-						<a href="${conPath }/reviewWriteView.do">글쓰기</a>
-					</c:if> <c:if test="${empty member and empty admin }">
-						<a href="${conPath }/loginView.do?next=boardWriteView.do"> 글
-							작성을 위해 로그인을 해주세요. </a>
-					</c:if></td>
-			</tr>
-		</table>
 		<h2>후기게시판★</h2>
 		<hr>
 		<br>
@@ -70,29 +63,41 @@
 					<tr>
 						<td>${review.rvno }</td>
 						<td>${review.mid }${review.aid }</td>
-						<td>${review.rvtitle }
-							<c:if test="${not empty review.rvfilename }">
-								<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">
+						<td>${review.rvtitle }<c:if
+								test="${not empty review.rvfilename }">
+								<img
+									src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png"
+									width="10">
 							</c:if>
 						</td>
-						<td>
-							<c:if test="">
+						<td>${review.rvhit }<c:if test="${review.rvhit > 10 }">
 								<img src="${conPath }/image/hot.gif">
 							</c:if>
-							${review.rvhit }
 						</td>
-						<td>
-							<fmt:formatDate value="${review.rvrdate }" pattern="yy년MM월dd일(E)" />
-						</td>
+						<td><fmt:formatDate value="${review.rvrdate }"
+								pattern="yy년MM월dd일(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
+		<div>
+		<table>
+			<tr>
+				<td colspan="2">
+					<c:if test="${not empty member }"> 
+						<a href="${conPath }/reviewWriteView.do">글쓰기</a>
+					</c:if> <c:if test="${empty member and empty admin }">
+						<a href="${conPath }/loginView.do?next=boardWriteView.do"> 글
+							작성을 위해 로그인을 해주세요. </a>
+					</c:if></td>
+			</tr>
+		</table>
+		</div>
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/reviewList.do?pageNum=${startPage-1}">
-					이전 </a> ]
+				[ <a href="${conPath }/reviewList.do?pageNum=${startPage-1}"> 이전
+				</a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				<c:if test="${i == pageNum }">

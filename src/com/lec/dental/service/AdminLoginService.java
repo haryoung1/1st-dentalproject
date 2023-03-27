@@ -13,18 +13,21 @@ public class AdminLoginService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String aid = request.getParameter("aid");
 		String apw = request.getParameter("apw");
+		String acode = request.getParameter("acode");
 		AdminDao aDao = AdminDao.getInstance();
-		int result = aDao.loginCheck(aid, apw);
-		if (result == AdminDao.SUCCESS) {
-			HttpSession session = request.getSession();
-			AdminDto admin = aDao.getAdmin(aid);
-			session.setAttribute("admin", admin);
-			request.setAttribute("adminLoginResult", "관리자계정으로 들어 오셨습니다.");
-		}else {
-			System.out.println("관리자 로그인 에러");
-			request.setAttribute("adminloginErrorMsg", "아이디와 비번을 확인하세요");
+		if (acode.equals("143")) {
+			int result = aDao.loginCheck(aid, apw);
+			if (result == AdminDao.LOGIN_SUCCESS) { // 로그인 성공
+				HttpSession session = request.getSession();
+				AdminDto admin = aDao.getAdmin(aid);
+				session.setAttribute("admin", admin);
+			} else { // 로그인 실패
+				System.out.println("관리자 로그인 에러");
+				request.setAttribute("adminloginErrorMsg", "아이디와 비번을 확인하세요");
+			}
+		} else {
+			System.out.println("관리자 코드 에러 : 코드는 143 이야 ");
+			request.setAttribute("adminCodeError", "관리자코드가 일치하지 않습니다.");
 		}
-
 	}
-
 }

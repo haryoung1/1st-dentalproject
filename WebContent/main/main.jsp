@@ -9,8 +9,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/main.css" rel="stylesheet">
-<style>
-</style>
 </head>
 </head>
 <body>
@@ -18,6 +16,13 @@
 		<!-- 관리자 ID / PW 실패시 -->
 		<script>
 			alert('${adminloginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty adminCodeError }">
+		<!-- 관리자 코드 실패시 -->
+		<script>
+			alert('${adminCodeError}');
 			history.back();
 		</script>
 	</c:if>

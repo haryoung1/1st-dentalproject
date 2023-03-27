@@ -23,9 +23,9 @@ public class MedicalWriteService implements Service {
 			MedicalDto medicalDto = new MedicalDto(0, mid, null, mrtitle, mrcontent, null, 0, 0, 0, 0, mrip);
 			int result = medicalDao.writeMedical(medicalDto);
 			if (result == MedicalDao.SUCCESS) {
-				request.setAttribute("medicalWriteResult", "글쓰기 성공");
+				request.setAttribute("medicalWriteResult", "글등록 성공");
 			} else {
-				request.setAttribute("medicalWriteResult", "글쓰기 실패");
+				request.setAttribute("medicalWriteResult", "글등록 실패");
 			}
 			request.setAttribute("pageNum", request.getParameter("pageNum"));
 		}
