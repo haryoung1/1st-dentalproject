@@ -13,7 +13,7 @@ INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('lee', '123', '이혜인', 'lee@naver.com', '해인.jpg', '2008-04-21', '인천광역시 문학동'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('bin', '123', '강성빈', 'bin@naver.com', '정국.jpg', '1994-08-25', '서울시 강서구'); 
+    VALUES ('bin', '123', '강성빈', 'bin@naver.com', 'kang.jpg', '1994-08-25', '서울시 강서구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('zico', '123', '지아코', 'zico@naver.com', 'gico.jpg', '1992-09-14', '서울시 지아코'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
@@ -25,7 +25,7 @@ INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('lim', '123', '임요환', 'lim@naver.com', 'lim.jpg', '1981-12-14', '서울시 테사기'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
-    VALUES ('min', '123', '민희진', 'min@naver.com', 'min.jpg', '1979-12-16', '서울시 강남구'); 
+    VALUES ('min', '123', '민희진', 'min@naver.com', '민.jpg', '1979-12-16', '서울시 강남구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('aim', '123', '아이묭', 'aim@naver.com', '아이묭.jpg', '1995-03-06', '일본 효고현'); 
 

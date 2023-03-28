@@ -28,7 +28,7 @@
 	border-radius: 4px;
 	border: 1px solid #444444;
 	margin: 39px;
-	padding : 10px;
+	padding: 10px;
 	width: 130px;
 }
 </style>
@@ -36,13 +36,15 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-	<div id="list">전체회원 목록</div>
+		<div id="list">전체회원 목록</div>
 		<table>
 			<tr>
 				<th>이름</th>
 				<th>ID</th>
 				<th>생년월일</th>
 				<th>가입일</th>
+				<th>주소</th>
+				<th>사진</th>
 			</tr>
 			<c:if test="${memberList.size() eq 0 }">
 				<tr>
@@ -54,12 +56,14 @@
 					<tr>
 						<td>${dto.mname }</td>
 						<td>${dto.mid }</td>
-						<td>
-							<fmt:formatDate value="${dto.mbirth }" pattern="YYYY-MM-dd" />
+						<td><fmt:formatDate value="${dto.mbirth }"
+								pattern="YYYY-MM-dd" /></td>
+						<td><fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
 						</td>
-						<td>
-							<fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
-						</td>
+						<td>${dto.maddress }</td>
+						<td colspan="2"><img
+							src="${conPath }/memberPhotoUp/${dto.mphoto}"
+							alt="${dto.mname }사진" width="120"></td>
 					</tr>
 				</c:forEach>
 			</c:if>

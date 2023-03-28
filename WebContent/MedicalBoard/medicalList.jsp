@@ -39,7 +39,7 @@
 
 #right {
 	text-align: right;
-	margin: 0;
+	margin: 28px;
 	padding: 0.5rem 1rem;
 }
 </style>
@@ -71,10 +71,10 @@
 		<table>
 			<tr>
 				<th>글번호</th>
-				<th>작성자</th>
 				<th>글제목</th>
-				<th>조회수</th>
+				<th>작성자</th>
 				<th>작성일</th>
+				<th>조회</th>
 			</tr>
 			<c:if test="${totCnt == 0 }">
 				<tr>
@@ -85,15 +85,15 @@
 				<c:forEach items="${medicalList }" var="medical">
 					<tr>
 						<td>${medical.mrno }</td>
-						<td>${medical.mid }${medical.aid }</td>
 						<td class="left"><c:forEach var="i" begin="1" end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
 								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
 							</c:forEach> ${medical.mrtitle }</td>
-						<td>${medical.mrhit }</td>
+						<td>${medical.mid }${medical.aid }</td>
 						<td>
-							<fmt:formatDate value="${medical.mrrdate }" pattern="yy년MM월dd일(E)" />
+							<fmt:formatDate value="${medical.mrrdate }" pattern="yyyy-MM-dd(E)" />
 						</td>
+						<td>${medical.mrhit }</td>
 					</tr>
 				</c:forEach>
 			</c:if>

@@ -36,7 +36,7 @@
 
 #right {
 	text-align: right;
-	margin: 0;
+	margin: 28px;
 	padding: 0.5rem 1rem;
 }
 </style>
@@ -67,8 +67,8 @@
 		<table>
 			<tr>
 				<th>번호</th>
-				<th>작성자</th>
 				<th>제목</th>
+				<th>작성자</th>
 				<th>작성일</th>
 			</tr>
 			<c:if test="${totCnt eq 0 }">
@@ -80,22 +80,17 @@
 				<c:forEach items="${noticeList}" var="notice">
 					<tr>
 						<td>${notice.nbno }</td>
-						<td>${notice.aid }</td>
 						<td>${notice.nbtitle }</td>
+						<td>${notice.aid }</td>
 						<td><fmt:formatDate value="${notice.nbrdate }"
-								pattern="yy년MM월dd일(E)" /></td>
+								pattern="yyyy-MM-dd(E)" /></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
 		<div id="right">
 			<c:if test="${not empty admin }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/noticeWriteView.do'">
-			</c:if>
-			<c:if test="${empty admin and empty member }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/noticeWriteView.do'">
+				<input type="button" class="btn" value="글등록" onclick="location='${conPath}/noticeWriteView.do'">
 			</c:if>
 		</div>
 		<br>
