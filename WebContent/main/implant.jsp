@@ -17,24 +17,21 @@
 	<div id="wrap">
 		<div id="imp1">
 			<p>
-				<img src="image/임1.png">
+				<img src="image/im.png">
+				<img src="image/im2.png">
+				<img src="image/im3.png">
 			</p>
 		</div>
-		<div id="imp2">
+<!-- 		<div id="imp2">
 			<p>
-				<img src="image/임2.png">
+				<img src="image/im2.png">
 			</p>
 		</div>
 		<div id="imp3">
 			<p>
-				<img src="image/임3.png">
+				<img src="image/im3.png">
 			</p>
-		</div>
-		<div id="imp4">
-			<p>
-				<img src="image/임4.png">
-			</p>
-		</div>
+		</div> -->
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

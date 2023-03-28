@@ -43,8 +43,10 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/map.jsp";
 		}else if (command.equals("/implant.do")) { // 임플란트 소개
 			viewPage = "main/implant.jsp";
-		}else if (command.equals("/consulting.do")) {
+		}else if (command.equals("/consulting.do")) { // 온라인상담
 			viewPage = "main/consulting.jsp";
+		}else if (command.equals("/correction.do")) { // 임플란트 소개
+			viewPage = "main/correction.jsp";
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *

@@ -43,9 +43,9 @@
 <script>
 	$(document).ready(function() {
 		$('tr').click(function() {
-			var nbno = $(this).children().eq(0).text();
-		if (!isNaN(nbno)) {
-			location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
+	var nbno = $(this).children().eq(0).text();
+	if (!isNaN(nbno)) { 
+		location.href = '${conPath }/noticeContent.do?nbno=' + nbno + '&pageNum=${pageNum}';
 		}
 	});
 });
@@ -53,7 +53,8 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<c:if test="${not empty noticeWriteResult}"> <!--  글쓰기 성공  -->
+	<c:if test="${not empty noticeWriteResult}">
+		<!--  글쓰기 성공  -->
 		<script>
 			alert('${noticeWriteResult}')
 		</script>
@@ -62,7 +63,7 @@
 		<br>
 		<h2>공지사항</h2>
 		<hr>
-		<br>
+		<br> 
 		<br>
 		<table>
 			<tr>
@@ -82,18 +83,21 @@
 						<td>${notice.nbno }</td>
 						<td>${notice.nbtitle }</td>
 						<td>${notice.aid }</td>
-						<td><fmt:formatDate value="${notice.nbrdate }"
-								pattern="yyyy-MM-dd(E)" /></td>
+						<td>
+							<fmt:formatDate value="${notice.nbrdate }" pattern="yyyy-MM-dd(E)" />
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
 		<br>
-		<div class="paging"> <!-- 페이징처리 -->
-
+		<c:if test="${not empty admin }">
+			<input type="button" class="btn" value="글등록" onclick="location='${conPath}/noticeWriteView.do'">
+		</c:if>
+		<div class="paging">
+			<!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전
-				</a> ]
+				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전 </a> ]
 			</c:if>
 			<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				<c:if test="${i eq pageNum }">
@@ -104,11 +108,7 @@
 				</c:if>
 			</c:forEach>
 			<c:if test="${endPage<pageCnt }">
-			  [ <a href="${conPath }/noticeList.do?pageNum=${endPage+1}"> 다음
-				</a> ]
-			</c:if>
-						<c:if test="${not empty admin }">
-				<input type="button" class="btn" value="글등록" id="right" onclick="location='${conPath}/noticeWriteView.do'">
+			  [ <a href="${conPath }/noticeList.do?pageNum=${endPage+1}"> 다음 </a> ]
 			</c:if>
 		</div>
 	</div>

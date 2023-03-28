@@ -118,3 +118,8 @@ a {
 	text-align: center;
 	line-height: 200px;
 }
+
+.imtext1:hover {
+	color: orange;
+	cursor: pointer;
+}

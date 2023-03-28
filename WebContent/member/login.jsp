@@ -24,9 +24,9 @@
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div class="login-form">
+		<form action="${conPath }/login.do" method="post">
 		<h3>회원로그인</h3>
 		<br>
-		<form action="${conPath }/login.do" method="post">
 		<p>
 			<input type="text" name="mid" value="${mid }" class="text-field" placeholder="아이디"> 
 		</p>

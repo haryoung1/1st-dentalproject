@@ -12,42 +12,36 @@
 </head>
 </head>
 <body>
-	<c:if test="${not empty adminloginErrorMsg }">
-		<!-- 관리자 ID / PW 실패시 -->
+	<c:if test="${not empty adminloginErrorMsg }"> <!-- 관리자 ID / PW 실패시 -->
 		<script>
 			alert('${adminloginErrorMsg}');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${not empty adminCodeError }">
-		<!-- 관리자 코드 실패시 -->
+	<c:if test="${not empty adminCodeError }"> <!-- 관리자 코드 실패시 -->
 		<script>
 			alert('${adminCodeError}');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${not empty loginErrorMsg }">
-		<!-- 멤버 id / pw 실패시 -->
+	<c:if test="${not empty loginErrorMsg }"> <!-- 멤버 id / pw 실패시 -->
 		<script>
 			alert('${loginErrorMsg}');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${not empty modifyResult }">
-		<!-- 정보수정 성공 -->
+	<c:if test="${not empty modifyResult }"> <!-- 정보수정 성공 -->
 		<script>
 			alert('${modifyResult}');
 		</script>
 	</c:if>
-	<c:if test="${not empty modifyErrorMsg }">
-		<!-- 정보수정 실패 -->
+	<c:if test="${not empty modifyErrorMsg }"> <!-- 정보수정 실패 -->
 		<script>
 			alert('${modifyErrorMsg}');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${not empty withdrawalResult }">
-		<!-- 회원탈퇴 -->
+	<c:if test="${not empty withdrawalResult }"> <!-- 회원탈퇴 -->
 		<script>
 			alert('${withdrawalResult}');
 		</script>
@@ -66,10 +60,10 @@
 			<div class="section2">
 				<div class="hit_product">
 					<p class="p1">
-						<img src="image/임플란트.png"> <span class="imtext1">[임플란트]
-							<a href="${conPath }/implant.do">1</a>
-						</span>
-
+						<img src="image/임플란트.png"> 
+						<a href="${conPath }/implant.do">
+						<span class="imtext1">[임플란트]</span>
+						</a>
 					</p>
 					<p class="p2">
 						<img src="image/치아교정.png"> <span class="imtext2">[치아교정]</span>
@@ -81,15 +75,14 @@
 				<!-- hit 끝-->
 				<div class="md_product">
 					<p class="p4">
-						<img src="image/보철치료.png"> <span class="imtext3">[보철
-							/ 충치]</span>
+						<img src="image/보철치료.png"> <span class="imtext3">[보철 / 충치]</span>
 					</p>
 					<p>
 						<img src="image/진료안내.png">
 					</p>
 					<p>
-						<img src="image/길.png"> 
-						<a href="${conPath }/map.do">찾아오시는길 →</a>
+						<img src="image/길.png"> <a href="${conPath }/map.do">찾아오시는길
+							→</a>
 					</p>
 				</div>
 			</div>
