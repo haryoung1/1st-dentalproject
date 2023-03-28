@@ -12,21 +12,19 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ce0aa6a48a5791c924d5fc36b23a1382">
+	</script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667),
+			level : 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
 	<div id="wrap">
-		<div align="center" id="map">
-			<script type="text/javascript"
-				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ce0aa6a48a5791c924d5fc36b23a1382"></script>
-			<script type="text/javascript">
-				// 지도 표시
-				var mapContainer = document.getElementById('map');
-				var options = { //지도를 생성할 때 필요한 기본 옵션
-					center : new kakao.maps.LatLng(33.450701, 126.570667),
-					level : 3
-				//지도의 레벨(확대, 축소 정도)
-				};
-				var map = new kakao.maps.Map(mapContainer, options); //지도 생성 및 객체 리턴
-			</script>
-		</div>
+		<div id="map" style="width: 500px; height: 400px;"></div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

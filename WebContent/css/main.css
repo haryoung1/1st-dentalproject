@@ -5,9 +5,17 @@
 	padding: 0;
 }
 
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
 #wrap {
 	width: 1000px;
-	height: 1100px;
+	height: 1000px;
 	margin: 0 auto; /* 가운데로 조정 */
 	overflow: hidden;
 }

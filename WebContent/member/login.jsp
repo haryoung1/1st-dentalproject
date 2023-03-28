@@ -32,8 +32,12 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
 		<form action="${conPath }/login.do" method="post">
+		<div id="">
+			로그인
+			<hr>
+		</div>
 			<table>
-				<caption>사용자님 로그인</caption>
+				<caption>회원로그인</caption>
 				<tr>
 					<th>ID</th>
 					<td><input type="text" name="mid" value="${mid }"

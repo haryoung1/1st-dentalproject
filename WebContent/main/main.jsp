@@ -66,7 +66,7 @@
 			<div class="section2">
 				<div class="hit_product">
 					<p class="p1">
-						<img src="image/임플란트.png"> \ <span class="imtext1">[임플란트]
+						<img src="image/임플란트.png"> <span class="imtext1">[임플란트]
 							<a href="${conPath }/implant.do">1</a>
 						</span>
 
@@ -88,8 +88,8 @@
 						<img src="image/진료안내.png">
 					</p>
 					<p>
-						<img src="image/길.png"> <a href="${conPath }/map.do">찾아오시는
-							길 →</a>
+						<img src="image/길.png"> 
+						<a href="${conPath }/map.do">찾아오시는길 →</a>
 					</p>
 				</div>
 			</div>

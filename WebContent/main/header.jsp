@@ -22,9 +22,6 @@
 					<li><a href="${conPath }/loginView.do">로그인</a></li>
 				</ul>
 			</div>
-			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/로고.png">
-			</div>
 		</c:if>
 
 		<c:if test="${not empty member and empty admin}">
@@ -35,9 +32,6 @@
 					<li><a href="${conPath }/modifyView.do">마이페이지</a></li>
 					<li><a>${member.mname }님 &nbsp; ▶</a></li>
 				</ul>
-			</div>
-			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/로고.png">
 			</div>
 		</c:if>
 
@@ -51,22 +45,32 @@
 					<li><a>${admin.aname }님 &nbsp; ▶</a></li>
 				</ul>
 			</div>
-			<div class="logo" onclick="location.href='${conPath}/main.do'">
-				<img src="image/로고.png">
-			</div>
 		</c:if>
 		<div class="submenu">
 			<ul>
-				<li><img src="image/공지사항.png"> <a
-					href="${conPath }/noticeList.do">공지사항</a></li>
-				<li><img src="image/의료진소개.png"> <a
-					href="${conPath }/intro.do">의료진소개</a></li>
-				<li><img src="image/상담.png"> <a
-					href="${conPath }/consulting.do">온라인상담</a></li>
-				<li><img src="image/진료예약.png"> <a
-					href="${conPath }/medicalList.do">진료예약</a></li>
-				<li><img src="image/공지사항.png"> <a
-					href="${conPath }/reviewList.do">후기게시판</a> <br></li>
+				<li>
+					<a href="${conPath }/main.do"> <img src="image/로고.png"></a>
+				</li>
+				<li>
+					<img src="image/공지사항.png"> 
+					<a href="${conPath }/noticeList.do">공지사항</a>
+				</li>
+				<li>
+					<img src="image/의료진소개.png"> 
+					<a href="${conPath }/intro.do">의료진소개</a>
+				</li>
+				<li>
+					<img src="image/상담.png"> 
+					<a href="${conPath }/consulting.do">온라인상담</a>
+				</li>
+				<li>
+					<img src="image/진료예약.png"> 
+					<a href="${conPath }/medicalList.do">진료예약</a>
+				</li>
+				<li>
+					<img src="image/공지사항.png"> 
+					<a href="${conPath }/reviewList.do">후기게시판</a> <br>
+				</li>
 			</ul>
 		</div>
 	</header>

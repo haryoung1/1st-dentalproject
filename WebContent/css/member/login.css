@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+#login {
+	width: 800px;
+	height: 480px;
+	text-align: left;
+	margin: 0 auto;
+}
+
 #content_form {
 	width: 800px;
 	height: 480px;
@@ -67,7 +74,6 @@
 	font-size: 13px;
 	cursor: pointer;
 } */
-
 #content_form .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
