@@ -10,6 +10,22 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/intro.css" rel="stylesheet">
 <style>
+#wrap {
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#intro .intro2 {
+	float: center;
+	width: 700px;
+	height: 250x;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
+
 h2 {
 	text-align: center;
 }

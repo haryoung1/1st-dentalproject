@@ -9,6 +9,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath}/css/member/login.css" rel="stylesheet">
+<script>
+	function click1() {
+		alert('죄송합니다 기능 구현중 입니다');
+	};
+</script>
 </head>
 <body>
 	<c:if test="${not empty joinResult }">
@@ -38,7 +43,7 @@
 			<input type="button" value="회원가입" class="submit-btn" onclick="location='${conPath}/joinView.do'">
 		</p>
 		<p class="links">
-			 <a href="#">비밀번호를 잊어버리셨나요?</a>
+			 <a href="#" onclick="click1()">비밀번호를 잊어버리셨나요?</a>
 		</p>
 		</form>
 	</div>

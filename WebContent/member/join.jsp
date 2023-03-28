@@ -8,29 +8,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath}/css/member/join.css" rel="stylesheet">
+<link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
 	$(function() {
-		$('#mid').keyup(function() {
-			var mid = $(this).val();
-			if (mid.length < 2) {
-				$('#midConfirmResult').html('<p style=color:blue;>아이디는 2글자 이상 입니다');
-			} else {
-				$.ajax({
-					url : '${conPath}/midConfirm.do',
-					type : 'get',
-					data : 'mid=' + mid,
-					dataType : 'html',
-					success : function(data) {
-						$('#midConfirmResult').html(data);
-					},
-				});
-			}
-		}); // key up event
+		$('#mid').keyup(
+				function() {
+					var mid = $(this).val();
+					if (mid.length < 2) {
+						$('#midConfirmResult').html(
+								'<p style=color:blue;>아이디는 2글자 이상 입니다');
+					} else {
+						$.ajax({
+							url : '${conPath}/midConfirm.do',
+							type : 'get',
+							data : 'mid=' + mid,
+							dataType : 'html',
+							success : function(data) {
+								$('#midConfirmResult').html(data);
+							},
+						});
+					}
+				}); // key up event
 		$('#mpw, #mpwChk').keyup(function() {
 			var mpw = $('#mpw').val();
 			var mpwChk = $('#mpwChk').val();
@@ -81,7 +83,7 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
+	<div id="wrap">
 		<form action="${conPath }/join.do" method="post"
 			enctype="multipart/form-data">
 			<table>
@@ -153,6 +155,7 @@
 					});
 		});
 	</script>
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

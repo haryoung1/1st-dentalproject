@@ -26,7 +26,7 @@ public class AdminLoginService implements Service {
 				request.setAttribute("adminloginErrorMsg", "아이디 또는 비밀번호를 확인하세요");
 			}
 		} else {
-			System.out.println("관리자 코드 에러,  코드는 143 이야 ");
+			System.out.println("관리자 코드 에러!! 코드는 143 이야 ");
 			request.setAttribute("adminCodeError", "관리자코드가 일치하지 않습니다.");
 		}
 	}

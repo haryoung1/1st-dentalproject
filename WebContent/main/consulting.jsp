@@ -14,7 +14,6 @@
 	text-align: left;
 }
 
-
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -38,6 +37,11 @@
 	transition: 0.5s;
 }
 </style>
+<script>
+	function click1() {
+		alert('신속히 답변 드리겠습니다.');
+	};
+</script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
@@ -49,58 +53,79 @@
 			<table>
 				<tr>
 					<th>질문유형</th>
-					<td><select>
+					<td>
+						<select>
 							<option>예약문의</option>
 							<option>진료문의</option>
 							<option>견적문의</option>
 							<option>취소환불문의</option>
-					</select></td>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<th>문의제목</th>
-					<td><input type="text" size="40"></td>
+					<td>
+						<input type="text" size="40">
+					</td>
 				</tr>
 				<tr>
 					<th>답변수신방식</th>
-					<td><input type="radio" name="email" checked />이메일</td>
+					<td>
+						<input type="radio" name="email" checked />이메일
+					</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="text" size="40">
+					<td>
+						<input type="text" size="40">
+					</td>
 				</tr>
 				<tr>
 					<th></th>
-					<td>예) master@domain.com</td>
-
+					<td>
+						예) master@domain.com
+					</td>
 				</tr>
 				<tr>
 					<th>휴대폰</th>
-					<td><input type="text" size="40"></td>
+					<td>
+						<input type="text" size="40">
+					</td>
 				</tr>
 				<tr>
 					<th></th>
-					<td>예) 000-0000-0000</td>
-
+					<td>
+						예) 000-0000-0000
+					</td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" size="40"></td>
+					<td>
+						<input type="text" size="40">
+					</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea rows="10" cols="60"></textarea></td>
+					<td>
+						<textarea rows="10" cols="60"></textarea>
+					</td>
 				</tr>
 				<tr>
 					<th>첨부파일1</th>
-					<td><input type="file"></td>
+					<td>
+						<input type="file">
+					</td>
 				</tr>
 				<tr>
 					<th>첨부파일2</th>
-					<td><input type="file"></td>
+					<td>
+						<input type="file">
+					</td>
 				</tr>
 				<tr>
 					<th>개인정보 수집 및 이용 동의</th>
-					<td><textarea rows="10" cols="60">■ 개인정보의 수집·이용 목적
+					<td>
+					<textarea rows="10" cols="60">■ 개인정보의 수집·이용 목적
 서비스 제공 및 계약의 이행, 구매 및 대금결제, 물품배송 또는 청구지 발송, 회원관리 등을 위한 목적
 
 ■ 수집하려는 개인정보의 항목
@@ -108,29 +133,25 @@
 
 ■ 개인정보의 보유 및 이용 기간
 회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외없이 해당정보를 파기합니다. 
-					</textarea></td>
+					</textarea>
+					</td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="radio" name="check" value="y" />동의함 <input
-						type="radio" name="check" value="n" checked="checked" />동의안함</td>
-
+					<td>
+						<input type="radio" name="check" value="y" />동의함
+						<input type="radio" name="check" value="n" checked="checked" />동의안함
+					</td>
 				</tr>
 				<tr>
 					<th></th>
-					<td class="center">
-						<input type="button" value="등록" class="btn"
-							onclick="location='${conPath}/main.do', click1()">
+					<td>
+						<input type="button" value="등록" class="btn" onclick="location='${conPath}/main.do', click1()">
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<script>
-		function click1() {
-			alert('신속히 답변 드리겠습니다.');
-		};
-	</script>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

@@ -8,13 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath}/css/member/join.css" rel="stylesheet">
-<style>
-#content_form {
-	height: 370px;
-	margin: 130px auto 0px;
-}
-</style>
+<link href="${conPath}/css/member/login.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -31,35 +25,26 @@
 			history.back();
 		</script>
 	</c:if>
-	<div id="content_form">
+	<div class="login-form">
 		<form action="${conPath }/adminLogin.do" method="post">
-			<table>
-				<caption>관리자 로그인</caption>
-				<tr>
-					<th>ID</th>
-					<td><input type="text" name="aid" required="required"
-						autofocus="autofocus"></td>
-				</tr>
-				<tr>
-					<th>PW</th>
-					<td><input type="password" name="apw" required="required"></td>
-				</tr>
-				<tr>
-					<th>관리자코드</th>
-					<td><input type="password" name="acode" required="required"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<p>
-							<input type="submit" value="로그인" class="btn"> <input
-								type="button" value="신규등록" class="btn"
-								onclick="location='${conPath}/adminjoinView.do'">
-						</p>
-					</td>
-				</tr>
-			</table>
+			<h3>관리자 로그인</h3>
+			<br>
+			<p>
+				<input type="text" name="aid" class="text-field" placeholder="아이디">
+			</p>
+			<p>
+				<input type="password" name="apw" class="text-field" placeholder="비밀번호">
+			</p>
+			<p>
+				<input type="password" name="acode" class="text-field" placeholder="코드">
+			</p>
+			<p>
+				<input type="submit" value="로그인" class="submit-btn"> 
+				<input type="button" value="신규등록" class="submit-btn" onclick="location='${conPath}/adminjoinView.do'">
+			</p>
 		</form>
 	</div>
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>
