@@ -18,6 +18,9 @@ public class AWithdrawalService implements Service {
 			aid = sessionAdmin.getAid();
 		}
 		AdminDao aDao = AdminDao.getInstance();
+		// 관리자 탈퇴전 공지사항 게시판 삭제하기
+		aDao.withdrawalnotice(aid);
+		aDao.withdrawalMR(aid);
 		int result = aDao.withdrawalAdmin(aid);
 		session.invalidate();
 		if (result == AdminDao.SUCCESS) {

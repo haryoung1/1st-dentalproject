@@ -26,7 +26,7 @@
 		$('input[name="memail"]').keyup(function() {
 			let memail = $(this).val();
 			if ((!memail) || (memail == '${member.memail}')) {
-				$('#mailConfirmResult').html(' &nbsp; ');
+				$('#memailConfirmResult').html(' &nbsp; ');
 			} else if(patternMemail){
 				$.ajax({
 					url : '${conPath}/memailConfirm.do',
@@ -34,7 +34,7 @@
 					data : 'memail=' + memail,
 					dataType : 'html',
 					success : function(data) {
-						$('#mailConfirmResult').html(data);
+						$('#memailConfirmResult').html(data);
 					},
 				});
 			}else if (!patternMemail.test(memail)) {
@@ -43,7 +43,7 @@
 			$('form').submit(function() {
 				// 현비밀번호확인과 사용불가한 중복된 메일일 경우 submit 제한
 				var oldMpw = $('input[name="oldMpw"]').val();
-				var memailConfirmResult = $('#mailConfirmResult').text().trim();
+				var memailConfirmResult = $('#memailConfirmResult').text().trim();
 				if	(oldMpw != '${member.mpw}') {
 					alert('현 비밀번호를 확인하세요');
 					$('input[name="oldMpw"]').focus();
@@ -110,7 +110,7 @@
 					<th>메일</th>
 					<td colspan="2">
 						<input type="email" name="memail"value="${member.memail }">
-						<div id="mailConfirmResult">&nbsp; &nbsp; &nbsp;</div>
+						<div id="memailConfirmResult">&nbsp; &nbsp; &nbsp;</div>
 					</td>
 				</tr>
 				<tr>

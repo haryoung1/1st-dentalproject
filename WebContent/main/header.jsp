@@ -45,6 +45,7 @@
 			<%-- 관리자 모드 로그인 화면--%>
 			<div class="gnb">
 				<ul>
+					<li><a href="${conPath }/adminwithdrawalView.do">관리자탈퇴</a></li>
 					<li><a href="${conPath }/memberList.do">회원목록</a></li>
 					<li><a href="${conPath }/logout.do">로그아웃</a></li>
 					<li><a>${admin.aname }님 &nbsp; ▶</a></li>

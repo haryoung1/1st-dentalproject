@@ -47,8 +47,7 @@ public class AdminDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO ADMIN (AID, APW, ANAME, ACODE)" + 
-				"    VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO ADMIN (AID, APW, ANAME, ACODE)" + "    VALUES (?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -167,38 +166,90 @@ public class AdminDao {
 		}
 		return result;
 	}
-	
+
 	// (5) 관리자 ID 중복체크
-		public int aidConfirm(String aid) {
-			int result = EXISTENT;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = "SELECT * FROM ADMIN WHERE AID=?";
+	public int aidConfirm(String aid) {
+		int result = EXISTENT;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM ADMIN WHERE AID=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = EXISTENT;
+			} else {
+				result = NONEXISTENT;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
 			try {
-				conn = getConnection();
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, aid);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					result = EXISTENT;
-				} else {
-					result = NONEXISTENT;
-				}
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-			} finally {
-				try {
-					if (rs != null)
-						rs.close();
-					if (pstmt != null)
-						pstmt.close();
-					if (conn != null)
-						conn.close();
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-				}
 			}
-			return result;
 		}
+		return result;
+	}
+
+	// (6) 관리자 탈퇴전 글 삭제하기 (공지사항)
+	public int withdrawalnotice(String aid) {
+		int result = FAIL;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM NOTICEBOARD WHERE aID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aid);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+
+	// (7) 관리자 탈퇴전 글 삭제하기 (진료예약)
+	public int withdrawalMR(String aid) {
+		int result = FAIL;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM MRBOARD WHERE aID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aid);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
 }

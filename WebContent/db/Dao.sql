@@ -35,7 +35,6 @@ WHERE RN BETWEEN 1 AND 10;
 
 -- (8) 회원탈퇴전 글 삭제하기
 DELETE FROM MRBOARD WHERE MID = 'aaa'; 
-DELETE FROM CBBOARD WHERE MID = 'aaa'; 
 DELETE FROM RVBOARD WHERE MID = 'aaa'; 
 
 -- (9) 회원탈퇴
@@ -51,16 +50,22 @@ SELECT COUNT(*) FROM MEMBER;
 ------------------------------------------------------
 -- (1) 관리자 등록
 INSERT INTO ADMIN (AID, APW, ANAME, ACODE)
-    VALUES ('admin3', '123', '관리킴', '111');
+    VALUES ('admin', '111', '강성빈', '143');
 
 -- (2) 관리자 로그인
-SELECT * FROM ADMIN WHERE aID='admin3' AND aPW='123';
+SELECT * FROM ADMIN WHERE aID='admin' AND aPW='111';
 
 -- (3) 로그인 후 세션에 넣을 용도 (admin aID로 dto 가져오기)
 SELECT * FROM ADMIN WHERE aID='admin';
 
--- (4) 관리자 탈퇴
-DELETE FROM ADMIN WHERE AID = 'admin3';
+-- (4) 관리자 탈퇴전 글 삭제하기
+DELETE FROM NOTICEBOARD WHERE aID = 'admin';
+DELETE FROM MRBOARD WHERE aID = 'admin';
+
+
+
+-- (5) 관리자 탈퇴
+DELETE FROM ADMIN WHERE AID = 'admin';
 
 SELECT * FROM ADMIN;
 COMMIT;
