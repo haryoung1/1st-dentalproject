@@ -1,14 +1,8 @@
 @charset "UTF-8";
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 #wrap {
 	width: 1000px;
-	height: 950px;
-	margin: 0 auto; /* 가운데로 조정 */
+	margin: 0 auto;
 	overflow: hidden;
 }
 

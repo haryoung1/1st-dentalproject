@@ -1,14 +1,10 @@
 @charset "UTF-8";
 
-* {
-	padding: 0;
-	margin: 0;
-}
 
 footer {
 	background-color: #3A3A3C;
 	width: 100%;
-	height: 140px;
+	height: 150px;
 }
 
 footer #footer_conts, footer #footer_conts a {

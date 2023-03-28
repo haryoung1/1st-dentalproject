@@ -34,7 +34,7 @@
 	transition: 0.5s;
 }
 
-#right {
+.right {
 	text-align: right;
 	margin: 28px;
 	padding: 0.5rem 1rem;
@@ -88,13 +88,9 @@
 				</c:forEach>
 			</c:if>
 		</table>
-		<div id="right">
-			<c:if test="${not empty admin }">
-				<input type="button" class="btn" value="글등록" onclick="location='${conPath}/noticeWriteView.do'">
-			</c:if>
-		</div>
 		<br>
 		<div class="paging"> <!-- 페이징처리 -->
+
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/noticeList.do?pageNum=${startPage-1}"> 이전
 				</a> ]
@@ -110,6 +106,9 @@
 			<c:if test="${endPage<pageCnt }">
 			  [ <a href="${conPath }/noticeList.do?pageNum=${endPage+1}"> 다음
 				</a> ]
+			</c:if>
+						<c:if test="${not empty admin }">
+				<input type="button" class="btn" value="글등록" id="right" onclick="location='${conPath}/noticeWriteView.do'">
 			</c:if>
 		</div>
 	</div>

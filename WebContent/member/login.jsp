@@ -9,12 +9,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath}/css/member/login.css" rel="stylesheet">
-<style>
-#content_form {
-	height: 370px;
-	margin: 130px auto 0px;
-}
-</style>
 </head>
 <body>
 	<c:if test="${not empty joinResult }">
@@ -28,38 +22,27 @@
 			history.back();
 		</script>
 	</c:if>
-
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
+	<div class="login-form">
+		<h3>회원로그인</h3>
+		<br>
 		<form action="${conPath }/login.do" method="post">
-		<div id="">
-			로그인
-			<hr>
-		</div>
-			<table>
-				<caption>회원로그인</caption>
-				<tr>
-					<th>ID</th>
-					<td><input type="text" name="mid" value="${mid }"
-						required="required" placeholder="아이디"></td>
-				</tr>
-				<tr>
-					<th>PW</th>
-					<td><input type="password" name="mpw" required="required"
-						placeholder="비밀번호"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<p>
-							<input type="submit" value="로그인" class="btn"> <input
-								type="button" value="회원가입" class="btn"
-								onclick="location='${conPath}/joinView.do'">
-						</p>
-					</td>
-				</tr>
-			</table>
+		<p>
+			<input type="text" name="mid" value="${mid }" class="text-field" placeholder="아이디"> 
+		</p>
+		<p>
+			<input type="password" name="mpw" class="text-field" placeholder="비밀번호">
+		</p>
+		<p>	
+			<input type="submit" value="로그인" class="submit-btn"> 
+			<input type="button" value="회원가입" class="submit-btn" onclick="location='${conPath}/joinView.do'">
+		</p>
+		<p class="links">
+			 <a href="#">비밀번호를 잊어버리셨나요?</a>
+		</p>
 		</form>
 	</div>
+    <br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

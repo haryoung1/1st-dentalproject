@@ -8,22 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <style>
-#content_form {
-	height: 470px;
-	margin: 30px auto 0px;
-}
-
-#content_form table tr {
-	height: 10px;
-}
-
 #list {
 	padding: 0.5rem 1rem;
 	text-align: center;
 	font-size: 1rem;
-	font-weight: 380;
+	font-weight: 350;
 	font-weight: bold;
 	border-radius: 4px;
 	border: 1px solid #444444;
@@ -39,12 +30,12 @@
 		<div id="list">전체회원 목록</div>
 		<table>
 			<tr>
+				<th>사진</th>
 				<th>이름</th>
 				<th>ID</th>
 				<th>생년월일</th>
 				<th>가입일</th>
 				<th>주소</th>
-				<th>사진</th>
 			</tr>
 			<c:if test="${memberList.size() eq 0 }">
 				<tr>
@@ -54,6 +45,9 @@
 			<c:if test="${memberList.size() != 0 }">
 				<c:forEach var="dto" items="${memberList }">
 					<tr>
+						<td colspan="1"><img
+							src="${conPath }/memberPhotoUp/${dto.mphoto}"
+							alt="${dto.mname }사진" width="120"></td>
 						<td>${dto.mname }</td>
 						<td>${dto.mid }</td>
 						<td><fmt:formatDate value="${dto.mbirth }"
@@ -61,9 +55,6 @@
 						<td><fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
 						</td>
 						<td>${dto.maddress }</td>
-						<td colspan="2"><img
-							src="${conPath }/memberPhotoUp/${dto.mphoto}"
-							alt="${dto.mname }사진" width="120"></td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -88,6 +79,7 @@
 			</c:if>
 		</div>
 	</div>
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

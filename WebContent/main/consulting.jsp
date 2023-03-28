@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <style>
 #wrap td {
 	text-align: left;
