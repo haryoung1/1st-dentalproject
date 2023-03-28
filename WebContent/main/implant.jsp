@@ -8,8 +8,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/implant.css" rel="stylesheet">
 <style>
+#wrap {
+	width: 900px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+#intro .im1 {
+	float: center;
+	width: 700px;
+	text-align: center;
+	line-height: 350px;
+	margin-left: 7px;
+	margin: 6px;
+}
 </style>
 </head>
 <body>
@@ -17,21 +31,11 @@
 	<div id="wrap">
 		<div id="imp1">
 			<p>
-				<img src="image/im.png">
-				<img src="image/im2.png">
+				<img src="image/im.png"> 
+				<img src="image/im2.png"> 
 				<img src="image/im3.png">
 			</p>
 		</div>
-<!-- 		<div id="imp2">
-			<p>
-				<img src="image/im2.png">
-			</p>
-		</div>
-		<div id="imp3">
-			<p>
-				<img src="image/im3.png">
-			</p>
-		</div> -->
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

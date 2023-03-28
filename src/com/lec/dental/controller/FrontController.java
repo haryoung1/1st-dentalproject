@@ -41,12 +41,14 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/intro.jsp";
 		}else if (command.equals("/map.do")) { // 찾아오시는 길
 			viewPage = "main/map.jsp";
-		}else if (command.equals("/implant.do")) { // 임플란트 소개
+		}else if (command.equals("/implant.do")) { // 임플란트
 			viewPage = "main/implant.jsp";
 		}else if (command.equals("/consulting.do")) { // 온라인상담
 			viewPage = "main/consulting.jsp";
-		}else if (command.equals("/correction.do")) { // 임플란트 소개
+		}else if (command.equals("/correction.do")) { // 치아교정
 			viewPage = "main/correction.jsp";
+		}else if (command.equals("/whitening.do")) { // 치아미백
+			viewPage = "main/whitening.jsp";
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *

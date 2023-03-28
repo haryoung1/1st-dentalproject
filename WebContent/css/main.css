@@ -43,54 +43,9 @@ a {
 	position: relative;
 }
 
-.p2 {
-	position: relative;
-}
-
-.p3 {
-	position: relative;
-}
-
-.p4 {
-	position: relative;
-}
-
 .imtext1 {
 	position: absolute;
 	top: 150px;
-	left: 20px;
-	z-index: 1;
-	color: black;
-	font-size: 25px;
-	width: 300px;
-	font-weight: bold;
-}
-
-.imtext2 {
-	position: absolute;
-	top: 150px;
-	left: 20px;
-	z-index: 1;
-	color: black;
-	font-size: 25px;
-	width: 300px;
-	font-weight: bold;
-}
-
-.imtext3 {
-	position: absolute;
-	top: 150px;
-	left: 20px;
-	z-index: 1;
-	color: black;
-	font-size: 25px;
-	width: 300px;
-	font-weight: bold;
-}
-
-.imtext4 {
-	position: absolute;
-	top: 130px;
 	left: 20px;
 	z-index: 1;
 	color: black;
@@ -120,6 +75,11 @@ a {
 }
 
 .imtext1:hover {
+	color: orange;
+	cursor: pointer;
+}
+
+a:hover {
 	color: orange;
 	cursor: pointer;
 }

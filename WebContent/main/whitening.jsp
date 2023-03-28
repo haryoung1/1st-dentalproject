@@ -16,7 +16,7 @@
 	margin: 0 auto;
 }
 
-#intro .correction {
+#intro .whitening {
 	float: center;
 	width: 700px;
 	text-align: center;
@@ -29,11 +29,10 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<div id="correction">
+		<div id="whitening">
 			<p>
-				<img src="image/교정1.PNG"> 
-				<img src="image/교정2.PNG"> 
-				<img src="image/교정3.PNG">
+				<img src="image/미백1.PNG"> 
+				<img src="image/미백2.PNG"> 
 			</p>
 		</div>
 	</div>
