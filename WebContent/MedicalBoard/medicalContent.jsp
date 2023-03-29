@@ -39,7 +39,7 @@
 </script>
 <style>
 #wrap {
-	height: 750px;
+	height: 700px;
 }
 
 #content_form {

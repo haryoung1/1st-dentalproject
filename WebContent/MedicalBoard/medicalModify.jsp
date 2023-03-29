@@ -42,17 +42,6 @@
 	height: 600px;
 }
 
-#mrmodi {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 3px;
-	border: 1px solid #444444;
-	margin: 15px;
-	width: 150px;
-}
-
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -83,7 +72,6 @@
 			<form action="${conPath }/medicalModify.do" method="post">
 				<input type="hidden" name="pageNum" value="${param.pageNum }">
 				<input type="hidden" name="mrno" value="${mrContent.mrno }">
-				<div id="mrmodi">${mrContent.mrno }번 글수정</div>
 				<br>
 				<table>
 					<tr>

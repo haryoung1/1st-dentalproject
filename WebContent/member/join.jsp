@@ -104,8 +104,8 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: white;
-	color: black;
+	background-color : #4A5164;
+	color: white;
 	margin: 0;
 	padding: 0.5rem 1rem;
 	font-weight: 350;
@@ -114,17 +114,19 @@
 	text-decoration: none;
 	border: 1px solid #444444;
 	display: inline-block;
-	width: 150px;
+	width: 100px;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
 		rgba(0, 0, 0, 0.06);
 	cursor: pointer;
 	transition: 0.5s;
 }
-p {
-	text-align: center;
-}
+
 .btn:hover {
-	background-color: white;
+	background-color: black;
+}
+
+.p1 {
+	text-align: center;
 }
 </style>
 </head>
@@ -133,32 +135,42 @@ p {
 	<div id="wrap">
 		<form action="${conPath }/join.do" method="post"
 			enctype="multipart/form-data">
+			<h3>회원가입</h3>
+			<hr>
+			<br>
 			<table>
-				<caption>회원가입</caption>
 				<tr>
 					<th>아이디</th>
-					<td><input type="text" name="mid" required="required" id="mid">
-						<div id="midConfirmResult">&nbsp; &nbsp; &nbsp;</div></td>
+					<td>
+						<input type="text" name="mid" required="required" id="mid">
+						<div id="midConfirmResult">&nbsp; &nbsp; &nbsp;</div>
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="mpw" required="required"
-						id="mpw"></td>
+					<td>
+						<input type="password" name="mpw" required="required" id="mpw">
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
-					<td><input type="password" name="pwChk" required="required"
-						id="mpwChk">
-						<div id="pwChkResult">&nbsp; &nbsp; &nbsp;</div></td>
+					<td>
+						<input type="password" name="pwChk" required="required" id="mpwChk">
+						<div id="pwChkResult">&nbsp; &nbsp; &nbsp;</div>
+					</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="mname" required="required"></td>
+					<td>
+						<input type="text" name="mname" required="required">
+					</td>
 				</tr>
 				<tr>
 					<th>메일</th>
-					<td><input type="email" name="memail" id="memail">
-						<div id="mailConfirmResult">&nbsp; &nbsp; &nbsp;</div></td>
+					<td>
+						<input type="email" name="memail" id="memail">
+						<div id="mailConfirmResult">&nbsp; &nbsp; &nbsp;</div>
+					</td>
 				</tr>
 				<tr>
 					<th>사진</th>
@@ -172,14 +184,11 @@ p {
 					<th>주소</th>
 					<td><input type="text" name="maddress"></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<p>
-							<button class="btn">회원등록</button>
-						</p>
-					</td>
-				</tr>
 			</table>
+			<br>
+			<p class="p1">
+				<button class="btn">회원등록</button>
+			</p>
 		</form>
 	</div>
 	<br>

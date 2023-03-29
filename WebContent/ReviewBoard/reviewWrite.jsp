@@ -9,7 +9,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300,
+			minHeight : null,
+			maxHeight : null,
+			lang : 'ko-KR',
+			onImageUpload : function(files, editor, welEditable) {
+				sendFile(files[0], editor, welEditable);
+			}
+		});
+	});
+</script>
+
 <style>
+#wrap {
+	height: 700px;
+}
+
 #content_form {
 	height: 420px;
 	margin: 80px auto 0px;
@@ -19,7 +52,7 @@
 	height: 60px;
 }
 
-button, .btn {
+.btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -27,9 +60,9 @@ button, .btn {
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-size: 1rem;
 	font-weight: 400;
-	font-weight: bol text-align: center;
+	font-weight: bold;
+	text-align: center;
 	text-decoration: none;
 	border-radius: 4px;
 	border: 2px solid #444444;
@@ -40,18 +73,6 @@ button, .btn {
 	cursor: pointer;
 	transition: 0.5s;
 }
-#review {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-size: 1rem;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 39px;
-	padding : 10px;
-	width: 100px;
-}
 </style>
 </head>
 <body>
@@ -61,34 +82,34 @@ button, .btn {
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
-		<form action="${conPath }/reviewWrite.do" method="post" enctype="multipart/form-data">
-			<div id="review">
-				후기 게시판
-			</div>
-			<table>
-				<tr>
-					<td>제목</td>
-					<td><input type="text" name="rvtitle" required="required">
-					</td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td><textarea rows="5" name="rvcontent"></textarea></td>
-				</tr>
-				<tr>
-					<td>첨부파일</td>
-					<td><input type="file" name="rvfilename"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="등록하기" class="btn">
-						<input type="reset" value="취소" class="btn"> 
-						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/reviewList.do'">
-					</td>
-				</tr>
-			</table>
-		</form>
+	<div id="wrap">
+		<div id="content_form">
+			<form action="${conPath }/reviewWrite.do" method="post"
+				enctype="multipart/form-data">
+				<table>
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="rvtitle" required="required">
+						</td>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td><textarea id="summernote" name="rvcontent"></textarea></td>
+					</tr>
+					<tr>
+						<td>첨부파일</td>
+						<td><input type="file" name="rvfilename"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button class="btn">저장하기</button>
+							<button class="btn"
+								onclick="location.href='${conPath}/reviewlList.do'">돌아가기</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

@@ -9,25 +9,50 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300,
+			minHeight : null,
+			maxHeight : null,
+			lang : 'ko-KR',
+			onImageUpload : function(files, editor, welEditable) {
+				sendFile(files[0], editor, welEditable);
+			}
+		});
+	});
+</script>
 <style>
-#content_form {
-	height: 450px;
-	margin: 50px auto 0px;
-}
-#rvcontent {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-size: 1rem;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 39px;
-	padding : 10px;
-	width: 130px;
+#wrap {
+	height: 800px;
+	margin: 0 auto;
 }
 
-button, .btn {
+#content_form {
+	height: 420px;
+	margin: 80px auto 0px;
+}
+
+#content_form table tr {
+	height: 60px;
+}
+
+.btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -35,11 +60,10 @@ button, .btn {
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-size: 1rem;
 	font-weight: 400;
-	font-weight: bol text-align: center;
-	text-decoration: none;
+	font-weight: bold;
 	text-align: center;
+	text-decoration: none;
 	border-radius: 4px;
 	border: 2px solid #444444;
 	display: inline-block;
@@ -63,49 +87,54 @@ button, .btn {
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
-		<div id="rvcontent">${rvContent.rvno }번 글 상세보기</div>
-		<table>
-			<tr>
-				<th>작성자</th>
-				<td>${rvContent.mid }${rvContent.aid }</td>
-			</tr>
-			<tr>
-
-				<th>제목</th>
-				<td>${rvContent.rvtitle }</td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td><pre>${rvContent.rvcontent }</pre></td>
-			</tr>
-			<tr>
-				<th>조회수</th>
-				<td>${rvContent.rvhit }</td>
-			</tr>
-			<tr>
-				<th>첨부파일</th>
-				<td>
-					<c:if test="${not empty rvContent.rvfilename }">
-						<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}" target="_blank">${rvContent.rvfilename}</a>
-					</c:if> 
-					<c:if test="${empty rvContent.rvfilename }">
+	<div id="wrap">
+		<div id="content_form">
+			<table>
+				<tr>
+					<th>작성자</th>
+					<td>${rvContent.mid }${rvContent.aid }</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td>${rvContent.rvtitle }</td>
+				</tr>
+				<tr>
+					<th>조회수</th>
+					<td>${rvContent.rvhit }</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><textarea id="summernote">${rvContent.rvcontent}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>첨부파일</th>
+					<td>
+						<c:if test="${not empty rvContent.rvfilename }">
+							<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}"
+								target="_blank">${rvContent.rvfilename}</a>
+						</c:if> 
+						<c:if test="${empty rvContent.rvfilename }">
 						첨부파일 없음
-					</c:if>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-				<c:if test="${member.mid eq rvContent.mid}">
-						<input type="button" value="수정" class="btn"
-							onclick="location='${conPath}/reviewModifyView.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">
-				</c:if> 
-				<c:if test="${member.mid eq rvContent.mid or not empty admin}">
-						<button class="btn" onclick="deleterv('${rvContent.rvno}')">삭제</button>
-					</c:if> 
-						<input type="button" value="목록" class="btn" onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">
-			</tr>
-		</table>
+						</c:if>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<c:if test="${member.mid eq rvContent.mid}">
+							<button class="btn"
+								onclick="location='${conPath}/reviewModifyView.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">수정
+							</button>
+						</c:if> 
+						<c:if test="${member.mid eq rvContent.mid or not empty admin}">
+							<button class="btn" onclick="deleterv('${rvContent.rvno}')">삭제</button>
+						</c:if>
+						<button class="btn"
+							onclick="location='${conPath}/reviewList.do?pageNum=${param.pageNum }'">목록
+						</button>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>
