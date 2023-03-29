@@ -52,17 +52,6 @@
 	height: 60px;
 }
 
-#medical {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 45px;
-	width: 150px;
-}
-
 .btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -96,7 +85,6 @@
 	<div id="wrap">
 		<div id="content_form">
 			<form action="${conPath }/medicalWrite.do" method="post">
-				<div id="medical">진료예약 게시판</div>
 				<table>
 					<tr>
 						<td>제목</td>

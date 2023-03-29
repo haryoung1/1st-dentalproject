@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
@@ -80,6 +79,54 @@
 		});
 	});
 </script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker(
+				{
+					dateFormat : "yy-mm-dd",
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					dayNamesMin : [ "일", "월", "화", "수", "목", "금", "토" ],
+					changeMonth : true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+					changeYear : true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+					showMonthAfterYear : true,
+					showOtherMonths : true, // 현재 달이 아닌 달의 날짜도 회색으로 표시
+					yearSuffix : '년',
+					// minDate: '-100y',	 // 현재날짜로부터 100년이전까지 년을 표시한다.
+					minDate : new Date(1950, 1 - 1, 1), // 1950년 1월 1일을 최소날짜로 세팅
+					maxDate : 'y', // 현재 날짜 이전만 선택가능
+					yearRange : 'c-100:c+10', // 년도 선택 셀렉트박스를 현재 년도에서 이전, 이후로 얼마의 범위를 
+				});
+	});
+</script>
+<style>
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: white;
+	color: black;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-weight: 350;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #444444;
+	display: inline-block;
+	width: 150px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
+p {
+	text-align: center;
+}
+.btn:hover {
+	background-color: white;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
@@ -128,33 +175,13 @@
 				<tr>
 					<td colspan="2">
 						<p>
-							<input type="submit" value="회원가입" class="btn">
+							<button class="btn">회원등록</button>
 						</p>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<script>
-		$(function() {
-			$("#datepicker").datepicker(
-					{
-						dateFormat : "yy-mm-dd",
-						monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-								'7월', '8월', '9월', '10월', '11월', '12월' ],
-						dayNamesMin : [ "일", "월", "화", "수", "목", "금", "토" ],
-						changeMonth : true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
-						changeYear : true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
-						showMonthAfterYear : true,
-						showOtherMonths : true, // 현재 달이 아닌 달의 날짜도 회색으로 표시
-						yearSuffix : '년',
-						// minDate: '-100y',	 // 현재날짜로부터 100년이전까지 년을 표시한다.
-						minDate : new Date(1950, 1 - 1, 1), // 1950년 1월 1일을 최소날짜로 세팅
-						maxDate : 'y', // 현재 날짜 이전만 선택가능
-						yearRange : 'c-100:c+10', // 년도 선택 셀렉트박스를 현재 년도에서 이전, 이후로 얼마의 범위를 
-					});
-		});
-	</script>
 	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
