@@ -9,20 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -39,15 +32,17 @@
 </script>
 
 <style>
-#notice {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 45px;
-	width: 120px;
+#wrap {
+	height: 700px;
+}
+
+#content_form {
+	height: 420px;
+	margin: 80px auto 0px;
+}
+
+#content_form table tr {
+	height: 60px;
 }
 
 .btn {
@@ -58,6 +53,7 @@
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
+	
 	font-weight: 400;
 	font-weight: bold;
 	text-align: center;
@@ -81,30 +77,28 @@
 	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<div id="content_form">
-			<form action="${conPath }/noticeWrite.do" method="post">
-				<div id="notice">공지사항</div>
-				<table>
-					<tr>
-						<td>제목</td>
-						<td><input type="text" name="nbtitle" required="required">
-						</td>
-					</tr>
-					<tr>
-						<td>본문</td>
-						<td><textarea id="summernote" name="nbcontent"></textarea></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<button class="btn">저장하기</button>
-							<button class="btn"
-								onclick="location.href='${conPath}/noticeList.do'">돌아가기</button>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</div>
+	<div id="content_form">
+		<form action="${conPath }/noticeWrite.do" method="post">
+			<table>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" name="nbtitle" required="required">
+					</td>
+				</tr>
+				<tr>
+					<td>본문</td>
+					<td><textarea id="summernote" name="nbcontent"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button class="btn">저장하기</button>
+						<button class="btn" onclick="location.href='${conPath}/noticeList.do'">돌아가기</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	 </div>
+	 </div>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

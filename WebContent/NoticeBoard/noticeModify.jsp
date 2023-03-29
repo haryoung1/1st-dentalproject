@@ -38,15 +38,8 @@
 	});
 </script>
 <style>
-#noticemodi {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
- 	border-radius: 3px;
-	border: 1px solid #444444;
-	margin: 15px;
-	width: 150px;
+#wrap {
+	height: 600px;
 }
 
 .btn {
@@ -79,7 +72,6 @@
 			<form action="${conPath }/noticeModify.do" method="post">
 				<input type="hidden" name="pageNum" value="${param.pageNum }">
 				<input type="hidden" name="nbno" value="${nContent.nbno }">
-				<div id="noticemodi">${nContent.nbno }번글수정</div>
 				<br>
 				<table>
 					<tr>

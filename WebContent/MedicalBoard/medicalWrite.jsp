@@ -39,7 +39,20 @@
 </script>
 
 <style>
-#notice {
+#wrap {
+	height: 700px;
+}
+
+#content_form {
+	height: 420px;
+	margin: 80px auto 0px;
+}
+
+#content_form table tr {
+	height: 60px;
+}
+
+#medical {
 	padding: 0.5rem 1rem;
 	text-align: center;
 	font-weight: 380;
@@ -47,7 +60,7 @@
 	border-radius: 4px;
 	border: 1px solid #444444;
 	margin: 45px;
-	width: 120px;
+	width: 150px;
 }
 
 .btn {
@@ -87,22 +100,19 @@
 				<table>
 					<tr>
 						<td>제목</td>
-						<td>
-							<input type="text" name="mrtitle" required="required">
+						<td><input type="text" name="mrtitle" required="required">
 						</td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td>
-							<textarea id="summernote" name="mrcontent"></textarea>
-						</td>
+						<td><textarea id="summernote" name="mrcontent"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<button class="btn">저장하기</button>
-							<input type="reset" value="취소" class="btn"> <input
-							type="button" value="목록" class="btn"
-							onclick="location.href='${conPath}/medicalList.do'"></td>
+							<button class="btn"
+								onclick="location.href='${conPath}/medicalList.do'">돌아가기</button>
+						</td>
 					</tr>
 				</table>
 			</form>

@@ -38,6 +38,10 @@
 	});
 </script>
 <style>
+#wrap {
+	height: 750px;
+}
+
 #content_form {
 	height: 420px;
 	margin: 80px auto 0px;
@@ -45,17 +49,6 @@
 
 #content_form table tr {
 	height: 60px;
-}
-
-#noticecontent {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
- 	border-radius: 3px;
-	border: 1px solid #444444;
-	margin: 15px;
-	width: 150px;
 }
 
 .btn {
@@ -95,7 +88,6 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content_form">
-			<div id="noticecontent">${nContent.nbno }번글 상세보기</div>
 			<br>
 			<table>
 				<tr>

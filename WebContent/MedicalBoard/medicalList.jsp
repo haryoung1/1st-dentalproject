@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
+#wrap .left {
+	text-align: left;
+}
 #right {
 	text-align: right;
 	margin: 20px;
@@ -94,7 +97,7 @@
 						<td class="left"><c:forEach var="i" begin="1"
 								end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
-								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
+								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; &nbsp; </c:if>
 							</c:forEach> ${medical.mrtitle }</td>
 						<td>${medical.mid }${medical.aid }</td>
 						<td><fmt:formatDate value="${medical.mrrdate }"
