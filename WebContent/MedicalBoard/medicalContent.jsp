@@ -9,13 +9,56 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300,
+			minHeight : null,
+			maxHeight : null,
+			lang : 'ko-KR',
+			onImageUpload : function(files, editor, welEditable) {
+				sendFile(files[0], editor, welEditable);
+			}
+		});
+	});
+</script>
 <style>
 #content_form {
-	height: 450px;
-	margin: 50px auto 0px;
+	height: 420px;
+	margin: 80px auto 0px;
 }
 
-button, .btn {
+#content_form table tr {
+	height: 60px;
+}
+
+#noticecontent {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-weight: 380;
+	font-weight: bold;
+	border-radius: 3px;
+	border: 1px solid #444444;
+	margin: 15px;
+	width: 150px;
+}
+
+.btn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -23,9 +66,9 @@ button, .btn {
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-size: 1rem;
 	font-weight: 400;
-	font-weight: bol text-align: center;
+	font-weight: bold;
+	text-align: center;
 	text-decoration: none;
 	border-radius: 4px;
 	border: 2px solid #444444;
@@ -35,18 +78,6 @@ button, .btn {
 		rgba(0, 0, 0, 0.06);
 	cursor: pointer;
 	transition: 0.5s;
-}
-#mdcontent {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-size: 1rem;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 39px;
-	padding : 10px;
-	width: 130px;
 }
 </style>
 <script>
@@ -62,8 +93,10 @@ button, .btn {
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
+	<div id="wrap">
 	<div id="content_form">
-		<div id="mdcontent">${mrContent.mrno }번 글 상세보기</div>
+		<div id="mdcontent">${mrContent.mrno }번글상세보기</div>
+		<br>
 		<table>
 			<tr>
 				<th>작성자</th>
@@ -75,25 +108,31 @@ button, .btn {
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><pre>${mrContent.mrcontent }</pre></td>
+				<td>
+					<textarea id="summernote">${mrContent.mrcontent}</textarea>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<c:if test="${member.mid eq mrContent.mid}">
-						<input type="button" value="수정" class="btn"
-							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">
+						<button class="btn"
+							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">수정
+						</button>
 					</c:if> 
 					<c:if test="${member.mid eq mrContent.mid or not empty admin}">
 						<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
 					</c:if> 
 					<c:if test="${not empty admin}">
-						<button 
+						<button class="btn"
 							onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변
 						</button>
 					</c:if> 
-						<input type="button" value="목록" class="btn" onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">
+						<button class="btn" 
+							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">목록
+						</button>
 			</tr>
 		</table>
+	</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

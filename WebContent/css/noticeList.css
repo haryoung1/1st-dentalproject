@@ -1,6 +1,6 @@
 #wrap {
 	width: 1000px;
-	height: 500px;
+	height : 800px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -38,12 +38,12 @@
 
 #wrap table tr:hover {
 	background-color: #ffffff;
-	border: 1px solid #444444;
+	border: 1px solid lightgray;
 	cursor: pointer;
 }
 
 #content_form {
-	width: 800px;
+	width: 930px;
 	height: 480px;
 	margin: 20px auto 0px;
 }

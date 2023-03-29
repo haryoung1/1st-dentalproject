@@ -9,18 +9,44 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300,
+			minHeight : null,
+			maxHeight : null,
+			lang : 'ko-KR',
+			onImageUpload : function(files, editor, welEditable) {
+				sendFile(files[0], editor, welEditable);
+			}
+		});
+	});
+</script>
 <style>
 #noticemodi {
 	padding: 0.5rem 1rem;
 	text-align: center;
-	font-size: 1rem;
 	font-weight: 380;
 	font-weight: bold;
-	border-radius: 4px;
+ 	border-radius: 3px;
 	border: 1px solid #444444;
-	margin: 39px;
-	padding : 10px;
-	width: 100px;
+	margin: 15px;
+	width: 150px;
 }
 
 .btn {
@@ -31,7 +57,6 @@
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-size: 1rem;
 	font-weight: 400;
 	font-weight: bold;
 	text-align: center;
@@ -49,33 +74,34 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
-		<form action="${conPath }/noticeModify.do" method="post">
-			<input type="hidden" name="pageNum" value="${param.pageNum }">
-			<input type="hidden" name="nbno" value="${nContent.nbno }">
-			<div id="noticemodi">${nContent.nbno }번 글 수정</div>
-			<table>
-				<tr>
-					<th>제목</th>
-					<td><input type="text" name="nbtitle"
-						value="${nContent.nbtitle }" required="required"></td>
-				</tr>
-				<tr>
-					<th>본문</th>
-					<td>
-						<textarea rows="5" name="nbcontent">${nContent.nbcontent }</textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="저장" class="btn">
-						<input type="reset" value="취소" class="btn" onclick="history.back()"> 
-						<input type="button" value="목록" class="btn"
-						onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-					</td>
-				</tr>
-			</table>
-		</form>
+	<div id="wrap">
+		<div id="content_form">
+			<form action="${conPath }/noticeModify.do" method="post">
+				<input type="hidden" name="pageNum" value="${param.pageNum }">
+				<input type="hidden" name="nbno" value="${nContent.nbno }">
+				<div id="noticemodi">${nContent.nbno }번글수정</div>
+				<br>
+				<table>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" name="nbtitle"
+							value="${nContent.nbtitle }" required="required"></td>
+					</tr>
+					<tr>
+						<th>본문</th>
+						<td><textarea id="summernote" name="nbcontent">${nContent.nbcontent }</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button class="btn">저장</button>
+							<button class="btn"
+								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

@@ -10,53 +10,60 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <style>
-#wrap .left {
-	text-align: left;
+#right {
+	text-align: right;
+	margin: 20px;
 }
 
 .btn {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background: white;
-	color: black;
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-size: 1rem;
-	font-weight: 400;
-	font-weight: bold;
-	text-align: right;
-	text-decoration: none;
-	border-radius: 4px;
-	border: 2px solid #444444;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
 	display: inline-block;
-	width: auto;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
-		rgba(0, 0, 0, 0.06);
 	cursor: pointer;
-	transition: 0.5s;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
 }
 
-#right {
-	text-align: right;
-	margin: 28px;
-	padding: 0.5rem 1rem;
+.btn:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.btn:active {
+	position: relative;
+	top: 1px;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {
-		$('tr').click(function() {
-			var mrno = $(this).children().eq(0).text();
-		if (!isNaN(mrno)) {
-			location.href = '${conPath }/medicalContent.do?mrno=' + mrno + '&pageNum=${pageNum}';
-		}
-	});
-});
+	$(document)
+			.ready(
+					function() {
+						$('tr')
+								.click(
+										function() {
+											var mrno = $(this).children().eq(0)
+													.text();
+											if (!isNaN(mrno)) {
+												location.href = '${conPath }/medicalContent.do?mrno='
+														+ mrno
+														+ '&pageNum=${pageNum}';
+											}
+										});
+					});
 </script>
 </head>
 <body>
-	<c:if test="${not empty medicalWriteResult}"> <!--  글쓰기 성공 -->
+	<c:if test="${not empty medicalWriteResult}">
+		<!--  글쓰기 성공 -->
 		<script>
 			alert('${medicalWriteResult}')
 		</script>
@@ -66,8 +73,7 @@
 		<br>
 		<h2>진료예약&nbsp;게시판</h2>
 		<hr>
-		<br>
-		<br>
+		<br> <br>
 		<table>
 			<tr>
 				<th>글번호</th>
@@ -85,31 +91,22 @@
 				<c:forEach items="${medicalList }" var="medical">
 					<tr>
 						<td>${medical.mrno }</td>
-						<td class="left"><c:forEach var="i" begin="1" end="${medical.mrindent }">
+						<td class="left"><c:forEach var="i" begin="1"
+								end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
 								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; </c:if>
 							</c:forEach> ${medical.mrtitle }</td>
 						<td>${medical.mid }${medical.aid }</td>
-						<td>
-							<fmt:formatDate value="${medical.mrrdate }" pattern="yyyy-MM-dd(E)" />
-						</td>
+						<td><fmt:formatDate value="${medical.mrrdate }"
+								pattern="yyyy-MM-dd(E)" /></td>
 						<td>${medical.mrhit }</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
 		<br>
-		<div id="right"> <!-- 글등록 버튼 -->
-			<c:if test="${not empty member }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/medicalWriteView.do'">
-			</c:if>
-			<c:if test="${empty member and empty admin }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/medicalWriteView.do'">
-			</c:if>
-		</div>
-		<div class="paging"> <!-- 페이징처리 -->
+		<div class="paging">
+			<!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
 				[ <a href="${conPath }/medicalList.do?pageNum=${startPage-1}">
 					이전 </a> ]
@@ -125,6 +122,15 @@
 			<c:if test="${endPage<pageCnt }">
 			  [ <a href="${conPath }/medicalList.do?pageNum=${endPage+1}"> 다음
 				</a> ]
+			</c:if>
+		</div>
+		<div id="right">
+			<!-- 글등록 버튼 -->
+			<c:if test="${not empty member }">
+				<button class="btn" onclick="location='${conPath}/medicalWriteView.do'">글쓰기</button>
+			</c:if>
+			<c:if test="${empty member and empty admin }">
+				<button class="btn" onclick="location='${conPath}/medicalWriteView.do'">글쓰기</button>
 			</c:if>
 		</div>
 	</div>

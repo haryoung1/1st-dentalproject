@@ -22,6 +22,10 @@
 	padding: 10px;
 	width: 130px;
 }
+#wrap td{
+	text-align: center;
+	font-weight: bold;
+}
 </style>
 </head>
 <body>

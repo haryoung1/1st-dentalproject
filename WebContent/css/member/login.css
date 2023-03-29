@@ -29,6 +29,11 @@
 	cursor: pointer;
 }
 
+.submit-btn:hover {
+	color: orange;
+	cursor: pointer;
+}
+
 .links {
 	text-align: center;
 }

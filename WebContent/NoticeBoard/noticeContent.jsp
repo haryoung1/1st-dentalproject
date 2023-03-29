@@ -9,25 +9,53 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300,
+			minHeight : null,
+			maxHeight : null,
+			lang : 'ko-KR',
+			onImageUpload : function(files, editor, welEditable) {
+				sendFile(files[0], editor, welEditable);
+			}
+		});
+	});
+</script>
 <style>
 #content_form {
-	height: 450px;
-	margin: 50px auto 0px;
+	height: 420px;
+	margin: 80px auto 0px;
+}
+
+#content_form table tr {
+	height: 60px;
 }
 
 #noticecontent {
 	padding: 0.5rem 1rem;
 	text-align: center;
-	font-size: 1rem;
 	font-weight: 380;
 	font-weight: bold;
-	border-radius: 4px;
+ 	border-radius: 3px;
 	border: 1px solid #444444;
-	margin: 39px;
-	padding : 10px;
-	width: 130px;
+	margin: 15px;
+	width: 150px;
 }
 
 .btn {
@@ -38,7 +66,6 @@
 	color: black;
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-size: 1rem;
 	font-weight: 400;
 	font-weight: bold;
 	text-align: center;
@@ -66,40 +93,40 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div id="content_form">
-		<div id="noticecontent">${nContent.nbno }번 글 상세보기</div>
-		<table>
-			<tr>
-				<th>작성자</th>
-				<td>${nContent.aid }님</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td>${nContent.nbtitle }</td>
-			</tr>
-			<tr>
-				<th>본문</th>
-				<td>
-					<pre style="white-space: pre-wrap;">${nContent.nbcontent }</pre>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<c:if test="${empty member and not empty admin}">
-						<input type="button" value="수정" class="btn"
-							onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">
-						<input type="button" value="목록" class="btn"
-							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-					</c:if> 
-					<c:if test="${empty member and not empty admin}">
-						<button class="btn" onclick="delete1('${nContent.nbno}')">삭제</button>
-					</c:if> 
-					<c:if test="${empty admin}">
-						<input type="button" value="목록" class="btn"
-							onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">
-					</c:if>
-			</tr>
-		</table>
+	<div id="wrap">
+		<div id="content_form">
+			<div id="noticecontent">${nContent.nbno }번글 상세보기</div>
+			<br>
+			<table>
+				<tr>
+					<th>작성자</th>
+					<td>${nContent.aid }님</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td>${nContent.nbtitle }</td>
+				</tr>
+				<tr>
+					<th>본문</th>
+					<td><textarea id="summernote">${nContent.nbcontent}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><c:if
+							test="${empty member and not empty admin}">
+							<button class="btn"
+								onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">수정</button>
+							<button class="btn"
+								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+						</c:if> <c:if test="${empty member and not empty admin}">
+							<button class="btn" onclick="delete1('${nContent.nbno}')">삭제</button>
+						</c:if> <c:if test="${empty admin}">
+							<button class="btn"
+								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+						</c:if>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>
