@@ -11,33 +11,34 @@
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
-.btn {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background: white;
-	color: black;
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-size: 1rem;
-	font-weight: 400;
-	font-weight: bold;
+#right {
 	text-align: right;
-	text-decoration: none;
-	border-radius: 4px;
-	border: 2px solid #444444;
-	display: inline-block;
-	width: auto;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
-		rgba(0, 0, 0, 0.06);
-	cursor: pointer;
-	transition: 0.5s;
+	margin : 20px;
 }
 
-.right {
-	text-align: right;
-	margin: 28px;
-	padding: 0.5rem 1rem;
+.btn {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.btn:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.btn:active {
+	position:relative;
+	top:1px;
 }
 </style>
 <script>
@@ -53,8 +54,7 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<c:if test="${not empty noticeWriteResult}">
-		<!--  글쓰기 성공  -->
+	<c:if test="${not empty noticeWriteResult}"> <!--  글쓰기 성공  -->
 		<script>
 			alert('${noticeWriteResult}')
 		</script>
@@ -91,9 +91,6 @@
 			</c:if>
 		</table>
 		<br>
-		<c:if test="${not empty admin }">
-			<input type="button" class="btn" value="글등록" onclick="location='${conPath}/noticeWriteView.do'">
-		</c:if>
 		<div class="paging">
 			<!-- 페이징처리 -->
 			<c:if test="${startPage > BLOCKSIZE }">
@@ -110,6 +107,11 @@
 			<c:if test="${endPage<pageCnt }">
 			  [ <a href="${conPath }/noticeList.do?pageNum=${endPage+1}"> 다음 </a> ]
 			</c:if>
+		</div>
+		<div id="right">
+		<c:if test="${not empty admin }">
+				<button class="btn" onclick="location='${conPath}/noticeWriteView.do'">글등록</button>
+		</c:if>
 		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />

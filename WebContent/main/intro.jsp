@@ -11,6 +11,7 @@
 <style>
 #wrap {
 	width: 1000px;
+	height : 900px;
 	margin: 0 auto;
 	overflow: hidden;
 }

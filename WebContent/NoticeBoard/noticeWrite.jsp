@@ -77,10 +77,10 @@
 					<td><textarea rows="5" name="nbcontent"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="등록하기" class="btn">
-						<input type="reset" value="취소" class="btn"> <input
-						type="button" value="목록" class="btn"
-						onclick="location.href='${conPath}/noticeList.do'"></td>
+					<td colspan="2">
+						<input type="submit" value="등록하기" class="btn">
+						<input type="reset" value="취소" class="btn"> 
+						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/noticeList.do'"></td>
 				</tr>
 			</table>
 		</form>
