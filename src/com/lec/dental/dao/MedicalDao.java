@@ -407,36 +407,17 @@ public class MedicalDao {
 		}
 		return cntBoard;
 	}
-	
-	// (12) 로그인한 사람의 groups
-	public ArrayList<Integer> getMrgroups(String mid) {
-		ArrayList<Integer> mrgroups = new ArrayList<Integer>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT mrgroup FROM MRBOARD WHERE MID=?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mid);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				mrgroups.add(rs.getInt(1));
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return mrgroups;
-	}
+
+	/*
+	 * // (12) 로그인한 사람의 groups public ArrayList<Integer> getMrgroups(String mid) {
+	 * ArrayList<Integer> mrgroups = new ArrayList<Integer>(); Connection conn =
+	 * null; PreparedStatement pstmt = null; ResultSet rs = null; String sql =
+	 * "SELECT mrgroup FROM MRBOARD WHERE MID=?"; try { conn = getConnection();
+	 * pstmt = conn.prepareStatement(sql); pstmt.setString(1, mid); rs =
+	 * pstmt.executeQuery(); while (rs.next()) { mrgroups.add(rs.getInt(1)); } }
+	 * catch (SQLException e) { System.out.println(e.getMessage()); } finally { try
+	 * { if (rs != null) rs.close(); if (pstmt != null) pstmt.close(); if (conn !=
+	 * null) conn.close(); } catch (SQLException e) {
+	 * System.out.println(e.getMessage()); } } return mrgroups; }
+	 */
 }

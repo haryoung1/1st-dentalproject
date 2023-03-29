@@ -85,12 +85,6 @@
 </script>
 </head>
 <body>
-	<c:if test="${readOk == 'fail' }">
-		<script>
-			alert('본인글이거나 본인글의 답변글이 아니면 글을 읽을 수 없습니다');
-			history.back();
-		</script>
-	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content_form">

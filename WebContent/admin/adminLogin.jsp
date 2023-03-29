@@ -39,7 +39,7 @@
 				<input type="password" name="acode" class="text-field" placeholder="코드">
 			</p>
 			<p>
-				<input type="submit" value="로그인" class="submit-btn"> 
+				<input type="submit" value="로그인"  class="submit-btn"> 
 				<input type="button" value="신규등록" class="submit-btn" onclick="location='${conPath}/adminjoinView.do'">
 			</p>
 		</form>

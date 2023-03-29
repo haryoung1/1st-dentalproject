@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
@@ -104,7 +105,7 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background-color : #4A5164;
+	background-color: #4A5164;
 	color: white;
 	margin: 0;
 	padding: 0.5rem 1rem;
@@ -141,36 +142,29 @@
 			<table>
 				<tr>
 					<th>아이디</th>
-					<td>
-						<input type="text" name="mid" required="required" id="mid">
-						<div id="midConfirmResult">&nbsp; &nbsp; &nbsp;</div>
-					</td>
+					<td><input type="text" name="mid" required="required" id="mid">
+						<div id="midConfirmResult">&nbsp; &nbsp; &nbsp;</div></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td>
-						<input type="password" name="mpw" required="required" id="mpw">
-					</td>
+					<td><input type="password" name="mpw" required="required"
+						id="mpw"></td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
-					<td>
-						<input type="password" name="pwChk" required="required" id="mpwChk">
-						<div id="pwChkResult">&nbsp; &nbsp; &nbsp;</div>
-					</td>
+					<td><input type="password" name="pwChk" required="required"
+						id="mpwChk">
+						<div id="pwChkResult">&nbsp; &nbsp; &nbsp;</div></td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>
-						<input type="text" name="mname" required="required">
+					<td><input type="text" name="mname" required="required">
 					</td>
 				</tr>
 				<tr>
 					<th>메일</th>
-					<td>
-						<input type="email" name="memail" id="memail">
-						<div id="mailConfirmResult">&nbsp; &nbsp; &nbsp;</div>
-					</td>
+					<td><input type="email" name="memail" id="memail">
+						<div id="mailConfirmResult">&nbsp; &nbsp; &nbsp;</div></td>
 				</tr>
 				<tr>
 					<th>사진</th>

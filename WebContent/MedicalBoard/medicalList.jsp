@@ -69,7 +69,8 @@
 		<br>
 		<h2>진료예약&nbsp;게시판</h2>
 		<hr>
-		<br> <br>
+		<br> 
+		<br>
 		<table>
 			<tr>
 				<th>글번호</th>

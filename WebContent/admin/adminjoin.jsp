@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath}/css/member/join.css" rel="stylesheet">
+<link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -59,13 +59,45 @@
 		});
 	});
 </script>
+<style>
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #4A5164;
+	color: white;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-weight: 350;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid #444444;
+	display: inline-block;
+	width: 100px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.btn:hover {
+	background-color: black;
+}
+
+.p1 {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<form action="${conPath }/adminjoin.do" method="post">
-		<div id="content_form">
+		<div id="wrap">
+			<h3>관리자 등록</h3>
+			<hr>
+			<br>
 			<table>
-				<caption>관리자등록</caption>
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" name="aid" id="aid" required="required">
@@ -91,13 +123,14 @@
 					<th>관리자코드</th>
 					<td><input type="password" name="acode" required="required"></td>
 				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="등록하기" class="btn">
-					</td>
-				</tr>
 			</table>
+			<br>
+			<p class="p1">
+				<button class="btn">등록하기</button>
+			</p>
 		</div>
 	</form>
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

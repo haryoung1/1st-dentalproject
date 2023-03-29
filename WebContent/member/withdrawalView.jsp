@@ -8,45 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath}/css/member/modify.css" rel="stylesheet">
+<link href="${conPath}/css/member/login.css" rel="stylesheet">
 <style>
-#content_form {
-	height: 470px;
-	margin: 30px auto 0px;
-}
-
-#content_form table tr {
-	height: 10px;
-}
-
-.btn {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background-color: #4A5164;
-	color: white;
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-weight: 350;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-	border: 1px solid #444444;
-	display: inline-block;
-	width: 100px;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
-		rgba(0, 0, 0, 0.06);
-	cursor: pointer;
-	transition: 0.5s;
-}
-
 .p1 {
 	text-align: center;
 }
 </style>
 <script>
 	function click1() {
-		answer = confirm("확인을 누르면 탈퇴가 진행 됩니다");
+		answer = confirm("충분히 확인을 하셨나요 ?");
 		if (answer === true) {
 
 		} else {
@@ -57,28 +27,30 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<div id="wrap">
-		<div id="content_form">
-			<form action="${conPath }/withdrawal.do" method="post">
-				<table>
-					<caption>회원 탈퇴</caption>
-					<tr>
-						<th>이름</th>
-						<td>${member.mname }</td>
-					</tr>
-					<tr>
-						<th>ID</th>
-						<td>${member.mid }</td>
-					</tr>
-				</table>
-				<br>
-				<p class="p1">
-					<button class="btn" onclick="click1()">회원탈퇴</button>
-					<button class="btn" onclick="history.go(-1)">이전</button>
-				</p>
-			</form>
-		</div>
+	<div class="login-form">
+		<form action="${conPath }/withdrawal.do" method="post">
+			<h3>회원탈퇴</h3>
+			<br>
+			<p>
+				<input type="text" class="text-field" readonly="readonly"
+					placeholder="이름 : ${member.mname }">
+			</p>
+			<p>
+				<input type="text" class="text-field" readonly="readonly"
+					placeholder="ID : ${member.mid }">
+			</p>
+			<br>
+			<p class="p1">
+				<button class="submit-btn" onclick="click1()">회원탈퇴</button>
+				<input class="submit-btn" type="button" value="이전"
+					onclick="history.go(-1)" />
+			</p>
+			<p class="links">
+				<a href="#" onclick="click1()">신중히 생각하고 결정 해주세요</a>
+			</p>
+		</form>
 	</div>
+	<br>
 	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

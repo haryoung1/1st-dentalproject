@@ -76,7 +76,7 @@
 				<div class="md_product">
 					<p class="p1">
 						<img src="image/보철치료.png"> 
-							<a href="${conPath }/implant.do"> <span class="imtext1">[보철/충치]</span> </a>
+							<a href="${conPath }/cavity.do"> <span class="imtext1">[충치치료]</span> </a>
 					</p>
 					<p>
 						<img src="image/진료안내.png">

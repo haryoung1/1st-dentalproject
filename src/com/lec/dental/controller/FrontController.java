@@ -49,8 +49,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/correction.jsp";
 		}else if (command.equals("/whitening.do")) { // 치아미백
 			viewPage = "main/whitening.jsp";
-		}else if (command.equals("/cavity.do")) { // 보철 / 충치 
-			viewPage = "main/cavity .jsp";
+		}else if (command.equals("/cavity.do")) { // 충치 
+			viewPage = "main/cavity.jsp";
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * *  *
