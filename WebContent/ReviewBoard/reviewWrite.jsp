@@ -104,7 +104,7 @@
 						<td colspan="2">
 							<button class="btn">저장하기</button>
 							<button class="btn"
-								onclick="location.href='${conPath}/reviewlList.do'">돌아가기</button>
+								onclick="location.href='${conPath}/reviewList.do'">돌아가기</button>
 						</td>
 					</tr>
 				</table>

@@ -93,23 +93,26 @@
 				<tr>
 					<th>작성자</th>
 					<td>${rvContent.mid }${rvContent.aid }</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${rvContent.rvtitle }</td>
-				</tr>
-				<tr>
 					<th>조회수</th>
 					<td>${rvContent.rvhit }</td>
 				</tr>
 				<tr>
+					<th>제목</th>
+					<td colspan="5">${rvContent.rvtitle }</td>
+				</tr>
+<%-- 				<tr>
+					<th>조회수</th>
+					<td>${rvContent.rvhit }</td>
+				</tr> --%>
+				<tr>
 					<th>내용</th>
-					<td><textarea id="summernote">${rvContent.rvcontent}</textarea>
+					<td colspan="5">
+						<textarea id="summernote">${rvContent.rvcontent}</textarea>
 					</td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td>
+					<td colspan="5">
 						<c:if test="${not empty rvContent.rvfilename }">
 							<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}"
 								target="_blank">${rvContent.rvfilename}</a>
@@ -120,7 +123,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="5">
 						<c:if test="${member.mid eq rvContent.mid}">
 							<button class="btn"
 								onclick="location='${conPath}/reviewModifyView.do?rvno=${rvContent.rvno}&pageNum=${param.pageNum }'">수정

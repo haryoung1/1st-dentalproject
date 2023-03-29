@@ -28,7 +28,10 @@ INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('min', '123', '민희진', 'min@naver.com', '민희진.png', '1979-12-16', '서울시 강남구'); 
 INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
     VALUES ('aim', '123', '아이묭', 'aim@naver.com', '아이묭.png', '1995-03-06', '일본 효고현'); 
-
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('hee', '123', '김태희', 'hee@naver.com', 'kim.png', '1980-03-29', '부산시 동래구'); 
+INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)
+    VALUES ('son', '123', '손흥민', 'son@naver.com', 'son.png', '1992-07-08', '강원도 춘천시'); 
 
 SELECT * FROM MEMBER;
 COMMIT;

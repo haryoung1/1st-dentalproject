@@ -85,46 +85,48 @@
 </script>
 </head>
 <body>
+	<c:if test="${readOk == 'fail' }">
+		<script>
+			alert('본인글이거나 본인글의 답변글이 아니면 글을 읽을 수 없습니다');
+			history.back();
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-	<div id="content_form">
-		<br>
-		<table>
-			<tr>
-				<th>작성자</th>
-				<td>${mrContent.mid }${mrContent.aid }</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td>${mrContent.mrtitle }</td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td>
-					<textarea id="summernote">${mrContent.mrcontent}</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<c:if test="${member.mid eq mrContent.mid}">
+		<div id="content_form">
+			<br>
+			<table>
+				<tr>
+					<th>작성자</th>
+					<td>${mrContent.mid }${mrContent.aid }</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td>${mrContent.mrtitle }</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><textarea id="summernote">${mrContent.mrcontent}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><c:if test="${member.mid eq mrContent.mid}">
+							<button class="btn"
+								onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">수정
+							</button>
+						</c:if> <c:if test="${member.mid eq mrContent.mid or not empty admin}">
+							<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
+						</c:if> <c:if test="${not empty admin}">
+							<button class="btn"
+								onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변
+							</button>
+						</c:if>
 						<button class="btn"
-							onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">수정
-						</button>
-					</c:if> 
-					<c:if test="${member.mid eq mrContent.mid or not empty admin}">
-						<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
-					</c:if> 
-					<c:if test="${not empty admin}">
-						<button class="btn"
-							onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변
-						</button>
-					</c:if> 
-						<button class="btn" 
 							onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">목록
 						</button>
-			</tr>
-		</table>
-	</div>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 </body>

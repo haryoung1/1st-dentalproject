@@ -159,9 +159,12 @@ INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDE
 -- (10) 회원탈퇴시 탈퇴하는 회원 (mID)이 쓴 글 모두 삭제하기
 DELETE FROM MRBOARD WHERE mID = 'aaa';
 
+-- (11) 로그인한 사람의 groups
+SELECT mrgroup FROM MRBOARD WHERE MID='kang';
+
+
 SELECT * FROM MRBOARD;
 COMMIT;
-
 ------------------------------------------------------
 --  ReviewBoard (후기게시판 RVOARD) Dao query                   
 ------------------------------------------------------

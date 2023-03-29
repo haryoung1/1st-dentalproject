@@ -47,21 +47,14 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var mrno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(mrno)) {
-												location.href = '${conPath }/medicalContent.do?mrno='
-														+ mrno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+			var mrno = $(this).children().eq(0).text();
+			if (!isNaN(mrno)) {
+				location.href = '${conPath }/medicalContent.do?mrno=' + mrno + '&pageNum=${pageNum}';
+				}
+			});
+		});
 </script>
 </head>
 <body>
@@ -127,8 +120,8 @@
 				</a> ]
 			</c:if>
 		</div>
+		<!-- 글쓰기 버튼 -->
 		<div id="right">
-			<!-- 글등록 버튼 -->
 			<c:if test="${not empty member }">
 				<button class="btn" onclick="location='${conPath}/medicalWriteView.do'">글쓰기</button>
 			</c:if>
