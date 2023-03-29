@@ -10,18 +10,6 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <style>
-#list {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-size: 1rem;
-	font-weight: 350;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 39px;
-	padding: 10px;
-	width: 130px;
-}
 #wrap td{
 	text-align: center;
 	font-weight: bold;
@@ -31,7 +19,9 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
-		<div id="list">전체회원 목록</div>
+		<h3>회원목록</h3>
+		<hr>
+		<br>
 		<table>
 			<tr>
 				<th>사진</th>
@@ -63,6 +53,7 @@
 				</c:forEach>
 			</c:if>
 		</table>
+		<br>
 		<!-- 페이징처리 -->
 		<div class="paging">
 			<c:if test="${startPage > BLOCKSIZE }">

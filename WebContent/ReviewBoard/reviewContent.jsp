@@ -43,11 +43,6 @@
 	margin: 0 auto;
 }
 
-#content_form {
-	height: 420px;
-	margin: 80px auto 0px;
-}
-
 #content_form table tr {
 	height: 60px;
 }

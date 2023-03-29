@@ -25,6 +25,17 @@
 			history.back();
 		</script>
 	</c:if>
+		<c:if test="${not empty adminCodeError }"> <!-- 관리자 코드 실패시 -->
+		<script>
+			alert('${adminCodeError}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty adminJoinResult }"> <!-- 관리자 등록성공시 -->
+		<script>
+			alert('${adminJoinResult}');
+		</script>
+	</c:if>
 	<div class="login-form">
 		<form action="${conPath }/adminLogin.do" method="post">
 			<h3>관리자 로그인</h3>

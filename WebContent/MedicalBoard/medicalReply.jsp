@@ -43,24 +43,8 @@
 	height: 800px;
 }
 
-#content_form {
-	height: 420px;
-	margin: 80px auto 0px;
-}
-
 #content_form table tr {
 	height: 60px;
-}
-
-#mdreply {
-	padding: 0.5rem 1rem;
-	text-align: center;
-	font-weight: 380;
-	font-weight: bold;
-	border-radius: 4px;
-	border: 1px solid #444444;
-	margin: 20px;
-	width: 150px;
 }
 
 .btn {
@@ -91,13 +75,13 @@
 	<div id="wrap">
 		<div id="content_form">
 			<form action="${conPath }/medicalReply.do" method="post">
-				<input type="hidden" name="mrgroup" value="${originMedical.mrgroup }"> 
-				<input type="hidden" name="mrstep" value="${originMedical.mrstep }"> 
-				<input type="hidden" name="mrindent" value="${originMedical.mrindent }">
+				<input type="hidden" name="mrgroup"
+					value="${originMedical.mrgroup }"> <input type="hidden"
+					name="mrstep" value="${originMedical.mrstep }"> <input
+					type="hidden" name="mrindent" value="${originMedical.mrindent }">
 				<input type="hidden" name="pageNum" value="${param.pageNum }">
-				<input type="hidden" name="mid" value="${member.mid }"> 
-				<input type="hidden" name="aid" value="${admin.aid }">
-				<div id="mdreply">${originMedical.mid }님 답변폼</div>
+				<input type="hidden" name="mid" value="${member.mid }"> <input
+					type="hidden" name="aid" value="${admin.aid }">
 				<table>
 					<tr>
 						<td>작성자</td>

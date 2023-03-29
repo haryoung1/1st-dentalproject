@@ -42,7 +42,10 @@ COMMIT;
 -- DUMMY DATA
 INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
     VALUES ('admin', '111', '강성빈', '143');
-
+    
+INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
+    VALUES ('admin1', '111', '신정범', '143');
+    
 SELECT * FROM ADMIN;
 COMMIT;
 ------------------------------------------------------

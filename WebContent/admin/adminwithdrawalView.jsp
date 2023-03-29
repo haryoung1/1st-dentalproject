@@ -16,13 +16,25 @@
 </style>
 <script>
 	function click1() {
-		answer = confirm("확인을 누르면 탈퇴가 진행 됩니다");
-		if (answer === true) {
-
-		} else {
+		answer = prompt('관리자코드를 입력 하세요.');
+		let code = 143;
+		if (answer == 143) {
+			alert('감사합니다')
+			
+		} else if (code != null) {
+			alert('코드가 일치하지 않습니다.')
 			document.write(window.history.back());
 		}
+
 	};
+	/* 	function click1() {
+	 answer = confirm("확인을 누르면 탈퇴가 진행 됩니다");
+	 if (answer === true) {
+
+	 } else {
+	 document.write(window.history.back());
+	 }
+	 }; */
 </script>
 </head>
 <body>
