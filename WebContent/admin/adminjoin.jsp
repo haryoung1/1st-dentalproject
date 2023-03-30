@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
@@ -33,15 +32,18 @@
 						});
 					}
 				}); // key up event
-		$('#apw, #apwChk').keyup(function() {
-			var apw = $('#apw').val();
-			var apwChk = $('#apwChk').val();
-			if (apw == apwChk) {
-				$('#apwChkResult').html('<p style=color:blue;>비밀번호가 일치 합니다');
-			} else {
-				$('#apwChkResult').html('<b>비밀번호가 일치 하지 않습니다</b>');
-			}
-		}); // key up event (비번 일치 확인용)
+		$('#apw, #apwChk').keyup(
+				function() {
+					var apw = $('#apw').val();
+					var apwChk = $('#apwChk').val();
+					if (apw == apwChk) {
+						$('#apwChkResult').html(
+								'<p style=color:blue;>비밀번호가 일치 합니다');
+					} else {
+						$('#apwChkResult').html(
+								'<p style=color:blue;>비밀번호가 일치 하지 않습니다');
+					}
+				}); // key up event (비번 일치 확인용)
 
 		// "사용 가능한 ID 입니다" (aidConfirmResult), "비밀번호 일치(#apwChkResult)" 가 출력되었을 경우만 submit
 		$('form').submit(function() {
@@ -100,28 +102,34 @@
 			<table>
 				<tr>
 					<th>아이디</th>
-					<td><input type="text" name="aid" id="aid" required="required">
-						<div id="aidConfirmResult">&nbsp; &nbsp; &nbsp;</div></td>
+					<td>
+						<input type="text" name="aid" id="aid" required="required">
+						<div id="aidConfirmResult">&nbsp; &nbsp; &nbsp;</div>
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="apw" id="apw"
-						required="required"></td>
+					<td>
+						<input type="password" name="apw" id="apw" required="required"></td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
-					<td><input type="password" name="apwChk" id="apwChk"
-						required="required">
-						<div id="apwChkResult">&nbsp; &nbsp; &nbsp;</div></td>
+					<td>
+						<input type="password" name="apwChk" id="apwChk" required="required">
+						<div id="apwChkResult">&nbsp; &nbsp; &nbsp;</div>
+					</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="aname" required="required">
+					<td>
+						<input type="text" name="aname" required="required">
 					</td>
 				</tr>
 				<tr>
 					<th>관리자코드</th>
-					<td><input type="password" name="acode" required="required"></td>
+					<td>
+						<input type="password" name="acode" required="required">
+					</td>
 				</tr>
 			</table>
 			<br>

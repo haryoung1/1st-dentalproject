@@ -13,7 +13,7 @@ public class AidConfirmService implements Service {
 		AdminDao aDao = AdminDao.getInstance();
 		int result = aDao.aidConfirm(aid);
 		if (result == AdminDao.EXISTENT) {
-			request.setAttribute("aidConfirmResult", "<b>중복된 ID 입니다</b>");
+			request.setAttribute("aidConfirmResult", "<p style=color:blue;>중복된 ID 입니다");
 		} else {
 			request.setAttribute("aidConfirmResult", "<p style=color:blue;>사용가능한 ID 입니다");
 		}

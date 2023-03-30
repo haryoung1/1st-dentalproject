@@ -19,7 +19,7 @@
 		answer = prompt('관리자코드를 입력 하세요.');
 		let code = 143;
 		if (answer == 143) {
-			alert('감사합니다')
+			alert('관리자 탈퇴 완료')
 			
 		} else if (code != null) {
 			alert('코드가 일치하지 않습니다.')

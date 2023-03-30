@@ -46,6 +46,9 @@ INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
 INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
     VALUES ('admin1', '111', '신정범', '143');
     
+INSERT INTO ADMIN (aID, aPW, aNAME, aCODE)
+    VALUES ('admin2', '111', '이영철', '143');
+    
 SELECT * FROM ADMIN;
 COMMIT;
 ------------------------------------------------------

@@ -14,7 +14,7 @@ public class MidConfirmService implements Service {
 		MemberDao mDao = MemberDao.getInstance();
 		int result = mDao.midConfirm(mid);
 		if (result == MemberDao.EXISTENT) {
-			request.setAttribute("midConfirmResult", "<b>중복된 ID 입니다</b>");
+			request.setAttribute("midConfirmResult", "<p style=color:blue;>중복된 ID 입니다");
 		} else {
 			request.setAttribute("midConfirmResult", "<p style=color:blue;>사용가능한 ID 입니다");
 

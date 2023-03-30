@@ -13,9 +13,9 @@ public class MemailConfirmService implements Service {
 		MemberDao mDao = MemberDao.getInstance();
 		int result = mDao.mEmailConfirm(memail);
 		if (result == MemberDao.EXISTENT) {
-			request.setAttribute("mailConfirmResult", "<b>중복된 메일주소 입니다.</b>");
+			request.setAttribute("mailConfirmResult", "<p style=color:blue;>중복된 메일주소 입니다");
 		} else {
-			request.setAttribute("mailConfirmResult", "<p style=color:blue;>사용 가능한 메일주소 입니다.");
+			request.setAttribute("mailConfirmResult", "<p style=color:blue;>사용 가능한 메일주소 입니다");
 		}
 	}
 }

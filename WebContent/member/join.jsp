@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
@@ -39,14 +38,14 @@
 			if (mpw == mpwChk) {
 				$('#pwChkResult').html('<p style=color:blue;>비밀번호가 일치 합니다');
 			} else {
-				$('#pwChkResult').html('<b>비밀번호가 일치 하지 않습니다</b>');
+				$('#pwChkResult').html('<p style=color:blue;>비밀번호가 일치 하지 않습니다');
 			}
 		}); // key up event (비번 일치 확인용)
 		var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
 		$('input[name="memail"]').keyup(function() {
 			let memail = $(this).val();
 			if (!memail.match(patternMemail)) {
-				$('#mailConfirmResult').html('<b>메일 형식을 지켜 주세요</b>');
+				$('#mailConfirmResult').html('<p style=color:blue;>메일 형식을 지켜 주세요');
 			} else {
 				$.ajax({
 					url : '${conPath}/memailConfirm.do',
