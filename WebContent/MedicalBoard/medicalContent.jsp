@@ -80,6 +80,12 @@
 </script>
 </head>
 <body>
+	<c:if test="${contentOk == 'fail' }"> <!--  본인글만 보는것 -->
+		<script>
+			alert('본인글만 확인 할 수 있습니다.');
+			history.back();
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content_form">
