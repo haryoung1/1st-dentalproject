@@ -160,7 +160,7 @@ public class FrontController extends HttpServlet {
 		}
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
-		 * * * * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * 
+		 * * * * * * * * 진료예약게시판 관련요청 * * * * * * * * * * * *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 		
 		else if (command.equals("/medicalList.do")) { // 진료예약 게시판 글 목록
@@ -230,7 +230,7 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "reviewList.do";
 		}
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 
