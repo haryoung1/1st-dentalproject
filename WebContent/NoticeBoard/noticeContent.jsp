@@ -27,9 +27,9 @@
 <script>
 	$(document).ready(function() {
 		$('#summernote').summernote({
-			height : 300,
+			height : 450,
 			minHeight : null,
-			maxHeight : null,
+			maxHeight : 450,
 			lang : 'ko-KR',
 			onImageUpload : function(files, editor, welEditable) {
 				sendFile(files[0], editor, welEditable);
@@ -43,7 +43,7 @@
 }
 
 #content_form table tr {
-	height: 60px;
+	height: 40px;
 }
 
 .btn {

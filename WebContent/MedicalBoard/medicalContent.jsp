@@ -43,7 +43,7 @@
 }
 
 #content_form table tr {
-	height: 60px;
+	height: 40px;
 }
 
 .btn {

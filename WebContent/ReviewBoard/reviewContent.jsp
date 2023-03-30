@@ -44,7 +44,7 @@
 }
 
 #content_form table tr {
-	height: 60px;
+	height: 40px;
 }
 
 .btn {
@@ -81,6 +81,12 @@
 </script>
 </head>
 <body>
+	<c:if test="${reviewOk == 'fail' }">
+		<script>
+			alert('비회원은 볼 수 없습니다.');
+			history.back();
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content_form">
@@ -88,6 +94,8 @@
 				<tr>
 					<th>작성자</th>
 					<td>${rvContent.mid }${rvContent.aid }</td>
+				</tr>
+				<tr>
 					<th>조회수</th>
 					<td>${rvContent.rvhit }</td>
 				</tr>
@@ -95,10 +103,6 @@
 					<th>제목</th>
 					<td colspan="5">${rvContent.rvtitle }</td>
 				</tr>
-<%-- 				<tr>
-					<th>조회수</th>
-					<td>${rvContent.rvhit }</td>
-				</tr> --%>
 				<tr>
 					<th>내용</th>
 					<td colspan="5">
@@ -112,8 +116,7 @@
 							<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}"
 								target="_blank">${rvContent.rvfilename}</a>
 						</c:if> 
-						<c:if test="${empty rvContent.rvfilename }">
-						첨부파일 없음
+						<c:if test="${empty rvContent.rvfilename }">첨부파일 없음
 						</c:if>
 					</td>
 				</tr>

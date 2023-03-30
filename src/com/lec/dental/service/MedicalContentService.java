@@ -24,21 +24,21 @@ public class MedicalContentService implements Service {
 		HttpSession session = request.getSession();
 		MemberDto member = (MemberDto) session.getAttribute("member");
 		String mid = null;
-		if(member!=null) {
+		if (member != null) {
 			mid = member.getMid();
 		}
-		if(dto.getMid()!=null && dto.getMid().equals(mid)) {
+		if (dto.getMid() != null && dto.getMid().equals(mid)) {
 			contentOk = "success";
 		}
 //		2. admin이 로그인하면
-		AdminDto admin = (AdminDto)session.getAttribute("admin");
-		if(admin!=null) {
+		AdminDto admin = (AdminDto) session.getAttribute("admin");
+		if (admin != null) {
 			contentOk = "success";
 		}
 //		3. dto.mrgroup == member.mid가 쓴 글의 글 그룹과 같으면
 		ArrayList<Integer> mrgroups = medicalDao.getMrgroups(mid);
-		for(Integer mrgroup : mrgroups) {
-			if(mrgroup.equals(dto.getMrgroup())) {
+		for (Integer mrgroup : mrgroups) {
+			if (mrgroup.equals(dto.getMrgroup())) {
 				contentOk = "success";
 				break;
 			}

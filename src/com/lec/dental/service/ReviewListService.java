@@ -21,7 +21,7 @@ public class ReviewListService implements Service {
 			}
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		final int PAGESIZE = 10, BLOCKSIZE = 3;
+		final int PAGESIZE = 6, BLOCKSIZE = 3;
 		int startRow = (currentPage - 1) * PAGESIZE + 1;
 		int endRow = startRow + PAGESIZE - 1;
 		ReviewDao reviewDao = ReviewDao.getInstance();

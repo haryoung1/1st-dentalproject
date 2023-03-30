@@ -23,7 +23,7 @@ public class MedicalListService implements Service {
 			}
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		final int PAGESIZE = 10, BLOCKSIZE = 3;
+		final int PAGESIZE = 8, BLOCKSIZE = 3;
 		int startRow = (currentPage - 1) * PAGESIZE + 1;
 		int endRow = startRow + PAGESIZE - 1;
 		MedicalDao medicalDao = MedicalDao.getInstance();

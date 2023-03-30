@@ -9,8 +9,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/footer.css" rel="stylesheet">
-<style>
-</style>
 </head>
 <body>
 	<footer>
@@ -18,7 +16,7 @@
 			<p>상호명 : 치카치카 치과</p>
 			<p>사업자등록번호 : 100-10-75391</p>
 			<p>서울특별시 어떤구 어떤로 9 좋은빌딩 1-5F</p>
-			<p>Copyright© 2023 tj . All rights reserved.</p>
+			<p class="p1">Copyright© 2023 tj . All rights reserved.</p>
 			<p>
 				<b><a href="${conPath }/adminLoginView.do">관리자 전용</a></b>
 			</p>

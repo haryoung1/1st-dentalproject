@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 footer {
 	background-color: #3A3A3C;
 	width: 100%;
@@ -20,3 +19,10 @@ footer #footer_conts p:first-child {
 	line-height: 25px;
 	padding: 13px;
 }
+
+.p1 {
+	color: #9B9B9B;
+}
+p a:last-child {
+	text-decoration: underline;
+} 
