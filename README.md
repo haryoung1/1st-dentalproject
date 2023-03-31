@@ -10,7 +10,7 @@
 
 - DBMS : Oracle 11g Express Edition
 
-- 언어 : Java SE 8 Platform, HTML5, CSS, JavaScript
+- 언어 : Java SE 8 Platform, HTML5, CSS, CSS3, JavaScript
 
 - 디자인 패턴 : MVC (Model 2)
 
