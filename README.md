@@ -16,7 +16,7 @@
 
 - 오픈 Library : jQuery v3.4.1, jQueryUI, summerNoteEdit, kakaoMap Api
 
-- 프로젝트 소개 : 일대일 맞춤 서비스 치과 예약 홈페이지 <br>
+- 프로젝트 소개 : 본 시스템은 1:1 맞춤 치과 예약 시스템 입니다 <br>
 
 ![main](https://user-images.githubusercontent.com/118541186/228998563-63d33c4d-f1d3-4fb8-af4b-553b8bf19cf7.JPG)
 
@@ -60,8 +60,36 @@
 
 ## 실행화면 설명
 ![9 실행화면](https://user-images.githubusercontent.com/118541186/228999131-042ae617-8f1b-41e8-93c5-d77fd310deb8.JPG)
+
 ![10 회원가입](https://user-images.githubusercontent.com/118541186/229031549-f316ad73-c034-4fcf-a21a-120b5aa37fe3.JPG)
 
+![11  관리자등록](https://user-images.githubusercontent.com/118541186/229031555-204e4377-15c5-45ec-b47b-e69a672349cd.JPG)
+
+![12 관리자 탈퇴](https://user-images.githubusercontent.com/118541186/229031560-be8e2aba-c498-4a4c-9a74-a3e8e71d83cb.JPG)
+
+![13  후기(비회원)](https://user-images.githubusercontent.com/118541186/229031568-2c949afd-c7be-4757-95bf-691e24ac0f12.JPG)
+
+![14 후기(회원)](https://user-images.githubusercontent.com/118541186/229031576-08eb1eec-2d85-4e57-92ed-703eda2766ae.JPG)
+
+![15 진료(이용자)](https://user-images.githubusercontent.com/118541186/229031586-2be760df-4567-4059-b94a-28a189122d5d.JPG)
+
+![16 진료(본인)](https://user-images.githubusercontent.com/118541186/229031590-4d6db8a4-3ba0-42b2-a68e-64b133ad826a.JPG)
+
+![17 진료(관리자)](https://user-images.githubusercontent.com/118541186/229031600-f9172384-87e3-4a12-8956-efd3141ffc73.JPG)
+
+![18 공지사항](https://user-images.githubusercontent.com/118541186/229031607-c9ea06af-6cd5-4255-8793-9ab0395fe640.JPG)
+
+![19 공지사항(상세)](https://user-images.githubusercontent.com/118541186/229031615-93c59cb5-4184-426c-b36c-ace8516c74cc.JPG)
+
+![20 회원목록](https://user-images.githubusercontent.com/118541186/229031623-6ee9cd02-8217-4cf8-9c33-1d636652f9ce.JPG)
+
+![21 400에러](https://user-images.githubusercontent.com/118541186/229031631-a34a8d0f-6f26-4541-adde-0a6b85a91ea2.jpg)
+
+![22 500에러](https://user-images.githubusercontent.com/118541186/229031637-b72e58f9-d272-4b90-aec1-9a911e1e2123.jpg)
+
+![23 차후개발내용](https://user-images.githubusercontent.com/118541186/229031645-9c97dc71-1dae-4e67-83ad-a6d663ea34f9.JPG)
+
+![24 마무리](https://user-images.githubusercontent.com/118541186/229031655-b95c8ba5-6d33-49c8-b5f3-d5195df0bc56.JPG)
 
 
 
