@@ -60,6 +60,7 @@
 
 ## 실행화면 설명
 ![9 실행화면](https://user-images.githubusercontent.com/118541186/228999131-042ae617-8f1b-41e8-93c5-d77fd310deb8.JPG)
+![10 회원가입](https://user-images.githubusercontent.com/118541186/229031549-f316ad73-c034-4fcf-a21a-120b5aa37fe3.JPG)
 
 
 
