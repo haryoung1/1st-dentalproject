@@ -125,7 +125,12 @@ public class FrontController extends HttpServlet {
 			service = new MemberListSerivce();
 			service.execute(request, response);
 			viewPage = "member/memberList.jsp";	
+		}else if (command.equals("/MListContent.do")) { // 회원 상세
+			service = new MListContentService();
+			service.execute(request, response);
+			viewPage = "member/memberContent.jsp";	
 		}
+		
 		
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
 		 * * * * * * * * * * * 공지사항 관련요청 * * * * * * * * * * *  

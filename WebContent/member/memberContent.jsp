@@ -10,19 +10,11 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <style>
-#wrap td {
-	text-align: center;
-	font-weight: bold;
-}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {
-		$('tr').click(function() {
-			var mid = $(this).children().eq(1).html();
-			if (mid != '아이디') {
-				location.href = '${conPath}/MListContent.do?mid=' + mid;
-			}
-		});
+
 	});
 </script>
 </head>
