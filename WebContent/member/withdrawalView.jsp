@@ -42,8 +42,7 @@
 			<br>
 			<p class="p1">
 				<button class="submit-btn" onclick="click1()">회원탈퇴</button>
-				<input class="submit-btn" type="button" value="이전"
-					onclick="history.go(-1)" />
+				<input class="submit-btn" type="button" value="이전" onclick="history.go(-1)" />
 			</p>
 			<p class="links">
 				<a href="#" onclick="click1()">신중히 생각하고 결정 해주세요</a>

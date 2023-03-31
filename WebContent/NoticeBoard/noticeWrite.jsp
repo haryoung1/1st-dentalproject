@@ -82,12 +82,15 @@
 			<table>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="nbtitle" required="required">
+					<td>
+						<input type="text" name="nbtitle" required="required">
 					</td>
 				</tr>
 				<tr>
 					<td>본문</td>
-					<td><textarea id="summernote" name="nbcontent"></textarea></td>
+					<td>
+						<textarea id="summernote" name="nbcontent"></textarea>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">

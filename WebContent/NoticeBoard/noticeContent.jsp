@@ -95,21 +95,21 @@
 				</tr>
 				<tr>
 					<th>본문</th>
-					<td><textarea id="summernote">${nContent.nbcontent}</textarea>
+					<td>
+						<textarea id="summernote">${nContent.nbcontent}</textarea>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><c:if
-							test="${empty member and not empty admin}">
-							<button class="btn"
-								onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">수정</button>
-							<button class="btn"
-								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
-						</c:if> <c:if test="${empty member and not empty admin}">
+					<td colspan="2">
+						<c:if test="${empty member and not empty admin}">
+							<button class="btn" onclick="location='${conPath}/noticeModifyView.do?nbno=${nContent.nbno}&pageNum=${param.pageNum }'">수정</button>
+							<button class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+						</c:if> 
+						<c:if test="${empty member and not empty admin}">
 							<button class="btn" onclick="delete1('${nContent.nbno}')">삭제</button>
-						</c:if> <c:if test="${empty admin}">
-							<button class="btn"
-								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+						</c:if> 
+						<c:if test="${empty admin}">
+							<button class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
 						</c:if>
 				</tr>
 			</table>

@@ -76,19 +76,20 @@
 				<table>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="nbtitle"
-							value="${nContent.nbtitle }" required="required"></td>
+						<td>
+							<input type="text" name="nbtitle" value="${nContent.nbtitle }" required="required">
+						</td>
 					</tr>
 					<tr>
 						<th>본문</th>
-						<td><textarea id="summernote" name="nbcontent">${nContent.nbcontent }</textarea>
+						<td>
+							<textarea id="summernote" name="nbcontent">${nContent.nbcontent }</textarea>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<button class="btn">저장</button>
-							<button class="btn"
-								onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
+							<button class="btn" onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'">목록</button>
 						</td>
 					</tr>
 				</table>

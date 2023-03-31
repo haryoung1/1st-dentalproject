@@ -28,37 +28,44 @@ p {
 			</tr>
 			<tr>
 				<th>회원사진</th>
-				<td><img src="${conPath }/memberPhotoUp/${mDto.mphoto}"
-					alt="${mDto.mname }사진" width="150"></td>
+				<td>
+					<img src="${conPath }/memberPhotoUp/${mDto.mphoto}" alt="${mDto.mname }사진" width="150">
+				</td>
 			</tr>
 			<tr>
 				<th>회원 ID</th>
-				<td><input type="text" name="mid" value="${mDto.mid }"
-					readonly="readonly"></td>
+				<td>
+					<input type="text" name="mid" value="${mDto.mid }" readonly="readonly">
+				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="mname" value="${mDto.mname }"
-					readonly="readonly"></td>
+				<td>
+					<input type="text" name="mname" value="${mDto.mname }" readonly="readonly">
+				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="email" name="memail" value="${mDto.memail }"
-					readonly="readonly"></td>
+				<td>
+					<input type="email" name="memail" value="${mDto.memail }" readonly="readonly">
+				</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td colspan="2"><input type="text" name="mbirth" id="mbirth"
-					value="${mDto.mbirth }" id="birth" readonly="readonly"></td>
+				<td colspan="2">
+					<input type="text" name="mbirth" id="mbirth" value="${mDto.mbirth }" id="birth" readonly="readonly">
+				</td>
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td colspan="2"><input type="text" name="maddress"
-					value="${mDto.maddress }" readonly="readonly"></td>
+				<td colspan="2">
+					<input type="text" name="maddress" value="${mDto.maddress }" readonly="readonly">
+				</td>
 			</tr>
 			<tr>
 				<th>가입일</th>
-				<td><fmt:formatDate value="${mDto.mrdate }" pattern="YY-MM-dd" />
+				<td>
+					<fmt:formatDate value="${mDto.mrdate }" pattern="YY-MM-dd" />
 				</td>
 			</tr>
 		</table>

@@ -9,20 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -113,11 +106,9 @@
 					<th>첨부파일</th>
 					<td colspan="5">
 						<c:if test="${not empty rvContent.rvfilename }">
-							<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}"
-								target="_blank">${rvContent.rvfilename}</a>
+							<a href="${conPath }/ReviewBoardUp/${rvContent.rvfilename}" target="_blank">${rvContent.rvfilename}</a>	
 						</c:if> 
-						<c:if test="${empty rvContent.rvfilename }">첨부파일 없음
-						</c:if>
+						<c:if test="${empty rvContent.rvfilename }">첨부파일 없음</c:if>
 					</td>
 				</tr>
 				<tr>

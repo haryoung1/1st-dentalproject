@@ -48,26 +48,18 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						$('tr')
-								.click(
-										function() {
-											var rvno = $(this).children().eq(0)
-													.text();
-											if (!isNaN(rvno)) {
-												location.href = '${conPath }/reviewContent.do?rvno='
-														+ rvno
-														+ '&pageNum=${pageNum}';
-											}
-										});
-					});
+	$(document).ready(function() {
+		$('tr').click(function() {
+			var rvno = $(this).children().eq(0).text();
+			if (!isNaN(rvno)) {
+				location.href = '${conPath }/reviewContent.do?rvno=' + rvno + '&pageNum=${pageNum}';
+			}
+		});
+	});
 </script>
 </head>
 <body>
-	<c:if test="${not empty reviewResult}">
-		<!--  글쓰기 성공 -->
+	<c:if test="${not empty reviewResult}"> <!--  글쓰기 성공 -->
 		<script>
 			alert('${reviewResult}')
 		</script>
@@ -95,16 +87,16 @@
 				<c:forEach items="${reviewList }" var="review">
 					<tr>
 						<td>${review.rvno }</td>
-						<td>${review.rvtitle }<c:if
-								test="${not empty review.rvfilename }">
-								<img
-									src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png"
-									width="10">
-							</c:if>
+						<td>${review.rvtitle }
+						<c:if test="${not empty review.rvfilename }">
+								<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">
+						</c:if>
 						<td>${review.mid }</td>
-						<td><fmt:formatDate value="${review.rvrdate }"
-								pattern="yyyy-MM-dd(E)" /></td>
-						<td>${review.rvhit }<c:if test="${review.rvhit > 10 }">
+						<td>
+							<fmt:formatDate value="${review.rvrdate }" pattern="yyyy-MM-dd(E)" />
+						</td>
+						<td>${review.rvhit }
+							<c:if test="${review.rvhit > 10 }">
 								<img src="${conPath }/image/hot.gif">
 							</c:if>
 						</td>
@@ -132,16 +124,13 @@
 				</a> ]
 			</c:if>
 		</div>
-		<div id="right">
-			<!-- 글등록 버튼 -->
+		<div id="right"> <!-- 글등록 버튼 -->
 			&nbsp;
 			<c:if test="${not empty member }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/reviewWriteView.do'">
+				<input type="button" class="btn" value="글쓰기" onclick="location='${conPath}/reviewWriteView.do'">
 			</c:if>
 			<c:if test="${empty member and empty admin }">
-				<input type="button" class="btn" value="글쓰기"
-					onclick="location='${conPath}/loginView.do?next=reviewWriteView.do'">
+				<input type="button" class="btn" value="글쓰기" onclick="location='${conPath}/loginView.do?next=reviewWriteView.do'">
 			</c:if>
 		</div>
 	</div>

@@ -9,20 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -80,30 +73,31 @@
 	<jsp:include page="../main/header.jsp" />
 	<div id="wrap">
 		<div id="content_form">
-			<form action="${conPath }/reviewModify.do" method="post"
-				enctype="multipart/form-data">
+			<form action="${conPath }/reviewModify.do" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="pageNum" value="${param.pageNum }">
 				<input type="hidden" name="rvno" value="${review.rvno }">
 				<table>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="rvtitle"
-							value="${review.rvtitle }" required="required"></td>
+						<td>
+							<input type="text" name="rvtitle" value="${review.rvtitle }" required="required">
+						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea id="summernote" name="rvcontent">${review.rvcontent }</textarea>
+						<td>
+							<textarea id="summernote" name="rvcontent">${review.rvcontent }</textarea>
 						</td>
 					</tr>
 					<tr>
 						<th>첨부파일</th>
-						<td><input type="file" name="rvfileName" class="btn">
-							원첨부파일 : <c:if test="${not empty review.rvfilename }">
-								<a href="${conPath }/ReviewBoardUp/${review.rvfilename}"
-									target="_blank">${review.rvfilename} </a>
-							</c:if> <c:if test="${empty review.rvfilename }">
-							첨부파일 없음
-						</c:if></td>
+						<td>
+							<input type="file" name="rvfileName" class="btn">원첨부파일 : 
+							<c:if test="${not empty review.rvfilename }">
+								<a href="${conPath }/ReviewBoardUp/${review.rvfilename}" target="_blank">${review.rvfilename} </a>
+							</c:if> 
+							<c:if test="${empty review.rvfilename }">첨부파일 없음</c:if>
+					</td>
 					</tr>
 					<tr>
 						<td colspan="2">
