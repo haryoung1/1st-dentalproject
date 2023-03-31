@@ -70,7 +70,7 @@
 				alert('비밀번호를 확인하세요');
 				$('input[name="mpw"]').focus();
 				return false;
-			} else if (mailConfirmResult != '사용 가능한 메일주소 입니다.') {
+			} else if (mailConfirmResult != '사용 가능한 메일주소 입니다') {
 				alert('메일을 확인하세요');
 				$('#memail').focus();
 				return false;

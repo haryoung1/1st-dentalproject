@@ -45,9 +45,11 @@ public class NoticeDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * " + " FROM (SELECT ROWNUM RN, A.*"
-				   + "FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID"
-				   + "ORDER BY NBNO DESC) A)" + " WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * " + 
+				"    FROM (SELECT ROWNUM RN, A.*" + 
+				"    FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID" + 
+				"    ORDER BY NBNO DESC) A)" + 
+				"    WHERE RN BETWEEN ? AND ? ";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
