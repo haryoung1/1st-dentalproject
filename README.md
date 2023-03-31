@@ -14,7 +14,7 @@
 
 - 디자인 패턴 : MVC (Model 2)
 
-- 오픈 Library : jQuery v3.4.1, jQueryUI, summerNoteEdit, kakaoMap Api
+- 오픈 Library : jQuery v3.4.1, jQueryUI, summerNoteEdit, kakao Api
 
 - 프로젝트 소개 : 본 시스템은 1:1 맞춤 치과 예약 시스템 입니다 <br>
 
