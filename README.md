@@ -61,7 +61,7 @@
 ## 실행화면 설명
 ![9 실행화면](https://user-images.githubusercontent.com/118541186/228999131-042ae617-8f1b-41e8-93c5-d77fd310deb8.JPG)
 
-![10 회원가입](https://user-images.githubusercontent.com/118541186/229031549-f316ad73-c034-4fcf-a21a-120b5aa37fe3.JPG)
+![10 회원가입](https://user-images.githubusercontent.com/118541186/229074566-2387cabc-c34a-439d-a107-a7a12a8122f1.JPG)
 
 ![11  관리자등록](https://user-images.githubusercontent.com/118541186/229031555-204e4377-15c5-45ec-b47b-e69a672349cd.JPG)
 
