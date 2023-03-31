@@ -1,5 +1,4 @@
 # 치카치카 치과
-<hr>
 
 > 개별 프로젝트
 
@@ -19,18 +18,18 @@
 
 - 프로젝트 소개 : 일대일 맞춤 서비스 치과 예약 홈페이지 <br>
 
-(https://user-images.githubusercontent.com/118541186/228998563-63d33c4d-f1d3-4fb8-af4b-553b8bf19cf7.JPG)
+![main](https://user-images.githubusercontent.com/118541186/228998563-63d33c4d-f1d3-4fb8-af4b-553b8bf19cf7.JPG)
 
 ## 목차
-[1. 작업분할 구조도]()<br>
-[2. Gantt Chart]()<br>
-[3. 이용자 권한]()<br>
-[4. Usecase Diagram]()<br>
-[5. Sequence Diagram]()<br>
-[6. 기능정의서]()<br>
-[7. E-R Diagram]()<br>
-[8. Project Source Explorer]()<br>
-[9. 실행화면 설명]()<br>
+[1. 작업분할 구조도](https://github.com/haryoung1/dentalproject#%EC%9E%91%EC%97%85%EB%B6%84%ED%95%A0%EB%8F%84)<br>
+[2. Gantt Chart](https://github.com/haryoung1/dentalproject#gantt-chart)<br>
+[3. 이용자 권한](https://github.com/haryoung1/dentalproject#%EC%9D%B4%EC%9A%A9%EC%9E%90-%EA%B6%8C%ED%95%9C)<br>
+[4. Usecase Diagram](https://github.com/haryoung1/dentalproject#usecase-diagram)<br>
+[5. Sequence Diagram](https://github.com/haryoung1/dentalproject#sequence-diagram)<br>
+[6. 기능정의서](https://github.com/haryoung1/dentalproject#%EA%B8%B0%EB%8A%A5%EC%A0%95%EC%9D%98%EC%84%9C)<br>
+[7. E-R Diagram](https://github.com/haryoung1/dentalproject#e-r-diagram)<br>
+[8. Project Source Explorer](https://github.com/haryoung1/dentalproject#project-source-explorer)<br>
+[9. 실행화면 설명](https://github.com/haryoung1/dentalproject#%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4-%EC%84%A4%EB%AA%85)<br>
 
 
 ## 작업분할도
