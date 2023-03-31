@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
 #wrap td {
 	text-align: center;
@@ -19,7 +20,7 @@
 	$(document).ready(function() {
 		$('tr').click(function() {
 			var mid = $(this).children().eq(1).html();
-			if (mid != '아이디') {
+			if (mid != 'mid') {
 				location.href = '${conPath}/MListContent.do?mid=' + mid;
 			}
 		});

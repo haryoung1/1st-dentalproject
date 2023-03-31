@@ -1,6 +1,5 @@
 # 치카치카 치과
-
-===============
+<hr>
 
 > 개별 프로젝트
 
@@ -20,18 +19,48 @@
 
 - 프로젝트 소개 : 일대일 맞춤 서비스 치과 예약 홈페이지 <br>
 
-메인페이지 img
+(https://user-images.githubusercontent.com/118541186/228998563-63d33c4d-f1d3-4fb8-af4b-553b8bf19cf7.JPG)
 
 ## 목차
-[1. 작업분할 구조도]
-[2. Gantt Chart]
-[3. 이용자 권한]
-[4. Usecase Diagram]
-[5. Sequence Diagram]
-[6. 기능정의서]
-[7. E-R Diagram]
-[8. Project Source Explorer]
-[9. 실행화면 설명]
+[1. 작업분할 구조도]()<br>
+[2. Gantt Chart]()<br>
+[3. 이용자 권한]()<br>
+[4. Usecase Diagram]()<br>
+[5. Sequence Diagram]()<br>
+[6. 기능정의서]()<br>
+[7. E-R Diagram]()<br>
+[8. Project Source Explorer]()<br>
+[9. 실행화면 설명]()<br>
+
+
+## 작업분할도
+![1 작업분할구조도](https://user-images.githubusercontent.com/118541186/228999015-75bd0601-ff3f-4a56-8c91-f18bbc861dc3.JPG)
+
+## Gantt Chart
+![2 Gantt Chart](https://user-images.githubusercontent.com/118541186/228999030-04571a20-0e76-459e-9d4c-c5fe4387e94d.JPG)
+
+## 이용자 권한
+![3 이용자권한](https://user-images.githubusercontent.com/118541186/228999043-d7c7a6dc-f752-4339-acdd-560b52eae9bf.JPG)
+
+## Usecase Diagram
+![4 Usecase Diagram](https://user-images.githubusercontent.com/118541186/228999053-14f66f9a-0f66-4b1a-84ca-3181f14f6d40.JPG)
+
+## Sequence Diagram
+![5 Sequence Diagram](https://user-images.githubusercontent.com/118541186/228999063-3da1358d-f228-45d1-a932-dc1c799a1f8f.JPG)
+![5 Sequence Diagram1](https://user-images.githubusercontent.com/118541186/228999075-8ee2933d-4ce1-4994-8774-32d19ace8319.JPG)
+
+## 기능정의서
+![6 기능정의서](https://user-images.githubusercontent.com/118541186/228999083-55991f2a-5967-4108-a523-149efb558752.JPG)
+![6 기능정의서2](https://user-images.githubusercontent.com/118541186/228999091-086eec57-1932-4465-b4d7-18c90d3c7983.JPG)
+
+## E-R Diagram
+![7 exerd](https://user-images.githubusercontent.com/118541186/228999111-a2c8b518-a485-4d88-b2f9-fdf98d4ac6cb.JPG)
+
+## Project Source Explorer
+![8 ProjectExplorer](https://user-images.githubusercontent.com/118541186/228999122-c34f271a-e299-4b13-9060-5de0725f3f82.JPG)
+
+## 실행화면 설명
+![9 실행화면](https://user-images.githubusercontent.com/118541186/228999131-042ae617-8f1b-41e8-93c5-d77fd310deb8.JPG)
 
 
 
@@ -39,4 +68,12 @@
 
 
 
-작업분할도부터 실행화면까지 img
+
+
+
+
+
+
+
+
+
