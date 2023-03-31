@@ -10,13 +10,10 @@
 <title>Insert title here</title>
 <link href="${conPath }/css/consultingList.css" rel="stylesheet">
 <style>
+p {
+	text-align: center;
+}
 </style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(document).ready(function() {
-
-	});
-</script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
@@ -25,56 +22,50 @@
 		<hr>
 		<br>
 		<table>
+			<caption>INFORMATION</caption>
 			<tr>
-				<th>사진</th>
-				<th>이름</th>
-				<th>ID</th>
-				<th>생년월일</th>
-				<th>가입일</th>
-				<th>주소</th>
+				<td colspan="2">&nbsp;</td>
 			</tr>
-			<c:if test="${memberList.size() eq 0 }">
-				<tr>
-					<td colspan="4">가입한 회원이 없습니다</td>
-				</tr>
-			</c:if>
-			<c:if test="${memberList.size() != 0 }">
-				<c:forEach var="dto" items="${memberList }">
-					<tr>
-						<td colspan="1"><img
-							src="${conPath }/memberPhotoUp/${dto.mphoto}"
-							alt="${dto.mname }사진" width="120"></td>
-						<td>${dto.mname }</td>
-						<td>${dto.mid }</td>
-						<td><fmt:formatDate value="${dto.mbirth }"
-								pattern="YYYY-MM-dd" /></td>
-						<td><fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
-						</td>
-						<td>${dto.maddress }</td>
-					</tr>
-				</c:forEach>
-			</c:if>
+			<tr>
+				<th>회원사진</th>
+				<td><img src="${conPath }/memberPhotoUp/${mDto.mphoto}"
+					alt="${mDto.mname }사진" width="150"></td>
+			</tr>
+			<tr>
+				<th>회원 ID</th>
+				<td><input type="text" name="mid" value="${mDto.mid }"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="mname" value="${mDto.mname }"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="email" name="memail" value="${mDto.memail }"
+					readonly="readonly"></td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td colspan="2"><input type="text" name="mbirth" id="mbirth"
+					value="${mDto.mbirth }" id="birth" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td colspan="2"><input type="text" name="maddress"
+					value="${mDto.maddress }" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<th>가입일</th>
+				<td><fmt:formatDate value="${mDto.mrdate }" pattern="YY-MM-dd" />
+				</td>
+			</tr>
 		</table>
 		<br>
-		<!-- 페이징처리 -->
-		<div class="paging">
-			<c:if test="${startPage > BLOCKSIZE }">
-				[ <a href="${conPath }/memberList.do?pageNum=${startPage-1}"> 이전
-				</a> ]
-			</c:if>
-			<c:forEach var="i" begin="${startPage }" end="${endPage }">
-				<c:if test="${i eq pageNum }">
-					<b> [ ${i } ] </b>
-				</c:if>
-				<c:if test="${i != pageNum }">
-					[ <a href="${conPath }/memberList.do?pageNum=${i}"> ${i } </a> ]
-				</c:if>
-			</c:forEach>
-			<c:if test="${endPage<pageCnt }">
-			  [ <a href="${conPath }/memberList.do?pageNum=${endPage+1}"> 다음
-				</a> ]
-			</c:if>
-		</div>
+		<p>
+			<input type="button" value="이전" onclick="history.go(-1)" class="btn">
+		</p>
 	</div>
 	<br>
 	<jsp:include page="../main/footer.jsp" />

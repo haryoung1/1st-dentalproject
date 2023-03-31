@@ -9,21 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 <script>
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -76,20 +68,19 @@
 				<table>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="mrtitle"
-							value="${mrContent.mrtitle }" required="required"></td>
+						<td>
+							<input type="text" name="mrtitle" value="${mrContent.mrtitle }" required="required"></td>
 					</tr>
 					<tr>
 						<th>본문</th>
-						<td><textarea id="summernote" name="mrcontent">${mrContent.mrcontent }</textarea>
+						<td>
+							<textarea id="summernote" name="mrcontent">${mrContent.mrcontent }</textarea>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<button class="btn">저장</button>
-							<button class="btn"
-								onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">목록
-							</button>
+							<button class="btn" onclick="location='${conPath}/medicalList.do?pageNum=${param.pageNum }'">목록</button>
 						</td>
 					</tr>
 				</table>

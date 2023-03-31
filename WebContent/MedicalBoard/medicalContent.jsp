@@ -8,21 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link href="${conPath }/css/noticeList.css" rel="stylesheet">
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -93,25 +87,33 @@
 			<table>
 				<tr>
 					<th>작성자</th>
-					<td>${mrContent.mid }${mrContent.aid }</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${mrContent.mrtitle }</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><textarea id="summernote">${mrContent.mrcontent}</textarea>
+					<td>
+						${mrContent.mid }${mrContent.aid }
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><c:if test="${member.mid eq mrContent.mid}">
+					<th>제목</th>
+					<td>
+						${mrContent.mrtitle }
+					</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td>
+						<textarea id="summernote">${mrContent.mrcontent}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<c:if test="${member.mid eq mrContent.mid}">
 							<button class="btn"
 								onclick="location='${conPath}/medicalModifyView.do?mrno=${mrContent.mrno}&pageNum=${param.pageNum }'">수정
 							</button>
-						</c:if> <c:if test="${member.mid eq mrContent.mid or not empty admin}">
+						</c:if> 
+						<c:if test="${member.mid eq mrContent.mid or not empty admin}">
 							<button class="btn" onclick="deletemd('${mrContent.mrno}')">삭제</button>
-						</c:if> <c:if test="${not empty admin}">
+						</c:if> 
+						<c:if test="${not empty admin}">
 							<button class="btn"
 								onclick="location='${conPath}/medicalReplyView.do?mrno=${mrContent.mrno }&pageNum=${param.pageNum }'">답변
 							</button>

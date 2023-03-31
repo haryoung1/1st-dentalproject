@@ -46,9 +46,9 @@ public class ReviewDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT A. *," + "    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
-				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*\r\n"
-				+ "            FROM (SELECT * FROM RVBOARD ORDER BY RVNO DESC) B) A" + "    WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT A. *," + " (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
+				   + "(SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + " FROM (SELECT ROWNUM RN, B.*"
+				   + "FROM (SELECT * FROM RVBOARD ORDER BY RVNO DESC) B) A" + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -120,7 +120,7 @@ public class ReviewDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO RVBOARD (RVNO, MID, AID, RVTITLE, RVCONTENT, RVFILENAME, RVIP)"
-				+ "    VALUES (RVBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+				   + " VALUES (RVBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -258,8 +258,8 @@ public class ReviewDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE RVBOARD SET" + "        RVTITLE = ?," + "        RVCONTENT =?," + "        RVFILENAME =?,"
-				+ "        RVRDATE = SYSDATE," + "        RVIP = ?" + "    WHERE RVNO = ?";
+		String sql = "UPDATE RVBOARD SET" + " RVTITLE = ?," + " RVCONTENT =?," + " RVFILENAME =?,"
+				   + "RVRDATE = SYSDATE," + " RVIP = ?" + " WHERE RVNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

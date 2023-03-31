@@ -13,14 +13,13 @@
 <style>
 #wrap td {
 	text-align: center;
-	font-weight: bold;
 }
 </style>
 <script>
 	$(document).ready(function() {
 		$('tr').click(function() {
 			var mid = $(this).children().eq(1).html();
-			if (mid != 'mid') {
+			if (mid != '아이디') {
 				location.href = '${conPath}/MListContent.do?mid=' + mid;
 			}
 		});
@@ -35,12 +34,8 @@
 		<br>
 		<table>
 			<tr>
-				<th>사진</th>
 				<th>이름</th>
 				<th>ID</th>
-				<th>생년월일</th>
-				<th>가입일</th>
-				<th>주소</th>
 			</tr>
 			<c:if test="${memberList.size() eq 0 }">
 				<tr>
@@ -50,16 +45,8 @@
 			<c:if test="${memberList.size() != 0 }">
 				<c:forEach var="dto" items="${memberList }">
 					<tr>
-						<td colspan="1"><img
-							src="${conPath }/memberPhotoUp/${dto.mphoto}"
-							alt="${dto.mname }사진" width="120"></td>
 						<td>${dto.mname }</td>
 						<td>${dto.mid }</td>
-						<td><fmt:formatDate value="${dto.mbirth }"
-								pattern="YYYY-MM-dd" /></td>
-						<td><fmt:formatDate value="${dto.mrdate }" pattern="YY-MM-dd" />
-						</td>
-						<td>${dto.maddress }</td>
 					</tr>
 				</c:forEach>
 			</c:if>

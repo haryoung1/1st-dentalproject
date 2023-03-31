@@ -117,7 +117,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+				   + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -223,8 +223,8 @@ public class MemberDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MEMBER SET mPW = ?," + "        mNAME = ?," + "        mEMAIL = ?," + "        mPHOTO = ?,"
-				+ "        mBIRTH = ?," + "        mADDRESS = ?" + "    WHERE mID = ?";
+		String sql = "UPDATE MEMBER SET mPW = ?," + " mNAME = ?," + " mEMAIL = ?," + " mPHOTO = ?,"
+				   + "mBIRTH = ?," + " mADDRESS = ?" + " WHERE mID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -257,8 +257,8 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + 
-				"    FROM (SELECT * FROM MEMBER ORDER BY MBIRTH) A)" + "WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.*" + " FROM (SELECT * FROM MEMBER ORDER BY MBIRTH) A)"
+				   + "WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

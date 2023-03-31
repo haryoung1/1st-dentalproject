@@ -20,10 +20,10 @@ public class AdminJoinService implements Service {
 			int result = aDao.joinAdmin(admin);
 			if (result == AdminDao.SUCCESS) {
 				request.setAttribute("adminJoinResult", "관리자 등록을 성공했습니다.");
-			}else {
+			} else {
 				request.setAttribute("adminJoinResult", "등록 실패하였습니다. 다시 시도해주십시오.");
 			}
-		}else {
+		} else {
 			request.setAttribute("adminCodeError", "관리자코드가 일치하지 않습니다.");
 		}
 	}

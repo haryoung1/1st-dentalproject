@@ -110,7 +110,8 @@
 				<tr>
 					<th>비밀번호</th>
 					<td>
-						<input type="password" name="apw" id="apw" required="required"></td>
+						<input type="password" name="apw" id="apw" required="required">
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>

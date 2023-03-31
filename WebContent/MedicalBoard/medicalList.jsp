@@ -88,14 +88,16 @@
 				<c:forEach items="${medicalList }" var="medical">
 					<tr>
 						<td>${medical.mrno }</td>
-						<td class="left"><c:forEach var="i" begin="1"
-								end="${medical.mrindent }">
+						<td class="left">
+						<c:forEach var="i" begin="1" end="${medical.mrindent }">
 								<c:if test="${i == medical.mrindent}">└─</c:if>
 								<c:if test="${i != medical.mrindent }"> &nbsp; &nbsp; &nbsp; </c:if>
-							</c:forEach> ${medical.mrtitle }</td>
+						</c:forEach> ${medical.mrtitle }
+						</td>
 						<td>${medical.mid }${medical.aid }</td>
-						<td><fmt:formatDate value="${medical.mrrdate }"
-								pattern="yyyy-MM-dd(E)" /></td>
+						<td>
+							<fmt:formatDate value="${medical.mrrdate }" pattern="yyyy-MM-dd(E)" />
+							</td>
 						<td>${medical.mrhit }</td>
 					</tr>
 				</c:forEach>

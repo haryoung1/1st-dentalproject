@@ -45,9 +45,9 @@ public class NoticeDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * " + "    FROM (SELECT ROWNUM RN, A.*"
-				+ "        FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID"
-				+ "        ORDER BY NBNO DESC) A)" + "    WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * " + " FROM (SELECT ROWNUM RN, A.*"
+				   + "FROM (SELECT N.*, ANAME FROM NOTICEBOARD N, ADMIN A  WHERE N.AID = A.AID"
+				   + "ORDER BY NBNO DESC) A)" + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class NoticeDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO NOTICEBOARD (NBNO, aID, NBTITLE, NBCONTENT, NBIP)"
-				+ "VALUES (NOTICEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?)";
+				   + "VALUES (NOTICEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -221,12 +221,8 @@ public class NoticeDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE NOTICEBOARD SET " + 
-				"        NBTITLE =?," + 
-				"        NBCONTENT =?," + 
-				"        NBRDATE = SYSDATE," + 
-				"        NBIP = ?" + 
-				"    WHERE NBNO = ?";
+		String sql = "UPDATE NOTICEBOARD SET " + " NBTITLE =?," + " NBCONTENT =?,"
+				   + "NBRDATE = SYSDATE," + " NBIP = ?" + " WHERE NBNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

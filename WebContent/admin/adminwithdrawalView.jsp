@@ -20,7 +20,7 @@
 		let code = 143;
 		if (answer == 143) {
 			alert('관리자 탈퇴 완료')
-			
+
 		} else if (code != null) {
 			alert('코드가 일치하지 않습니다.')
 			document.write(window.history.back());
@@ -44,18 +44,15 @@
 			<h3>관리자탈퇴</h3>
 			<br>
 			<p>
-				<input type="text" class="text-field" readonly="readonly"
-					placeholder="이름 : ${admin.aname }">
+				<input type="text" class="text-field" readonly="readonly" placeholder="이름 : ${admin.aname }">
 			</p>
 			<p>
-				<input type="text" class="text-field" readonly="readonly"
-					placeholder="ID : ${admin.aid }">
+				<input type="text" class="text-field" readonly="readonly" placeholder="ID : ${admin.aid }">
 			</p>
 			<br>
 			<p class="p1">
 				<button class="submit-btn" onclick="click1()">관리자탈퇴</button>
-				<input class="submit-btn" type="button" value="이전"
-					onclick="history.go(-1)" />
+				<input class="submit-btn" type="button" value="이전" onclick="history.go(-1)" />
 			</p>
 		</form>
 	</div>

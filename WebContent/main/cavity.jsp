@@ -32,7 +32,7 @@
 		<div id="cavity">
 			<p>
 				<img src="image/충치1.PNG"> 
-				<img src="image/충치2.PNG"> 
+				<img src="image/충치2.PNG">
 			</p>
 		</div>
 	</div>

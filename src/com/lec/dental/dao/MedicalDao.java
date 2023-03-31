@@ -45,10 +45,10 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT A. *," + "    (SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
-				+ "    (SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + "        FROM (SELECT ROWNUM RN, B.*\r\n"
-				+ "            FROM (SELECT * FROM MRBOARD ORDER BY MRGROUP DESC, MRSTEP) B) A"
-				+ "    WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT A. *," + "(SELECT MNAME FROM MEMBER WHERE A.MID=MID) MNAME,"
+				   + "(SELECT ANAME FROM ADMIN WHERE A.AID=AID) ANAME" + " FROM (SELECT ROWNUM RN, B.*"
+				   + " FROM (SELECT * FROM MRBOARD ORDER BY MRGROUP DESC, MRSTEP) B) A"
+				   + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
+				   + "VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, MRBOARD_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -265,8 +265,8 @@ public class MedicalDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MRBOARD SET" + "        MRTITLE = ?," + "        MRCONTENT =?,"
-				+ "        MRRDATE = SYSDATE," + "        MRIP = ?" + "    WHERE MRNO = ?";
+		String sql = "UPDATE MRBOARD SET" + " MRTITLE = ?," + " MRCONTENT =?,"
+				   + "MRRDATE = SYSDATE," + " MRIP = ?" + " WHERE MRNO = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -351,7 +351,7 @@ public class MedicalDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO MRBOARD (MRNO, MID, AID, MRTITLE, MRCONTENT, MRGROUP, MRSTEP, MRINDENT, MRIP)"
-				+ "    VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+				   + "VALUES (MRBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

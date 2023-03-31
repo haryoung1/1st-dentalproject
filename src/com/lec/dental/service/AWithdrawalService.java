@@ -25,7 +25,7 @@ public class AWithdrawalService implements Service {
 		session.invalidate();
 		if (result == AdminDao.SUCCESS) {
 			request.setAttribute("AwithdrawalResult", "관리자 계정이 삭제 되었습니다.");
-		}else {
+		} else {
 			request.setAttribute("AwithdrawalResult", "로그인이 되어 있지 않습니다.");
 		}
 	}
