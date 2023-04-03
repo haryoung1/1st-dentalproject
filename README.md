@@ -56,16 +56,22 @@
 ![7 exerd](https://user-images.githubusercontent.com/118541186/228999111-a2c8b518-a485-4d88-b2f9-fdf98d4ac6cb.JPG)
 
 ## Project Source Explorer
-![8 ProjectExplorer](https://user-images.githubusercontent.com/118541186/228999122-c34f271a-e299-4b13-9060-5de0725f3f82.JPG)
+![8 ProjectExplorer](https://user-images.githubusercontent.com/118541186/229401432-0447fae2-4dd4-4850-a28f-05cdc6c23991.JPG)
 
 ## 실행화면 설명
 ![9 실행화면](https://user-images.githubusercontent.com/118541186/228999131-042ae617-8f1b-41e8-93c5-d77fd310deb8.JPG)
 
 ![10 회원가입](https://user-images.githubusercontent.com/118541186/229074566-2387cabc-c34a-439d-a107-a7a12a8122f1.JPG)
 
+![10-1 회원가입-로그인](https://user-images.githubusercontent.com/118541186/229401456-daf38722-c1b8-46ea-bc9f-83f27bb698fb.JPG)
+
 ![11  관리자등록](https://user-images.githubusercontent.com/118541186/229031555-204e4377-15c5-45ec-b47b-e69a672349cd.JPG)
 
 ![12 관리자 탈퇴](https://user-images.githubusercontent.com/118541186/229031560-be8e2aba-c498-4a4c-9a74-a3e8e71d83cb.JPG)
+
+![12-1 마이페이지 -정보수정](https://user-images.githubusercontent.com/118541186/229401478-99b52278-3697-4cf5-89c8-a932e6fa4e0b.JPG)
+
+![12-2 마이페이지-회원탈퇴](https://user-images.githubusercontent.com/118541186/229401484-7f6553b8-4d1f-4c7a-9b06-a83e2dbd9da0.JPG)
 
 ![13  후기(비회원)](https://user-images.githubusercontent.com/118541186/229031568-2c949afd-c7be-4757-95bf-691e24ac0f12.JPG)
 
