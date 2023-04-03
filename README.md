@@ -45,7 +45,7 @@
 ![4 Usecase Diagram](https://user-images.githubusercontent.com/118541186/228999053-14f66f9a-0f66-4b1a-84ca-3181f14f6d40.JPG)
 
 ## Sequence Diagram
-![5 Sequence Diagram](https://user-images.githubusercontent.com/118541186/229029380-f8a8a0e2-d853-4cfa-a387-47f4300b451a.JPG)
+![5 Sequence Diagram](https://user-images.githubusercontent.com/118541186/229387681-f8747e3a-fbe0-441f-8b93-a03603a1bf31.JPG)
 ![5 Sequence Diagram1](https://user-images.githubusercontent.com/118541186/228999075-8ee2933d-4ce1-4994-8774-32d19ace8319.JPG)
 
 ## 기능정의서
