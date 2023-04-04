@@ -71,7 +71,7 @@
 
 ![12-1 마이페이지 -정보수정](https://user-images.githubusercontent.com/118541186/229401478-99b52278-3697-4cf5-89c8-a932e6fa4e0b.JPG)
 
-![12-2 마이페이지-회원탈퇴](https://user-images.githubusercontent.com/118541186/229401484-7f6553b8-4d1f-4c7a-9b06-a83e2dbd9da0.JPG)
+![12-2 마이페이지-회원탈퇴](https://user-images.githubusercontent.com/118541186/229723056-16ca334a-49f1-4e83-9670-5c0cb98e6c17.JPG)
 
 ![13  후기(비회원)](https://user-images.githubusercontent.com/118541186/229031568-2c949afd-c7be-4757-95bf-691e24ac0f12.JPG)
 
