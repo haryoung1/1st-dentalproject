@@ -53,7 +53,7 @@
 ![6 기능정의서2](https://user-images.githubusercontent.com/118541186/228999091-086eec57-1932-4465-b4d7-18c90d3c7983.JPG)
 
 ## E-R Diagram
-![7 exerd](https://user-images.githubusercontent.com/118541186/228999111-a2c8b518-a485-4d88-b2f9-fdf98d4ac6cb.JPG)
+![7 exerd](https://user-images.githubusercontent.com/118541186/230805805-76f998a0-ab9c-4f25-8e90-8b28942d6013.jpg)
 
 ## Project Source Explorer
 ![8 ProjectExplorer](https://user-images.githubusercontent.com/118541186/229401432-0447fae2-4dd4-4850-a28f-05cdc6c23991.JPG)
